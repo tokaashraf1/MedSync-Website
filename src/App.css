@@ -1,0 +1,16 @@
+:root{
+  
+  --gray:rgba(240, 240, 240, 1) ;
+  --blue:rgba(0, 74, 173, 1) ;
+  --orange: rgba(255, 161, 20, 1);
+  --dark-blue: rgb(2, 60, 137);
+
+
+
+}
+.text-blue{
+color: var(--blue);
+}
+.background-blue{
+background-color: var(--blue);
+}

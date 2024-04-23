@@ -1,0 +1,52 @@
+body{
+  height: 3000px;
+  overflow-y: scroll;
+  background-color: gray;
+}
+nav{
+  border-bottom: 1px solid white;
+  padding: 5px 0;
+}
+.img-before-scroll{
+  filter: brightness(0) invert(1);
+}
+.navbar-collapse-button{
+  margin: 10px;
+  height: 40px;
+  width: 110px;
+  border-radius: 30px;
+  background-color: transparent;
+}
+.navbar-collapse .header-links{
+  margin: 0px;
+  width: 100px;
+
+}
+.border-blue{
+  border: 1px solid var(--blue);
+}
+.border-white{
+  border: 1px solid white;
+}
+.profile-img-btn{
+  border-radius: 50%; 
+  width: 50px;
+  height: 50px; 
+  padding: 0; 
+  overflow: hidden; 
+  border: none;
+}
+.profile-img-btn img {
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+}
+@media (max-width:992px){
+  .navbar-collapse button ,  .navbar-collapse .header-links{
+width: 100%;
+  }
+  .navbar-toggler{
+  right: 3%;
+  }
+  
+}
