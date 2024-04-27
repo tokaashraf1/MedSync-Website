@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import logo from "../../assets/imgs/logo.png";
 import { useNavigate } from "react-router-dom";
 import "./header.css"
-import API_ENDPOINT from "../../hooks/constants";
+import API_ENDPOINT from "../../utils/constants";
 import axios from "axios";
 function HeaderDoctorData() {
   const [profileimg, setprofileimg] = useState();

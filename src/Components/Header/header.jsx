@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Logo from "../assets/imgs/logo.png"
+import Logo from "../../assets/imgs/logo.png"
 import "./header.css"
 import HeaderDoctorData from "./HeaderDoctorData"
 function Header({ initialScrolled = false, initialEnableScroll = true ,page="doctor"}) {

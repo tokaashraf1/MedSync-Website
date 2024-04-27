@@ -1,7 +1,6 @@
 body{
-  height: 3000px;
-  overflow-y: scroll;
-  background-color: gray;
+
+  background-color:var(--gray);
 }
 nav{
   border-bottom: 1px solid white;
@@ -20,7 +19,6 @@ nav{
 .navbar-collapse .header-links{
   margin: 0px;
   width: 100px;
-
 }
 .border-blue{
   border: 1px solid var(--blue);
@@ -48,5 +46,4 @@ width: 100%;
   .navbar-toggler{
   right: 3%;
   }
-  
 }
