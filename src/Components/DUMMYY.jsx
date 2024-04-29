@@ -8,23 +8,28 @@ function DUMMYY() {
     columns: [],
     rows: [],
     filteredData: [],
-    creatEndpoint: `${API_ENDPOINT}/api/admin/create/specialitie`,
-    updateEndpoint:`${API_ENDPOINT}/api/admin/update/specialitie/`,
-    deleteEndpoint: `${API_ENDPOINT}/api/admin/delete/specialitie/`,
+    creatEndpoint: `${API_ENDPOINT}/api/admin/create/symptom`,
+    updateEndpoint:`${API_ENDPOINT}/api/admin/update/symptom/`,
+    deleteEndpoint: `${API_ENDPOINT}/api/admin/delete/symptom/`,
+    approveapi:`${API_ENDPOINT}/api/admin/approve/request/`,
+    request:true,
     location: "/spec",
   });
+
   useEffect(() => {
-    fetch(`${API_ENDPOINT}/api/admin/get/all/specialities`)
+    fetch(`${API_ENDPOINT}/api/admin/get/all/approval/requests`)
       .then((res) => res.json())
       .then((data) => {
         if (data.length > 0) {
           // Extracting specific properties from the user object
-          const modifiedData = data.map(({ english_name,arabic_name,id}) => ({
-            english_name,
-            arabic_name,
+          const modifiedData = data.map(({ id,request_status,doctor_id,created_at}) => ({
             id,
-      
-          }));
+            request_status,
+            doctor_id,
+            created_at
+  
+        
+            }));
           setTableInfo({
             ...tableInfo,
             columns: Object.keys(modifiedData[0]),
