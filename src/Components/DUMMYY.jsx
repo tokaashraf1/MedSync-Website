@@ -12,7 +12,10 @@ function DUMMYY() {
     updateEndpoint:`${API_ENDPOINT}/api/admin/update/symptom/`,
     deleteEndpoint: `${API_ENDPOINT}/api/admin/delete/symptom/`,
     approveapi:`${API_ENDPOINT}/api/admin/approve/request/`,
+    rejectapi:`${API_ENDPOINT}/api/admin/reject/request/`,
     request:true,
+    Adminrequest:true,
+    showapi:`${API_ENDPOINT}/api/admin/show/approval/request/`,
     location: "/spec",
   });
 

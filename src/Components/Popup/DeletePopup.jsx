@@ -21,9 +21,7 @@ function DeletePopup({isDeletePopup,tableInfo,setIsDeletePopup,deleteRow}) {
         console.error('Error deleting row:', response.status);
       }
     } catch (error) {
-      // Handle network or other errors
       console.error('Error deleting row:', error.message);
-      // Optionally, display an error message to the user
       setLoading(false); 
     }
   };

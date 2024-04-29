@@ -7,6 +7,7 @@ import "./Table.css"
 import AddPopup from '../Popup/AddPopup'
 import Loading from '../Loading/Loading'
 import RejectPopup from '../Popup/RejectPopup'
+import ShowRequest from "../Popup/showRequest"
 function Table({tableInfo}) {
   const [visibleColumns, setVisibleColumns] = useState([]);
   const [sortConfig, setSortConfig] = useState({ column: null, direction: 'asc' });
@@ -17,6 +18,8 @@ function Table({tableInfo}) {
   const [totalRows, setTotalRows] = useState(0);
   const [selectedRow, setSelectedRow] = useState(null);
   const [rejectedRow, setrejectedRow] = useState(null);
+  const [showRow, setshowRow] = useState(null);
+  const [isshowpopup, setisshowpopup] = useState(false);
   const [isDeletePopup, setIsDeletePopup] = useState(false);
   const [isAddPopup, setIsAddPopup] = useState(false);
   const [isreject, setisreject] = useState(false);
@@ -87,6 +90,11 @@ function Table({tableInfo}) {
     setrejectedRow(row);
     setisreject(true);
   };
+  const handleShowpopup = (row) => {
+    setshowRow(row);
+    setisshowpopup(true);
+  };
+
   return (
   
     <div className='table-body'>
@@ -107,7 +115,7 @@ function Table({tableInfo}) {
         {sortedRowsData.slice(sortedStartIndex, sortedEndIndex).map((row, rowIndex) => (
           <tr key={rowIndex}>
             {visibleColumns.map((column, colIndex) => (
-              <td key={colIndex}>
+              <td key={colIndex} onClick={() => handleShowpopup(row)}>
                 {typeof row[column] === 'object'
                   ? JSON.stringify(row[column])
                   : row[column]}
@@ -165,6 +173,7 @@ function Table({tableInfo}) {
   <DeletePopup isDeletePopup={isDeletePopup} tableInfo={tableInfo} setIsDeletePopup={setIsDeletePopup} deleteRow={deleteRow} />
   <RejectPopup isreject={isreject} tableInfo={tableInfo} setisreject={setisreject} rejectedRow={rejectedRow} setrejectedRow={setrejectedRow} />
   <AddPopup isAddPopup={isAddPopup} setIsAddPopup={setIsAddPopup}  tableInfo={tableInfo}/>
+  <ShowRequest isshowpopup={isshowpopup} setisshowpopup={setisshowpopup} tableInfo={tableInfo} showRow={showRow} setshowRow={setshowRow} />
   {loading && (
       <Loading/>
       )}

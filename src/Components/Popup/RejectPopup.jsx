@@ -1,12 +1,38 @@
 import React, { useState } from 'react'
 import "./Popup.css"
+import Loading from '../Loading/Loading';
 function RejectPopup({isreject,tableInfo,setisreject,rejectedRow,setrejectedRow}) {
   const[loading,setLoading]=useState(false);
   const [selectedReason, setSelectedReason] = useState(""); 
   function getSelectedReason(event) {
     const selectedValue = event.target.value;
-    setSelectedReason(selectedValue); // Update the state with the selected value
+    setSelectedReason(selectedValue);
     console.log(selectedValue)
+  }
+  const handleRejectConfirm= async () => {
+    try {
+      setLoading(true); 
+      const requestBody = {
+        reason: selectedReason 
+      };
+      const response = await fetch(tableInfo.rejectapi + rejectedRow.id, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestBody), 
+      });
+      if (response.ok) {
+        setrejectedRow(null);
+        window.location.href = tableInfo.location;
+      } else {
+        console.error('Error deleting row:', response.status);
+      }
+    } catch (error) {
+      console.error('Error deleting row:', error.message);
+    } finally {
+      setLoading(false); 
+    }
   }
   return (
 
@@ -20,11 +46,14 @@ function RejectPopup({isreject,tableInfo,setisreject,rejectedRow,setrejectedRow}
   <option value="Other Reasons">Other Reasons</option>
 </select>
     <div className='popup-btns me-5 mt-4 d-flex justify-content-end'>
-    
+    <button onClick={handleRejectConfirm} className='me-3 table-delete-btn'>reject</button>
       <button onClick={()=>setisreject(false)}  className='delete-cancel'>Cancel</button>
     </div>
   </div>
 )}
+{loading && (
+      <Loading/>
+      )}
     </div>
   )
 }
