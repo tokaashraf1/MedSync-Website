@@ -50,18 +50,18 @@ function ShowRequest({isshowpopup, setisshowpopup, tableInfo,showRow, setshowRow
     
         {fetchedData && fetchedData.user &&  fetchedData.doctor &&(
 <div>
-<div style={{fontSize:"20px"}}>
+<div className='fs-4'>
     <p> Name: {fetchedData.user.name}</p>
     <p >Email: {fetchedData.user.email}</p>
     <p >years of experience: {fetchedData.doctor.years_of_experience}</p>
 </div>
 
-  <div>
+  <div className='popup-img'>
     <img src={fetchedData.doctor.licence_information} alt="" />
   </div>
 </div>
 )}
-        <div className='edit-buttons'>
+        <div className='popup-btns me-5 mt-4 d-flex justify-content-end'>
           
           <button onClick={() => setisshowpopup(false)} className='show-cancel'>Cancel</button>
         </div>

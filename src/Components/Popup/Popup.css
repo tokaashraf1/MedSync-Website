@@ -41,6 +41,15 @@ color: var(--dark-green);
 .fa-exclamation-triangle{
   color: rgb(216, 47, 47);
 }
+.popup-img{
+overflow: hidden;
+height: 400px;
+
+}
+.popup-img img{
+
+height: 400px;
+}
 @media (max-width: 1200px) {
   .popup-container {
     width: 50%;
