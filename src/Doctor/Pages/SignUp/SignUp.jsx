@@ -11,6 +11,7 @@ function SignUp() {
     confirmPassword: ''
   });
   const [errors, setErrors] = useState({});
+  const [emailExists, setEmailExists] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -19,6 +20,18 @@ function SignUp() {
       [name]: value
     });
   };
+
+  const handleCheckEmail = async () => {
+    const apiUrl = "http://localhost:8000/api/check-email";
+    const { email } = formData;
+    try {
+      const response = await axios.post(apiUrl, { email });
+      setEmailExists(response.data.exists);
+    } catch (error) {
+      console.error('Email check failed:', error);
+    }
+  };
+
 
   const handleSubmit = async (e) => { 
     e.preventDefault();
@@ -39,6 +52,10 @@ function SignUp() {
     if (formData.password !== formData.confirmPassword) {
       validationErrors.confirmPassword = 'Passwords do not match';
     }
+    if (emailExists) {
+      validationErrors.email = 'Email already exists';
+    }
+
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
     } else {
@@ -100,6 +117,7 @@ function SignUp() {
                 <input
                   type="email"
                   name="email"
+                  onBlur={handleCheckEmail}
                   value={formData.email}
                   onChange={handleInputChange}
                   className={`form-control mt-1 ${errors.email && 'input-error'}`}
