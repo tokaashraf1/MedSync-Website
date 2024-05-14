@@ -70,3 +70,6 @@ color:var(--orange)
 .custom-shadow {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
 }
+.no-scroll{
+overflow: hidden;
+}

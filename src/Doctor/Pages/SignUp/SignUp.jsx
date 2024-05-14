@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import "./SignUp.css";
 import BackgroundImg from "../../../assets/imgs/Doctorlandingpage.jpg";
 import { handleCheckEmail, handleSignupForm } from '../../../utils/Validation';
-import axios from 'axios';
-
 function SignUp() {
   const [formData, setFormData] = useState({
     name: '',
@@ -21,9 +19,6 @@ function SignUp() {
       [name]: value
     });
   };
-
-
-
   const handleBlurEmail = async () => {
     await handleCheckEmail(formData, setEmailExists);
   };
@@ -31,7 +26,6 @@ function SignUp() {
     e.preventDefault();
     await handleSignupForm(formData, emailExists, setEmailExists, setErrors);
   };
-
   return (
     <div className="vh-100">
       <div className="position-relative form-background-contaiener">
