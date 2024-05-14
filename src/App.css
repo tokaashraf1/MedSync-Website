@@ -47,6 +47,9 @@ h1 {
 .text-black {
   color: black;
 }
+.text-orange {
+color:var(--orange)
+}
 
 .text-gray {
   color: gray;
