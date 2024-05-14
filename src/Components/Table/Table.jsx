@@ -8,7 +8,8 @@ import AddPopup from '../Popup/AddPopup'
 import Loading from '../Loading/Loading'
 import RejectPopup from '../Popup/RejectPopup'
 import ShowRequest from "../Popup/showRequest"
-function Table({tableInfo}) {
+import Search from '../Search/Search'
+function Table({tableInfo,handleSearch}) {
   const [visibleColumns, setVisibleColumns] = useState([]);
   const [sortConfig, setSortConfig] = useState({ column: null, direction: 'asc' });
   const rowsPerPage = 5;
@@ -27,19 +28,20 @@ function Table({tableInfo}) {
   const totalPages = Math.ceil(totalRows / rowsPerPage);
   const endPage = Math.min(totalPages, startPage + 4);
   const[loading,setLoading]=useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   
   const handleSort = (column) => {
     const direction = sortConfig.column === column ? (sortConfig.direction === 'asc' ? 'desc' : 'asc') : 'asc';
     setSortConfig({ column, direction });
   };
 
-  const sortedRowsData = sortedRows(tableInfo.rows, sortConfig);
+  const sortedRowsData = sortedRows(tableInfo.filteredData, sortConfig);
   useEffect(() => {
     // Exclude 'id' from the visible columns initially
     const defaultVisibleColumns = tableInfo.columns.filter((col) => col !== 'id');
     setVisibleColumns(defaultVisibleColumns);
-    setTotalRows(tableInfo.rows.length);
-  }, [tableInfo.columns, tableInfo.rows]);
+    setTotalRows(tableInfo.filteredData.length);
+  }, [tableInfo.columns, tableInfo.filteredData]);
 
   const handleCheckboxChange = (column) => {
     const updatedColumns = visibleColumns.includes(column)
@@ -73,7 +75,7 @@ function Table({tableInfo}) {
       });
       if (response.ok) {
         console.log('Row updated successfully:', editedRow);
-        const updatedRows = tableInfo.rows.map((r) => (r.id === editedRow.id ? editedRow : r));
+        const updatedRows = tableInfo.filteredData.map((r) => (r.id === editedRow.id ? editedRow : r));
         setTotalRows(updatedRows.length);
         setSelectedRow(null);
       } else {
@@ -93,12 +95,51 @@ function Table({tableInfo}) {
   const handleShowpopup = (row) => {
     setshowRow(row);
     setisshowpopup(true);
+  };  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
   };
+  // const handleSearch = (filteredData) => {
+  //   setTableInfo({
+  //     ...tableInfo,
+  //     filteredData:filteredData,
+  //   });
+  // };
 
   return (
   
     <div className='table-body'>
+    
+
       <div className='overflow-auto position-relative table-container '>
+
+      <div className='hidecoulmns-container position-relative d-flex justify-content-space-between ' >
+        <div style={{ display: 'inline-block' }} className='d-none d-md-inline-block' >
+          <button onClick={toggleDropdown} className='hidecoulmns-btn'>
+            {isDropdownOpen ? 'hide' : 'hide'} Coulmns <i className="fa fa-caret-down" aria-hidden="true"></i>
+          </button>
+          {isDropdownOpen && (
+            <div  className='coulmns-dropdown position-absolute'>
+              {tableInfo.columns.map((column, i) => (
+                column !== 'id' && (
+                  <label key={i} className='d-block' > 
+                    <input
+                      type="checkbox"
+                      checked={visibleColumns.includes(column)}
+                      onChange={() => handleCheckboxChange(column)}
+                      className='me-1'
+                    />
+                     {capitalizeAndSpace(column)}
+                  </label>
+                )
+              ))}
+            </div>
+          )}
+        </div>
+  <div className='position-absolute end-0 search '>
+          <Search data={tableInfo.rows} columns={tableInfo.columns} onSearch={handleSearch}/>
+  </div>
+      </div>
+
   <table>
         <thead>
         <tr>

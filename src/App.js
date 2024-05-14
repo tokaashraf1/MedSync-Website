@@ -7,7 +7,7 @@ import DUMMYY from './Components/DUMMYY';
 function App() {
   return (
     <div className="App">
-<Header/>
+{/* <Header/> */}
 {/* <Table/> */}
 <DUMMYY/>
     </div>

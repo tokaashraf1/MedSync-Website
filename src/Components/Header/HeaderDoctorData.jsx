@@ -49,7 +49,7 @@ function HeaderDoctorData() {
   return (
     <div>
                   <button
-                    className="profile-img-btn d-sm-none d-lg-block "
+                    className="profile-img-btn d-none d-lg-block "
                     style={{ backgroundColor: "black" }}
                   >
                     {" "}

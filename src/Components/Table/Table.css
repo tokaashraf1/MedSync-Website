@@ -30,7 +30,6 @@ td, th {
 border: none;
 border-radius: 100px 100px 100px 100px;
 box-shadow: rgba(0, 0, 0, 0.15) 3px 3px 30px;
-
 }
 td:first-child, th:first-child {
   border-radius: 100px 0px 0px 100px;
@@ -70,12 +69,27 @@ span > button.active {
 .page-number button{
   border: none;
 }
+.hidecoulmns-container{
+  padding-top: 10px;
+}
+.hidecoulmns-btn{
+  border: none;
+  background-color: rgba(75, 114, 231, 0.171);
+  color: rgb(16, 16, 181);
+  border-radius: 5px;
+}
+.coulmns-dropdown{
+  background-color: white ;
+  color: gray;
+  text-align: justify;
+  padding: 0px 10px 10px 5px;
+}
 @media (max-width:992px) {
 .table-container{
 margin-left: 1%;
 width: 100%;
-/* height: 90vh; */
 }
+
 td, th {
 font-size: 12px;
 }
@@ -85,6 +99,23 @@ td:first-child, th:first-child {
 td:last-child, th:last-child {
   padding-right: 50px;
 }
+}
+@media (max-width:768px) {
+  table{
+    margin-top: 30px;
+  }  
+  .table-container{
+  margin-top: 15%;
+    }
+    
+}
+@media (max-width:550px) {
+  table{
+    margin-top: 50px;
+  }  
+  .table-container{
+    margin-top: 25%;
+      }
 }
 .scrollable {
   height: 500px;

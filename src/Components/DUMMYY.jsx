@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Table from './Table/Table'
 import API_ENDPOINT from '../utils/constants';
+import Search from './Search/Search';
 
 function DUMMYY() {
   document.body.classList.add("patient-body");
@@ -13,26 +14,24 @@ function DUMMYY() {
     deleteEndpoint: `${API_ENDPOINT}/api/admin/delete/symptom/`,
     approveapi:`${API_ENDPOINT}/api/admin/approve/request/`,
     rejectapi:`${API_ENDPOINT}/api/admin/reject/request/`,
-    request:true,
+    request:false,
     Adminrequest:true,
     showapi:`${API_ENDPOINT}/api/admin/show/approval/request/`,
     location: "/spec",
   });
 
   useEffect(() => {
-    fetch(`${API_ENDPOINT}/api/admin/get/all/approval/requests`)
+    fetch(`${API_ENDPOINT}/api/admin/get/all/specialities`)
       .then((res) => res.json())
       .then((data) => {
         if (data.length > 0) {
           // Extracting specific properties from the user object
-          const modifiedData = data.map(({ id,request_status,doctor_id,created_at}) => ({
+          const modifiedData = data.map(({ english_name,arabic_name,id}) => ({
+            english_name,
+            arabic_name,
             id,
-            request_status,
-            doctor_id,
-            created_at
-  
-        
-            }));
+      
+          }));
           setTableInfo({
             ...tableInfo,
             columns: Object.keys(modifiedData[0]),
@@ -62,7 +61,7 @@ function DUMMYY() {
     
   
     
-      <Table tableInfo={tableInfo} />
+      <Table tableInfo={tableInfo} handleSearch={handleSearch}   />
       
     </div>
 
