@@ -1,0 +1,140 @@
+.table-body{
+  background-color: var(--gray);
+}
+.table-container{
+position: relative;
+margin-left: 15%;
+width: 80%;
+height: 80vh;
+margin-top: 8%;
+}
+table {
+  border-collapse: separate;
+  border-spacing: 0 12px; /* Set spacing between cells to zero */
+  font-size: 14px;
+width: 100%;
+max-width: 100%;
+text-wrap: nowrap;
+}
+td, th {
+  padding: 20px;
+  text-align: left;
+  background-color: white;
+}
+ th{
+  font-size: 14px;
+  color: gray;
+  text-wrap: nowrap;
+ }
+ tr:hover{
+border: none;
+border-radius: 100px 100px 100px 100px;
+box-shadow: rgba(0, 0, 0, 0.15) 3px 3px 30px;
+}
+td:first-child, th:first-child {
+  border-radius: 100px 0px 0px 100px;
+  padding-left: 100px;
+}
+td{
+  border: none;
+}
+td:last-child, th:last-child {
+  border-radius: 0px 100px 100px 0px;
+  padding-right: 100px;
+}
+tr {
+  height: 60px; 
+}
+.table-edit-btn,.table-add-button,.table-approve-btn{
+  border: none;
+background-color: var(--light-green);
+width: 51px;
+color: var(--dark-green);
+}
+.table-approve-btn{
+  width: 65px;  
+}
+.table-add-button{
+  width: auto;
+}
+.table-delete-btn{
+  border: none;
+  background-color: rgba(255, 0, 0, 0.201);
+  color: rgb(190, 2, 2);
+}
+span > button.active {
+  background-color: rgba(0, 75, 173, 0.412);
+  color: rgb(16, 16, 181);
+}
+.page-number button{
+  border: none;
+}
+.hidecoulmns-container{
+  padding-top: 10px;
+}
+.hidecoulmns-btn{
+  border: none;
+  background-color: rgba(75, 114, 231, 0.171);
+  color: rgb(16, 16, 181);
+  border-radius: 5px;
+}
+.coulmns-dropdown{
+  background-color: white ;
+  color: gray;
+  text-align: justify;
+  padding: 0px 10px 10px 5px;
+}
+@media (max-width:992px) {
+.table-container{
+margin-left: 1%;
+width: 100%;
+}
+
+td, th {
+font-size: 12px;
+}
+td:first-child, th:first-child {
+  padding-left: 50px;
+}
+td:last-child, th:last-child {
+  padding-right: 50px;
+}
+}
+@media (max-width:768px) {
+  table{
+    margin-top: 30px;
+  }  
+  .table-container{
+  margin-top: 15%;
+    }
+    
+}
+@media (max-width:550px) {
+  table{
+    margin-top: 50px;
+  }  
+  .table-container{
+    margin-top: 25%;
+      }
+}
+.scrollable {
+  height: 500px;
+  overflow-y: scroll;
+}
+.table-container::-webkit-scrollbar  {
+  height: 8px;
+}
+.popup-container::-webkit-scrollbar{
+width: 10px;
+}
+.table-container::-webkit-scrollbar-thumb,.popup-container::-webkit-scrollbar-thumb {
+  background-color: rgba(54, 98, 231, 0.334); /* color of the thumb */
+  border-radius: 60px; /* roundness of the thumb */
+}
+.table-container::-webkit-scrollbar-track ,.popup-container::-webkit-scrollbar-track {
+  background-color: transparent; /* color of the track */
+}
+.table-container::-webkit-scrollbar-thumb:hover , .popup-container::-webkit-scrollbar-thumb:hover{
+  background-color: rgba(54, 98, 231, 0.464);/* color of the thumb on hover */
+}
+
