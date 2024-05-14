@@ -32,9 +32,6 @@ code {
 h1 {
   color: var(--blue);
 }
-/* .row{
-  --bs-gutter-x:0;
-} */
 .remove-gutter {
   --bs-gutter-x: 0;
 }
@@ -62,7 +59,6 @@ color:var(--orange)
   background: rgb(30, 93, 241);
   color: white;
 }
-
 .img-width {
   width: 100%;
   max-width: 100%;

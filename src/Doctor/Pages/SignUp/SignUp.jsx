@@ -3,6 +3,8 @@ import "./SignUp.css";
 import BackgroundImg from "../../../assets/imgs/Doctorlandingpage.jpg";
 import { handleCheckEmail, handleSignupForm } from '../../../utils/Validation';
 function SignUp() {
+  
+  document.body.classList.add("no-scroll");
   const [formData, setFormData] = useState({
     name: '',
     email: '',
