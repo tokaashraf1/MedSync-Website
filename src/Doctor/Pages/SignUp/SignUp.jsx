@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import "./SignUp.css";
 import BackgroundImg from "../../../assets/imgs/Doctorlandingpage.jpg";
+import { handleCheckEmail, handleSignupForm } from '../../../utils/Validation';
 import axios from 'axios';
 
 function SignUp() {
@@ -21,74 +22,14 @@ function SignUp() {
     });
   };
 
-  const handleCheckEmail = async () => {
-    const apiUrl = "http://localhost:8000/api/check-email";
-    const { email } = formData;
-    try {
-      const response = await axios.post(apiUrl, { email });
-      setEmailExists(response.data.exists);
-    } catch (error) {
-      console.error('Email check failed:', error);
-    }
+
+
+  const handleBlurEmail = async () => {
+    await handleCheckEmail(formData, setEmailExists);
   };
-
-
-  const handleSubmit = async (e) => { 
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const validationErrors = {};
-    if (!formData.name.trim()) {
-      validationErrors.name = 'Name is required';
-    }
-    if (!formData.email.trim()) {
-      validationErrors.email = 'Email is required';
-    } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
-      validationErrors.email = 'Invalid email format';
-    }
-    if (!formData.password.trim()) {
-      validationErrors.password = 'Password is required';
-    } else if (formData.password.length < 8) {
-      validationErrors.password = 'Password must be at least 8 characters long';
-    }
-    if (formData.password !== formData.confirmPassword) {
-      validationErrors.confirmPassword = 'Passwords do not match';
-    }
-    if (emailExists) {
-      validationErrors.email = 'Email already exists';
-    }
-
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-    } else {
-      try {
-        const { name, email, password, confirmPassword } = formData;
-        const data1 = {
-          name,
-          email,
-          password,
-          password_confirmation: confirmPassword,
-          role: "doctor",
-        };
-
-        const response = await axios.post(
-          "http://localhost:8000/api/register",
-          data1,
-          {
-            headers: { "Content-Type": "application/json" },
-          }
-        );
-
-        const authToken = response.data.token;
-        localStorage.setItem('authToken', authToken);
-        localStorage.setItem('userEmail', email);
-        localStorage.setItem('authusername', name);
-
-        console.log(authToken);
-        window.location.href = '/emailver'; // Redirect to email verification page upon successful sign-up
-      } catch (error) {
-        console.error('Registration failed:', error);
-      
-      }
-    }
+    await handleSignupForm(formData, emailExists, setEmailExists, setErrors);
   };
 
   return (
@@ -117,7 +58,7 @@ function SignUp() {
                 <input
                   type="email"
                   name="email"
-                  onBlur={handleCheckEmail}
+                  onBlur={handleBlurEmail}
                   value={formData.email}
                   onChange={handleInputChange}
                   className={`form-control mt-1 ${errors.email && 'input-error'}`}
