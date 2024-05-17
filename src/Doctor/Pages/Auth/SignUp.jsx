@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import "./SignUp.css";
 import BackgroundImg from "../../../assets/imgs/Doctorlandingpage.jpg";
 import { handleCheckEmail, handleSignupForm } from '../../../utils/Validation';
+import Loading from '../../../Components/Loading/Loading';
 function SignUp() {
   
   document.body.classList.add("no-scroll");
@@ -13,6 +14,7 @@ function SignUp() {
   });
   const [errors, setErrors] = useState({});
   const [emailExists, setEmailExists] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -26,7 +28,14 @@ function SignUp() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await handleSignupForm(formData, emailExists, setEmailExists, setErrors);
+    setLoading(true); 
+    try {
+      await handleSignupForm(formData, emailExists, setEmailExists, setErrors);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    } finally {
+      setLoading(false); 
+    }
   };
   return (
     <div className="vh-100">
@@ -96,7 +105,9 @@ function SignUp() {
                   Already have an account?
                   <a href="/login" className="ms-2 text-orange">Login</a>
                 </p>
+                {loading&&(<Loading/>)}
               </div>
+            
             </div>
           </form>
         </div>

@@ -4,7 +4,8 @@ import './App.css';
 import Header from "./Components/Header/header"
 import Table from './Components/Table/Table';
 import DUMMYY from './Components/DUMMYY';
-import SignUp from './Doctor/Pages/SignUp/SignUp';
+import SignUp from './Doctor/Pages/Auth/SignUp';
+import Login from "./Doctor/Pages/Auth/Login"
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
 {/* <Header/> */}
 {/* <Table/> */}
 {/* <DUMMYY/> */}
-<SignUp/>
+<Login/>
     </div>
   );
 }

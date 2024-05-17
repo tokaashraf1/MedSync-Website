@@ -66,3 +66,55 @@ export const handleSignupForm  = async (formData, emailExists, setEmailExists, s
     console.error('Registration failed:', error);
   }
 };
+
+
+export const handleLoginForm  = async (formData, setErrors) => {
+  try {
+    const validationErrors = {};
+    if (!formData.email.trim()) {
+      validationErrors.email = 'Email is required';
+    } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+      validationErrors.email = 'Invalid email format';
+    }
+    if (!formData.password.trim()) {
+      validationErrors.password = 'Password is required';
+    } else if (formData.password.length < 8) {
+      validationErrors.password = 'Password must be at least 8 characters long';
+    }
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+    } else {
+      const {  email, password } = formData;
+      const data1 = {
+        email,
+        password,
+      };
+
+      const response = await axios.post(
+        "http://localhost:8000/api/login",
+        data1,
+        {
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+
+      const authToken = response.data.token;
+      const loginUserName = response.data.user.name;
+      const profileimg = response.data.user.profile_photo_url;
+      localStorage.setItem('authToken', authToken);
+      localStorage.setItem('loginUserName', loginUserName);
+      localStorage.setItem('profileimg', profileimg);
+
+      console.log(authToken);
+      window.location.href = '/emailver'; 
+      if(response.data.user.status==="active"){
+        window.location.href='/home'
+      }
+      else{
+        window.location.href='/'
+      }
+    }
+  } catch (error) {
+    console.error('Registration failed:', error);
+  }
+};
