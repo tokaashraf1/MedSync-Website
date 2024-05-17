@@ -2,7 +2,7 @@ import React from 'react'
 import  { useState } from 'react';
 import "./Forms.css";
 import BackgroundImg from "../../../assets/imgs/Doctorlandingpage.jpg";
-import { handleEmailVerificationForm ,handleResend } from '../../../utils/Validation';
+import { handleEmailVerificationForm ,handleEmailCodeResend } from '../../../utils/Validation';
 import Loading from '../../../Components/Loading/Loading';
 function EmailVerfication() {
   document.body.classList.add("no-scroll");
@@ -61,7 +61,7 @@ function EmailVerfication() {
           Continue
               </button>
             </div>
-            <p className=' '  > Didn't receive code?   <a className='text-orange small' onClick={handleResend}>Resend </a> </p>
+            <p className=' '  > Didn't receive code?   <a className='text-orange small' onClick={handleEmailCodeResend}>Resend </a> </p>
             {loading&&(<Loading/>)}
           </div>
         </form>

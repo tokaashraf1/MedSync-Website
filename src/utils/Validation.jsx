@@ -260,9 +260,9 @@ export const handleResend = async () => {
   }
 };
 
-export const handleEnailCodeResend = async () => {
+export const handleEmailCodeResend = async () => {
   const apiUrl = `${API_ENDPOINT}/api/resend-email-verification`; // Replace with your actual API URL
-  const storedEmail = localStorage.getItem('resetEmail');
+  const storedEmail = localStorage.getItem('userEmail');
   try {
     const response = await axios.post(apiUrl, {
       email: storedEmail,
@@ -270,6 +270,6 @@ export const handleEnailCodeResend = async () => {
     console.log(response.data);
   } catch (error) {
     // Handle unsuccessful API response or network error
-    console.error('Forgot password request failed:', error.response ? error.response.data : error.message);
+    console.error('resenf email verfication', error.response ? error.response.data : error.message);
   }
 };
