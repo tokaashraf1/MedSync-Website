@@ -28,6 +28,7 @@
 .login-form{
   height: 75vh;
 }
+
 @media (max-width: 1200px) {
   .form-container,.login-form {
     width: 40%;
