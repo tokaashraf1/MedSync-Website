@@ -6,6 +6,9 @@ import SignUp from './Doctor/Pages/Auth/SignUp';
 import Login from "./Doctor/Pages/Auth/Login"
 import ForgotPassword from "./Doctor/Pages/Auth/ForgotPassword"
 import ClinicsProvider from "./Contexts/ClinicsProvider";
+import AuthProvider from "./Contexts/AuthProvider";
+import MedicalRecordContext from "./Contexts/MedicalRecordContext";
+import SettingsProvider from "./Contexts/SettingProvider";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -47,7 +50,6 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <GoogleOAuthProvider clientId="819662330501-5urgmtps87jtcu46gdv42e3l4qb2tmtk.apps.googleusercontent.com">
       <MedicalRecordContext>
         <SettingsProvider>
           <AuthProvider>
@@ -59,6 +61,5 @@ root.render(
           </AuthProvider>
         </SettingsProvider>
       </MedicalRecordContext>
-    </GoogleOAuthProvider>
   </React.StrictMode>
 );
