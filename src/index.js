@@ -10,6 +10,7 @@ import AuthProvider from "./Contexts/AuthProvider";
 import MedicalRecordContext from "./Contexts/MedicalRecordContext";
 import SettingsProvider from "./Contexts/SettingProvider";
 import LandingPage from "./Doctor/Pages/LandingPage/LandingPage";
+import QuestionsForm from "./Doctor/Pages/QuestionsForm/QuestionsForm";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 

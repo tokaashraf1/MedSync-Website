@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../../../Components/Header/header";
 import landingSection2 from "../../../assets/imgs/landingSection2.jpg";
-
+import Footer from "../Footer/Footer"
 import { useRef } from "react";
 import Patientsvg from "../../../assets/imgs/patient.svg";
 import doctorsvg from "../../../assets/imgs/doctor.svg";
@@ -184,7 +184,7 @@ function LandingPage() {
           </div>
         </div>
       </div>
-
+<Footer/>
     </div>
   );
 }

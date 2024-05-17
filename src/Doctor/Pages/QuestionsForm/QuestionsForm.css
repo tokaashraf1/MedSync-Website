@@ -1,0 +1,71 @@
+.doctors-q-body{
+  overflow-y: scroll;
+}
+.dectors-q-con{
+  position: relative;
+  width: 100%;
+}
+.doctors-q-form-con{
+  width: 70%;
+  border-radius: 10px;
+  margin: auto;
+}
+.doctors-q-form-content{
+  margin-left: 70px;
+  margin-top: 110px;
+}
+.q-form-inputs{
+width: 80%;
+}
+.few-steps-paragh{
+  color: gray;
+  font-size: 14px;
+}
+.med-dg-heading{
+  font-size: 26px;
+  color: black;
+  font-size: 700;
+}
+.med-spc-select{
+  background-color: rgb(242, 240, 240);
+  border: none;
+  height: 35px;
+  width: 100%;
+  color: rgb(83, 83, 83);
+  border-radius: 5px;
+}
+.q-form-inputfield{
+  width: 100%;
+  border: none;
+  height: 35px;
+  background-color:  rgb(242, 240, 240);
+  border-radius: 5px;
+}
+.q-form-submit-btn{
+  margin: auto;
+  margin-top: 80px;
+  width: 200px;
+  height: 35px;
+  border: none;
+  color:white;
+  background-color: rgb(58, 105, 244)
+}
+@media (max-width:992px) {
+  .doctors-q-form-con{
+    width: 100%;
+  }  
+}
+@media (max-width:450px) {
+  .q-form-inputs{
+    width: 90%;
+    }
+    .doctors-q-form-content{
+      margin-left: 50px;
+    } 
+    .med-dg-heading{
+      font-size: 24px;
+    }
+    .custom-heading{
+      font-size: 18px;
+    }
+}
