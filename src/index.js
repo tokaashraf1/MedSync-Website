@@ -11,6 +11,9 @@ import MedicalRecordContext from "./Contexts/MedicalRecordContext";
 import SettingsProvider from "./Contexts/SettingProvider";
 import LandingPage from "./Doctor/Pages/LandingPage/LandingPage";
 import QuestionsForm from "./Doctor/Pages/QuestionsForm/QuestionsForm";
+import VerifyCode from "./Doctor/Pages/Auth/VerifyCode";
+import ResetPassword from "./Doctor/Pages/Auth/ResetPassword";
+import EmailVerfication from "./Doctor/Pages/Auth/EmailVerfication";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -50,8 +53,21 @@ const router = createBrowserRouter([
     element: <QuestionsForm />,
     errorElement: <h1 style={{ color: "red" }}>Error...............</h1>,
   },
-
-
+  {
+    path: "/verifycode",
+    element: <VerifyCode />,
+    errorElement: <h1 style={{ color: "red" }}>Error...............</h1>,
+  },
+  {
+    path: "/resetpass",
+    element: <ResetPassword />,
+    errorElement: <h1 style={{ color: "red" }}>Error...............</h1>,
+  },
+  {
+    path: "/emailver",
+    element: <EmailVerfication />,
+    errorElement: <h1 style={{ color: "red" }}>Error...............</h1>,
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

@@ -59,7 +59,7 @@ function SignUp() {
                 {errors.name && <div className="text-danger">{errors.name}</div>}
               </div>
               <div className={`form-group ${errors.email && 'has-error'}`}>
-                <label>Email address</label>
+                <label>Email </label>
                 <input
                   type="email"
                   name="email"

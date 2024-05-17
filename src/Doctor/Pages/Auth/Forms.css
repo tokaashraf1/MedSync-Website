@@ -30,6 +30,7 @@
 }
 .form-container a{
 text-decoration: none;
+cursor: pointer;
 }
 
 @media (max-width: 1200px) {

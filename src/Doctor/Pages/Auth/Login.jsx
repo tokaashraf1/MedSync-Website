@@ -43,7 +43,7 @@ function Login() {
         <form onSubmit={handleSubmit}>
           <div className="form-content mt-4">
             <div className={`form-group ${errors.email && 'has-error'}`}>
-              <label>Email address</label>
+              <label>Email </label>
               <input
                 type="email"
                 name="email"
