@@ -28,6 +28,9 @@
 .login-form{
   height: 75vh;
 }
+.form-container a{
+text-decoration: none;
+}
 
 @media (max-width: 1200px) {
   .form-container,.login-form {
