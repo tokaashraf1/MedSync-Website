@@ -18,7 +18,7 @@ function DoctorQuestionsForm() {
   const option2 = [
     "Anesthesia ","Dentistry","Dermatology","Ear, nose and throat (ENT)","Endocrinology","Gastroenterology","General surgery",
     "Hematology","Hepatology","Internal Medicine","Nephrology","Neurology","Obstetrics and Gynecology","Oncology","Ophthalmology","Orthopedics","Pediatrics",
-"Plastic surgery","Psychiatry","Rheumatology","Urology",];
+    "Plastic surgery","Psychiatry","Rheumatology","Urology",];
   const [selectedOption1, setSelectedOption1] = useState("");
   const [selectedOption2, setSelectedOption2] = useState("");
   const [selectedOption3, setSelectedOption3] = useState("");
