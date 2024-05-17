@@ -1,7 +1,7 @@
 import React from "react";
 import "./QuestionsForm.css";
 import { useState, useEffect } from "react";
-import API_ENDPOINT from "../../hooks/constants";
+import API_ENDPOINT from "../../../utils/constants";
 import { useRef } from "react";
 import axios from "axios";
 import Header from "../../components/Header/Header";

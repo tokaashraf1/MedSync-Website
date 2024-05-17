@@ -45,6 +45,11 @@ const router = createBrowserRouter([
     element: <ForgotPassword />,
     errorElement: <h1 style={{ color: "red" }}>Error...............</h1>,
   },
+  {
+    path: "/doctorsquestions",
+    element: <QuestionsForm />,
+    errorElement: <h1 style={{ color: "red" }}>Error...............</h1>,
+  },
 
 
 ]);
