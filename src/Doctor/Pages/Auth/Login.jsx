@@ -61,8 +61,11 @@ function Login() {
                 value={formData.password}
                 onChange={handleInputChange}
                 className={`form-control mt-1 ${errors.password && 'input-error'}`}
-              />
+              />            
               {errors.password && <div className="text-danger">{errors.password}</div>}
+              <div className='d-flex justify-content-end'>
+                <a href="/signup" className="  text-orange">forgot password?</a>
+            </div>
             </div>
             <div className="d-flex justify-content-center m-4">
               <button
