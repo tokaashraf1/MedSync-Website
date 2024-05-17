@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 import API_ENDPOINT from "../../../utils/constants";
 import { useRef } from "react";
 import axios from "axios";
-import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/footer";
+import Header from "../../../Components/Header/header";
+import Footer from "../Footer/Footer";
 function DoctorQuestionsForm() {
   const [userName, setUserName] = useState("");
   document.body.classList.add("doctors-q-body");
