@@ -6,6 +6,7 @@ import Table from './Components/Table/Table';
 import DUMMYY from './Components/DUMMYY';
 import SignUp from './Doctor/Pages/Auth/SignUp';
 import Login from "./Doctor/Pages/Auth/Login"
+import ForgotPassword from "./Doctor/Pages/Auth/ForgotPassword"
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
 {/* <Header/> */}
 {/* <Table/> */}
 {/* <DUMMYY/> */}
-<Login/>
+<ForgotPassword/>
     </div>
   );
 }

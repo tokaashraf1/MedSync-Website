@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "./SignUp.css";
+import "./Forms.css";
 import BackgroundImg from "../../../assets/imgs/Doctorlandingpage.jpg";
 import { handleCheckEmail, handleSignupForm } from '../../../utils/Validation';
 import Loading from '../../../Components/Loading/Loading';
