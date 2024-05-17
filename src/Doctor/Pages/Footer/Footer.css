@@ -1,0 +1,113 @@
+footer 
+{background-color:rgba(240, 240, 240, 1) ;
+position: absolute;
+right: 0;
+bottom: 0;
+left: 0;
+z-index: 3;
+background-image: url(../../assets/imgs/Shiny\ Overlay\ \(1\).svg);
+background-repeat: no-repeat;
+background-position: right bottom;
+padding-bottom: 10px;
+}
+.landing-footer-hr{
+  color: rgb(154, 153, 153);
+  margin-top: 20px;
+}
+p{
+  color: rgba(0, 74, 173, 1);
+}
+.landing-footer-logo{
+  font-weight: 700;
+  font-size: 28px;
+  transform: translateX(-15px);
+  color: var(--blue);
+}
+.landing-footer-logo-img{
+width: 80px;
+height: 55px;
+
+}
+.landing-footer-list li a{
+  text-decoration: none; 
+  color: var(--blue);
+}
+.landing-footer-list li {
+
+  list-style-type: none;
+}
+.fa-envelope{
+  animation: email 2s linear infinite;;
+}
+@keyframes  email {
+  0% {
+transform: rotate(0deg);
+  }
+  50%{
+    transform: rotate(20deg);
+  }
+  100% {
+    transform: rotate(-30deg);
+  }
+}
+
+#email-link{
+
+  color: var(--blue);
+}
+@media (max-width:1200px) {
+  #email-link{
+
+  font-size: 14px;
+  }
+}
+@media (max-width:768px) {
+  .landing-footer-content{
+    text-align: center;
+  
+  }
+  
+.ft-logo-con{
+display: flex;
+justify-content: center;
+align-self: center;
+}  
+.landing-footer-logo{
+  font-size: 25px;
+  transform: translateX(-15px);
+
+}
+.landing-footer-logo-img{
+width: 70px;
+height: 45px;
+transform: translateX(25px);
+}
+.footer-links-con{
+transform: translateX(-10px);
+}
+}
+@media (max-width:490px) {
+  .landing-footer-content{
+    text-align: center;
+  }
+  
+
+.landing-footer-logo-img{
+width: 70px;
+height: 45px;
+transform: translateX(10px);
+}
+.footer-links-con{
+  transform: translateX(-6px);
+  }
+}
+@media (max-width:400px) {
+.landing-footer-logo-img{
+transform: translateX(0px);
+}
+.slogan{
+font-size: 14px;
+}
+
+}
+

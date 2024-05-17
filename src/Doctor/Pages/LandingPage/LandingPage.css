@@ -1,0 +1,259 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@100&family=Karla&family=Lato&family=Oswald:wght@500&family=Roboto+Condensed:ital,wght@1,300&family=Space+Mono:wght@700&family=Titillium+Web:wght@300&family=Work+Sans:wght@600&display=swap");
+.doctors-landing-page {
+  overflow-x: hidden;
+  margin: 0;
+}
+.sec1-img {
+  width: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  height: 100vh;
+
+  object-position: center;
+}
+.landing-sec1-overlay::after {
+  content: " ";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(6, 6, 6, 0.233);
+  backdrop-filter: blur(.5px);
+}
+.landing-img {
+  position: relative;
+  height: 100%;
+  height: 100vh;
+}
+.welcome-text {
+  position: absolute;
+  top: 40%;
+  font-size: 50px;
+  color: white;
+}
+.get-started {
+  background-color: transparent;
+  border-radius: 30px;
+  color: white;
+
+  width: 170px;
+  height: 50px;
+  position: absolute;
+  top: 55%;
+
+  border: 1px solid white;
+  transition: transform 0.5s;
+}
+.get-started:hover {
+  transform: scale(1.07);
+}
+.doctor-landingpage-sec2 {
+  --bs-gutter-x: 0;
+
+  width: 100%;
+
+  padding-bottom: 140px;
+
+  background-image: url("../../../assets/imgs/Shiny\ Overlay\ \(1\).svg");
+  background-repeat: no-repeat;
+  background-position: right bottom;
+
+  background-color: white;
+}
+.doctor-landingpage-sec2 img {
+  width: 100%;
+  max-width: 100%;
+}
+
+.sec2-aboutus {
+  font-weight: 700;
+  color: var(--blue);
+  font-size: 35px;
+  padding-top: 70px;
+  letter-spacing: 4px;
+  overflow: hidden;
+  background: linear-gradient(90deg, var(--blue), #fff, var(--blue));
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 2s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+}
+@keyframes animate {
+  0% {
+    background-position: -500%;
+  }
+  100% {
+    background-position: 500%;
+  }
+}
+
+.landing-sec2-content {
+  margin-top: 80px;
+}
+.landing-img-2 {
+  position: relative;
+}
+.landing-img-2 img {
+  border-radius: 15px;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.5s;
+  animation: rotate 2s linear infinite;
+}
+.landing-img-2 img:hover {
+  transform: rotate(-1deg);
+}
+
+.landing-about {
+  width: 40%;
+  margin-left: 70px;
+}
+.learn-more-btn {
+  width: 160px;
+  height: 50px;
+  border-radius: 40px;
+  margin-top: 30px;
+  background-color: transparent;
+  border: 1px solid var(--orange);
+  color: var(--blue);
+  font-weight: 700;
+  transition: transform 0.5s;
+}
+.learn-more-btn:hover {
+  background-color: rgba(255, 161, 20, 0.412);
+  transform: scale(1.07);
+}
+.about-text {
+  font-size: 20px;
+}
+.about-header {
+  font-weight: 700;
+  font-size: 30px;
+  color: var(--blue);
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-5deg);
+  }
+}
+
+.doctorlandingpsge-section3 {
+  background-color: white;
+}
+.sec3-cards {
+  margin-top: 180px;
+  transition: transform 0.5s;
+}
+.landing-card {
+  border: none;
+  box-shadow: rgba(82, 164, 222, 0.321) 0px 2px 8px 0px;
+  border-radius: 30px;
+  height: 400px;
+  /* width: 95%; */
+  margin: 10px;
+}
+.landing-card-text {
+  text-align: center;
+}
+.landing-card:hover {
+  transform: scale(1.04);
+}
+.landing-card-img {
+  animation: cardImage 8s linear infinite;
+}
+
+@media (max-width: 1399px) {
+  .welcome-text {
+    font-size: 50px;
+  }
+  .about-text {
+    font-size: 18px;
+  }
+  .about-header {
+    font-size: 25px;
+  }
+  .landing-about {
+  }
+}
+@media (max-width: 1250px) {
+  .about-text {
+    font-size: 16px;
+  }
+  .about-header {
+    font-size: 22px;
+  }
+  .landing-about {
+  }
+  .landing-card-text {
+    font-size: 14px;
+  }
+}
+@media (max-width: 992px) {
+  .about-text {
+    font-size: 20px;
+  }
+  .about-header {
+    font-size: 28px;
+  }
+  .landing-about {
+    width: 100%;
+    margin-left: 0;
+  }
+  .landing-img-2 {
+    width: 100%;
+  }
+  .landing-img-2 img {
+    animation: none;
+  }
+  .landing-card {
+    margin-bottom: 20px;
+  }
+  .sec3-cards {
+    margin-top: 50px;
+  }
+  .doctorlandingpsge-section3 {
+    margin-bottom: 0px;
+  }
+}
+@media (max-width: 768px) {
+  .doctorlandingpsge-section3 {
+    margin-bottom: 250px;
+  }
+}
+@media (max-width: 700px) {
+  .welcome-text {
+    font-size: 40px;
+  }
+}
+@media (max-width: 500px) {
+  .welcome-text {
+    font-size: 30px;
+  }
+  .sec2-aboutus {
+    animation: animate 1s linear infinite;
+  }
+}
+@media (max-width: 450px) {
+  .welcome-text {
+    font-size: 26px;
+    font-weight: 700;
+  }
+  .get-started {
+    width: 150px;
+    height: 45px;
+  }
+  .sec2-aboutus {
+    font-size: 30px;
+  }
+  .about-text {
+    font-size: 18px;
+  }
+  .doctor-landingpage-sec2 {
+    padding-bottom: 50px;
+  }
+}

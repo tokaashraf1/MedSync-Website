@@ -2,11 +2,16 @@ import React, { useEffect, useState } from 'react';
 import Logo from "../../assets/imgs/logo.png"
 import "./header.css"
 import HeaderDoctorData from "./HeaderDoctorData"
-function Header({ initialScrolled = false, initialEnableScroll = true ,page="doctor"}) {
+function Header({ initialScrolled = false, initialEnableScroll = true ,page="landing"}) {
   const [scrolled, setScrolled] = useState(initialScrolled); 
   const [enableScroll, setEnableScroll] = useState(initialEnableScroll); 
+  const [doctor, setDoctor] = useState(false); 
 
   useEffect(() => {
+    if(page==="doctor" || page==="admin" ){
+      setDoctor(true)
+    }
+    
     if (!enableScroll) return; // Exit early if enableScroll is false
   
     const handleScroll = () => {
@@ -19,7 +24,7 @@ function Header({ initialScrolled = false, initialEnableScroll = true ,page="doc
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, );
+  }, []);
 
   return (
     <div>
@@ -28,9 +33,9 @@ function Header({ initialScrolled = false, initialEnableScroll = true ,page="doc
           scrolled ? " bg-white" : " bg-transparent "
         }`}
       >
-        <div className="container">
+        <div className={` ${doctor ? " " : " container"}`}>
           <div className="row position-relative">
-            <div className="col-12  col-md-4 d-flex align-items-center ">
+            <div  className={`col-12  col-md-4 d-flex align-items-center ${doctor ? " doctor-logo" : " "}`} >
               <img
                 src={Logo}
                 alt=""
@@ -40,7 +45,7 @@ function Header({ initialScrolled = false, initialEnableScroll = true ,page="doc
                 MedSync{" "}
               </h3>
               <button
-                className={`navbar-toggler vg fs-2 text-blue position-absolute ${
+                className={`navbar-toggler  fs-2 text-blue position-absolute ${
                   scrolled ? "  " : " text-white"
                 }`}
                 type="button"
@@ -54,27 +59,27 @@ function Header({ initialScrolled = false, initialEnableScroll = true ,page="doc
               </button>
             </div>
             <div
-              className="collapse navbar-collapse d-lg-flex justify-content-md-end col-md-8 "
-              id="navbarSupportedContent"
+        
+              id="navbarSupportedContent"  className={`collapse navbar-collapse d-lg-flex justify-content-md-end col-md-8  ${doctor ? "doctor-btns " : " "}`}
             >
               <button
                 className={`header-links border-0 navbar-collapse-button ${
                   scrolled ? "text-blue" : "text-white "
-                }`}
+                }`} onClick={()=>window.location.href="/"}
               >
                 Home
               </button>
               <button
                 className={`header-links border-0 me-lg-3 navbar-collapse-button ${
                   scrolled ? "text-blue" : "text-white "
-                }`}
+                }`} onClick={()=>window.location.href="/#sec2"}
               >
                 About Us
               </button>
               <button
                 className={`header-links border-0 me-lg-3 navbar-collapse-button ${
-                  scrolled ? "text-blue " : "text-white "
-                }`}
+                  scrolled ? "text-blue " : "text-white " 
+                }`} onClick={()=>window.location.href="/#sec3"}
               >
                 Learn More
               </button>
@@ -86,6 +91,7 @@ function Header({ initialScrolled = false, initialEnableScroll = true ,page="doc
                         ? "text-blue border-blue"
                         : "text-white border-white "
                     }`}
+                    onClick={()=>window.location.href="/signup"}
                   >
                     Sign Up
                   </button>
@@ -95,6 +101,7 @@ function Header({ initialScrolled = false, initialEnableScroll = true ,page="doc
                         ? "text-blue border-blue "
                         : "text-white border-white"
                     }`}
+                    onClick={()=>window.location.href="/login"}
                   >
                     Log In
                   </button>

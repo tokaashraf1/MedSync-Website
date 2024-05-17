@@ -9,13 +9,14 @@ import ClinicsProvider from "./Contexts/ClinicsProvider";
 import AuthProvider from "./Contexts/AuthProvider";
 import MedicalRecordContext from "./Contexts/MedicalRecordContext";
 import SettingsProvider from "./Contexts/SettingProvider";
+import LandingPage from "./Doctor/Pages/LandingPage/LandingPage";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <DoctorsLandingPage />,
+    element: <LandingPage />,
     errorElement: (
       <h1
         style={{

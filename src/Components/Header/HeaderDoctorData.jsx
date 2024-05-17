@@ -48,24 +48,19 @@ function HeaderDoctorData() {
   }, [token]);
   return (
     <div>
-                  <button
-                    className="profile-img-btn d-none d-lg-block "
-                    style={{ backgroundColor: "black" }}
-                  >
-                    {" "}
-                    
-                    {updatedProfileImg ? (
-                      <img src={updatedProfileImg} alt="" className="" />
-                    ) : (
-                      <img src={profileimg} alt="" className="" />
-                    )}
-                  </button>
-                  <button
-                    className="d-sm-block d-lg-none header-links border-0 me-lg-3 navbar-collapse-button text-blue"
-                  >
-                    Home
-                  </button>
-                </div>
-  )
+      <button className="profile-img-btn d-none d-lg-block " onClick={()=>window.location.href="/profile"}>
+        {" "}
+        {updatedProfileImg ? (
+          <img src={updatedProfileImg} alt="" className="" />
+        ) : (
+          <img src={profileimg} alt="" className="" />
+        )}
+      </button>
+      {/* <button className="d-sm-block d-lg-none header-links border-0 me-lg-3 navbar-collapse-button text-blue">
+        Home
+      </button> */}
+    </div>
+  );
 }
+
 export default HeaderDoctorData

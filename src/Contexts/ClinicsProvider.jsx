@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react'
-import API_ENDPOINT from '../hooks/constants';
+import API_ENDPOINT from '../utils/constants';
 import axios from 'axios';
 
 export const ClinicsContext = createContext();
