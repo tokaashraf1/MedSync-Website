@@ -35,7 +35,7 @@ function AdminLogin() {
     <div className="vh-100">
     <div className="position-relative form-background-contaiener">
       <img src={BackgroundImg} alt="" className="form-background" />
-      <div className="position-absolute form-container bg-white py-5 rounded-4 login-form">
+      <div className="position-absolute form-container bg-white py-5 rounded-4 ">
         <div className="text-center">
           <h4>Log In </h4>
         </div>
@@ -62,9 +62,6 @@ function AdminLogin() {
                 className={`form-control mt-1 ${errors.password && 'input-error'}`}
               />            
               {errors.password && <div className="text-danger">{errors.password}</div>}
-              <div className='d-flex justify-content-end'>
-                <a href="/forgotpass" className=" small text-orange">forgot password?</a>
-            </div>
             </div>
             <div className="d-flex justify-content-center m-4">
               <button
@@ -74,13 +71,9 @@ function AdminLogin() {
               Log In
               </button>
             </div>
-            <div className="text-center mt-5">
-              <p className='text-blue'>
-              Don't have an account?
-                <a href="/signup" className="ms-2 text-orange">SignUp</a>
-              </p>
+        
               {loading&&(<Loading/>)}
-            </div>
+          
           
           </div>
         </form>
