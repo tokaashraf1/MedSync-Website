@@ -18,6 +18,7 @@ import ApprovedReqs from "./Doctor/Pages/ApprovedReqs/ApprovedReqs";
 import Home from "./Doctor/Pages/homepage/Home"
 import PendingRequests from "./Doctor/Pages/Requests/PendingRequests";
 import Settings from "./Doctor/Pages/Settings/Settings";
+import Profile from "./Doctor/Pages/profile/Profile";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -90,6 +91,11 @@ const router = createBrowserRouter([
   {
     path: "/settings",
     element: <Settings />,
+    errorElement: <h1 style={{ color: "red" }}>Error...............</h1>,
+  },
+  {
+    path: "/profile",
+    element: <Profile />,
     errorElement: <h1 style={{ color: "red" }}>Error...............</h1>,
   },
 ]);
