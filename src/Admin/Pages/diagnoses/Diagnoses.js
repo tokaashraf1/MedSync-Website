@@ -1,15 +1,11 @@
 import React from 'react'
 import  { useState, useEffect } from 'react';
-import axios from 'axios';
-import Table from "../../components/Table/Table"
-import Search from "../../components/Search/Search"
-import Sidebar from '../../components/Sidebar/Sidebar';
-
-import Footer from "../../components/Footer/footer";
-import AdminFooter from '../../components/adminfooter/AdminFooter';
+import Table from "../../../Components/Table/Table"
+import Sidebar from '../Sidebar/Sidebar';
+import Footer from "../../../Components/Footer/Footer";
 import "./Diagnoses.css"
-import API_ENDPOINT from '../../hooks/constants';
-import Header from '../../components/Header/Header';
+import API_ENDPOINT from '../../../utils/constants';
+import Header from '../../../Components/Header/header';
 function Diagnoses() {
 
 
@@ -64,7 +60,7 @@ function Diagnoses() {
   
       <Sidebar/>
       <Table tableInfo={tableInfo} handleSearch={handleSearch} />
-      <AdminFooter/>
+      <Footer/>
     </div>
   );
 
