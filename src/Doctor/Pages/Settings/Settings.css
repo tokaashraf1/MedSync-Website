@@ -1,0 +1,59 @@
+.settings-page{
+  margin-top: 120px;
+  margin-left: 15%;
+  background-color: var(--gray);
+}
+.settings-btns button{
+  padding: 8px;
+  padding: 8px 15px 8px 15px;
+}
+.profile-detailes p {
+  color: black;
+  width: 80%;
+  border-radius: 10px;
+  /* line-height: 10px; */
+}
+.profile-detailes hr{
+  width: 95%;
+}
+.manage-clincs-title::after{
+  content: "";
+  display: block;
+  width: 65px;
+  border-bottom: 3px solid var(--blue);
+  margin-top: 5px;
+}
+.manage-clinics-con{
+  width: 80%;
+}
+.update-clincs-con input{
+width: 50%;
+height: 35px;
+border-radius: 5px;
+border: 1px solid gray;
+}
+@media (max-width:992px){
+  .settings-page{
+    margin-left: 5%;
+  }
+}
+@media (max-width:500px){
+  .settings-btns button{
+margin: 5px;
+
+    padding: 8px 10px 8px 10px;
+  }
+  .settings-page{
+    margin-left: 1%;
+  } 
+  .manage-clinics-con{
+    width: 99%;
+  }
+  .profile-detailes p {
+    width: 99%;
+
+  }
+  .update-clincs-con input{
+    width: 98%;
+    }
+}
