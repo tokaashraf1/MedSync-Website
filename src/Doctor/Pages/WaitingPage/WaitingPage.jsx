@@ -1,6 +1,6 @@
 import React from 'react'
 import "./WaitingPage.css"
-import Clock from "../../assets/imgs/wall-clock (1).png"
+import Clock from "../../../assets/imgs/wall-clock (1).png"
 function WaitingPage() {
   return (
     <div className='position-relative' >
