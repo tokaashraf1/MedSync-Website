@@ -69,3 +69,7 @@ color:var(--orange)
 .no-scroll{
 overflow: hidden;
 }
+.admin-pages{
+  overflow-y: scroll;
+  background-color: var(--gray);
+}
