@@ -31,6 +31,7 @@ import Specialties from "./Admin/Pages/Specialties/Specialties";
 import LabTest from "./Admin/Pages/labTests/LabTest";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Requests from "./Admin/Pages/Requests/Requests";
+import Vaccines from "./Admin/Pages/vaccines/Vaccines";
 
 
 const router = createBrowserRouter([
@@ -162,6 +163,11 @@ const router = createBrowserRouter([
   {
     path: "/requests",
     element: <Requests />,
+    errorElement: <h1 style={{ color: "red" }}>Error...............</h1>,
+  },
+  {
+    path: "/vaccines",
+    element: <Vaccines />,
     errorElement: <h1 style={{ color: "red" }}>Error...............</h1>,
   },
 ]);
