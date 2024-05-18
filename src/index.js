@@ -23,6 +23,7 @@ import WaitingPage from "./Doctor/Pages/WaitingPage/WaitingPage";
 import AdminHome from "./Admin/Pages/AdminHome/AdminHome";
 import Diagnoses from "./Admin/Pages/diagnoses/Diagnoses";
 import Doctors from "./Admin/Pages/Doctors/Doctors";
+import UsersLookup from "./Admin/Pages/Patients/Patients";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -120,6 +121,11 @@ const router = createBrowserRouter([
   {
     path: "/doctors",
     element: <Doctors />,
+    errorElement: <h1 style={{ color: "red" }}>Error...............</h1>,
+  },
+  {
+    path: "/patients",
+    element: <UsersLookup />,
     errorElement: <h1 style={{ color: "red" }}>Error...............</h1>,
   },
 ]);
