@@ -34,7 +34,7 @@ function EditPopup({selectedRow ,setSelectedRow , visibleColumns ,tableInfo}) {
     <div>
           {selectedRow && (
         <div className="popup-container "   >
-            <p  className="position-absolute  fs-3"> <i className="fa fa-pencil-square-o me-2" aria-hidden="true"></i>EDIT</p>
+            <p  className="position-absolute  fs-3 text-black"> <i className="fa fa-pencil-square-o me-2" aria-hidden="true"></i>EDIT</p>
           <br />
           {visibleColumns.map((column, i) => (
           

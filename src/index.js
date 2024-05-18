@@ -26,6 +26,7 @@ import Doctors from "./Admin/Pages/Doctors/Doctors";
 import UsersLookup from "./Admin/Pages/Patients/Patients";
 import Treatments from "./Admin/Pages/Treatments/Treatments";
 import Drugs from "./Admin/Pages/Drugs/Drugs";
+import Symptoms from "./Admin/Pages/symptoms/Symptoms";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -138,6 +139,11 @@ const router = createBrowserRouter([
   {
     path: "/drugs",
     element: <Drugs />,
+    errorElement: <h1 style={{ color: "red" }}>Error...............</h1>,
+  },
+  {
+    path: "/symptoms",
+    element: <Symptoms />,
     errorElement: <h1 style={{ color: "red" }}>Error...............</h1>,
   },
 ]);

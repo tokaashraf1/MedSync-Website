@@ -29,7 +29,7 @@ function DeletePopup({isDeletePopup,tableInfo,setIsDeletePopup,deleteRow}) {
     <div>
   {isDeletePopup && (
   <div className="popup-container">
-    <p className=' mt-3 fs-5 ms-5'> <i className="fa fa-exclamation-triangle me-3" aria-hidden="true"></i>Are you sure you want to delete this row?</p>
+    <p className=' mt-3 fs-5 ms-5 text-black'> <i className="fa fa-exclamation-triangle me-3" aria-hidden="true"></i>Are you sure you want to delete this row?</p>
     <div className='popup-btns me-5 mt-4 d-flex justify-content-end'>
       <button onClick={handleDeleteConfirm} className='me-3 table-delete-btn'>Delete</button>
       <button onClick={()=>setIsDeletePopup(false)}  className='delete-cancel'>Cancel</button>
