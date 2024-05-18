@@ -144,28 +144,24 @@ function HistorySection() {
     <div className='add-medical-history'>
       <div className='mt-4'>
           <lable className=' text-black d-block '>medical Speciality:</lable>
-          <input type="text" className='mt-2' value={medicalSpeciality} onChange={(e) => setmedicalSpeciality(e.target.value)}/>
+          <input type="text" className='mt-2 form-control' value={medicalSpeciality} onChange={(e) => setmedicalSpeciality(e.target.value)}/>
       </div>
       <div className='mt-2'>
           <lable className=' text-black d-block '>Diagnosis:</lable>
-          <input type="text" className='mt-2' value={Diagnosis} onChange={(e) => setDiagnosis(e.target.value)}/>
+          <input type="text" className='mt-2 form-control' value={Diagnosis} onChange={(e) => setDiagnosis(e.target.value)}/>
       </div>
       <div className='mt-2'>
           <lable className=' text-black d-block '>Lab Tests:</lable>
-          <input type="text" className='mt-2' value={LabTests} onChange={(e) => setLabTests(e.target.value)}/>
+          <input type="text" className='mt-2 form-control' value={LabTests} onChange={(e) => setLabTests(e.target.value)}/>
       </div>
       <div className='mt-2'>
           <lable className=' text-black d-block '>Medication Name:</lable>
-          <input type="text" className='mt-2' value={MedicationName} onChange={(e) => setMedicationName(e.target.value)}/>
+          <input type="text" className='mt-2 form-control' value={MedicationName} onChange={(e) => setMedicationName(e.target.value)}/>
       </div>
       <div className='popup-btns me-5 mt-4 d-flex justify-content-end'>
       <button  className='me-3 active-button' onClick={handleAddClinic}>Add +</button>
       <button   className='delete-cancel' onClick={()=>setPopup(false)}>Cancel</button>
     </div>
-      
-      
-      
-      
       
     </div>
       )}
