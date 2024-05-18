@@ -7,7 +7,7 @@ import API_ENDPOINT from '../../../utils/constants';
 import Header from '../../../Components/Header/header';
 
 function Specialties() {
-  document.body.classList.add("patient-body");
+  document.body.classList.add("admin-pages");
   const [tableInfo, setTableInfo] = useState({
     columns: [],
     rows: [],
