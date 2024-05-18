@@ -28,7 +28,10 @@ import Treatments from "./Admin/Pages/Treatments/Treatments";
 import Drugs from "./Admin/Pages/Drugs/Drugs";
 import Symptoms from "./Admin/Pages/symptoms/Symptoms";
 import Specialties from "./Admin/Pages/Specialties/Specialties";
+import LabTest from "./Admin/Pages/labTests/LabTest";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Requests from "./Admin/Pages/Requests/Requests";
+
 
 const router = createBrowserRouter([
   {
@@ -149,6 +152,16 @@ const router = createBrowserRouter([
   {
     path: "/spec",
     element: <Specialties />,
+    errorElement: <h1 style={{ color: "red" }}>Error...............</h1>,
+  },
+  {
+    path: "/lab",
+    element: <LabTest />,
+    errorElement: <h1 style={{ color: "red" }}>Error...............</h1>,
+  },
+  {
+    path: "/requests",
+    element: <Requests />,
     errorElement: <h1 style={{ color: "red" }}>Error...............</h1>,
   },
 ]);
