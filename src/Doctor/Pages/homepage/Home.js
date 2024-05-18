@@ -11,7 +11,7 @@ import API_ENDPOINT from '../../../utils/constants';
 import Header from "../../../Components/Header/header"
 
 function Home() {
-  
+
   document.body.classList.add("home-body");
   const[userName,setUserName]=useState('')
   document.body.classList.add("doctors-q-body");
@@ -385,7 +385,7 @@ const governorate=["Cairo","Giza"]
     </div>
     <div className='mt-3 add-clinc-popup-content'>
     <label> Governorate:</label>
-    <select value={selectedGovernorate} onChange={handleGovernorateChange}>
+    <select value={selectedGovernorate} onChange={handleGovernorateChange} class="form-control" >
         <option value="">select Governorate</option>
         {governorate.map((g) => (
           <option key={g} value={g}>{g}</option>
@@ -395,7 +395,7 @@ const governorate=["Cairo","Giza"]
       
         <div>
           <label> Region:</label>
-          <select value={selectedRegion} onChange={(e) => setSelectedRegion(e.target.value)}>
+          <select value={selectedRegion} onChange={(e) => setSelectedRegion(e.target.value)} class="form-control">
             <option value="">select Region</option>
             {selectedGovernorate === 'Cairo' ? (
               cairoenglishRegions.map((region) => (
@@ -409,11 +409,11 @@ const governorate=["Cairo","Giza"]
           </select>
         </div>
   <label htmlFor="">Street</label>
-  <input type="text"  value={street} onChange={(e) => setStreet(e.target.value)}/>
+  <input type="text"  value={street} onChange={(e) => setStreet(e.target.value)} class="form-control"/>
   <label htmlFor="">description</label>
-  <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
+  <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} class="form-control" />
   <label htmlFor="">Work Days</label>
-  <input type="text" placeholder='e.g., Tuesday, Wednesday, Thursday,' value={workDays} onChange={(e) => setWorkDays(e.target.value)} />
+  <input type="text" placeholder='e.g., Tuesday, Wednesday, Thursday,' value={workDays} onChange={(e) => setWorkDays(e.target.value)} class="form-control" />
 
 
 
@@ -433,15 +433,6 @@ const governorate=["Cairo","Giza"]
           <div class="load"></div>
         </div>
       )}
-
-
-
-
-
-
-
-
-
 
   <Sidebar/>
 <Footer/>
