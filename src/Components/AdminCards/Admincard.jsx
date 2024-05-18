@@ -1,8 +1,8 @@
 import React from "react";
 import "./Admincard.css";
-import Patientsvg from "../../../assets/imgs/patient.svg";
-import doctorsvg from "../../../assets/imgs/doctor.svg";
-import medicationsvg from "../../../assets/imgs/drugs.svg";
+import Patientsvg from "../../assets/imgs/patient.svg";
+import doctorsvg from "../../assets/imgs/doctor.svg";
+import medicationsvg from "../../assets/imgs/drugs.svg";
 function Admincard({ patient, doctor, medications }) {
   return (
     <div className="row admin-cards">

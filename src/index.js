@@ -20,6 +20,7 @@ import PendingRequests from "./Doctor/Pages/Requests/PendingRequests";
 import Settings from "./Doctor/Pages/Settings/Settings";
 import Profile from "./Doctor/Pages/profile/Profile";
 import WaitingPage from "./Doctor/Pages/WaitingPage/WaitingPage";
+import AdminHome from "./Admin/Pages/AdminHome/AdminHome";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -102,6 +103,11 @@ const router = createBrowserRouter([
   {
     path: "/Waiting",
     element: <WaitingPage />,
+    errorElement: <h1 style={{ color: "red" }}>Error...............</h1>,
+  },
+  {
+    path: "/adminhome",
+    element: <AdminHome />,
     errorElement: <h1 style={{ color: "red" }}>Error...............</h1>,
   },
 ]);
