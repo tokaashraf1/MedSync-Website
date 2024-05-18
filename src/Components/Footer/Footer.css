@@ -1,0 +1,157 @@
+
+
+.footer-admin
+{
+  background-color: white;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /* margin-top: 1000px; */
+z-index: 3;
+background-image: url(../../assets/imgs/Shiny\ Overlay\ \(1\).svg);
+background-repeat: no-repeat;
+background-position: right bottom;
+padding-bottom: 10px;
+  left: 12%;
+}
+
+.landing-footer-hr{
+  color: rgb(154, 153, 153);
+  margin-top: 20px;
+}
+p{
+  color: rgba(0, 74, 173, 1);
+}
+.admin-footer-logo{
+  font-weight: 700;
+  font-size: 28px;
+  transform: translateX(-15px);
+  color: var(--blue);
+}
+.admin-footer-logo-img{
+width: 80px;
+height: 55px;
+
+}
+.landing-footer-list li a{
+  text-decoration: none; 
+  color: var(--blue);
+}
+.landing-footer-list li {
+
+  list-style-type: none;
+}
+.fa-envelope{
+  animation: email 2s linear infinite;;
+}
+@keyframes  email {
+  0% {
+transform: rotate(0deg);
+  }
+  50%{
+    transform: rotate(20deg);
+  }
+  100% {
+    transform: rotate(-30deg);
+  }
+}
+
+/* .admin-ft-slogan{
+
+  letter-spacing: 1px;
+  overflow: hidden;
+  background: linear-gradient(90deg, var(--blue), #fff, var(--blue));
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 5s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+}
+@keyframes animate {
+  0% {
+    background-position: -500%;
+  }
+  100% {
+    background-position: 500%;
+  }
+} */
+#email-link{
+
+  color: var(--blue);
+}
+.admin-footer-content{
+margin-left: 15px;
+}
+@media (max-width:1200px) {
+  #email-link{
+
+  font-size: 14px;
+  }
+}
+@media (max-width:992px) {
+  .footer-admin
+{
+
+
+  left: 0%;
+}
+.admin-footer-content{
+  margin-left: 0px;
+  }
+
+}
+@media (max-width:768px) {
+  .admin-footer-content{
+    text-align: center;
+  
+  }
+  
+.ft-admin-logo-con{
+display: flex;
+justify-content: center;
+align-self: center;
+}  
+.admin-footer-logo{
+  font-size: 25px;
+  transform: translateX(-15px);
+
+}
+.admin-footer-logo-img{
+width: 70px;
+height: 45px;
+transform: translateX(25px);
+}
+.footer-links-con{
+transform: translateX(-10px);
+}
+}
+@media (max-width:490px) {
+  .admin-footer-content{
+    text-align: center;
+  }
+
+.admin-footer-logo-img{
+width: 70px;
+height: 45px;
+transform: translateX(10px);
+}
+.footer-links-con{
+  transform: translateX(-6px);
+  }
+}
+@media (max-width:400px) {
+  
+
+  
+
+.admin-footer-logo-img{
+
+transform: translateX(0px);
+}
+.admin-ft-slogan{
+font-size: 14px;
+}
+
+}
+

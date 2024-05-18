@@ -1,11 +1,10 @@
 import React from 'react'
-import Toka from "../../assets/imgs/Toka.jpeg"
-import Diabetes from "../../assets/imgs/diabtes.svg"
-import BloodType from "../../assets/imgs/bloodtype.svg"
-import Bb from "../../assets/imgs/bp.svg"
+import Diabetes from "../../../assets/imgs/diabtes.svg"
+import BloodType from "../../../assets/imgs/bloodtype.svg"
+import Bb from "../../../assets/imgs/bp.svg"
 import { useContext } from 'react'
-import { PatientContext } from '../../Contexts/MedicalRecordContext'
-import Loading from '../../components/Loading/Loading'
+import { PatientContext } from '../../../Contexts/MedicalRecordContext'
+import Loading from '../../../Components/Loading/Loading'
 
 function ProfileSection() {
   const {userInfo,handleClick,loading,handlePreviousClick}=useContext(PatientContext)

@@ -1,0 +1,35 @@
+#doc-dashboard{
+  color: gray;
+text-decoration: none;
+display: block;
+margin-top: 80px;
+}
+.sidebar-link{
+  margin-top: 15px;
+  color: gray;
+  display: block;
+  text-decoration: none;
+}
+ .sidebar-link:hover ,.sidebar #doc-dashboard:hover{
+  color: rgb(86, 86, 86);
+ }
+ 
+ .sidebar-link.active,
+#doc-dashboard.active,
+.sidebar-link.active:focus,
+#doc-dashboard.active:focus {
+  color: var(--blue);
+}
+@media (max-width:1250px){
+  #doc-dashboard{
+font-size: 12px;
+
+  }
+  .sidebar-link{
+    font-size: 12px;
+
+  }
+  .sidebar {
+    width: 13%; 
+  }
+}

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useContext } from 'react'
-import { PatientContext } from '../../Contexts/MedicalRecordContext'
-import Loading from '../../components/Loading/Loading'
-import API_ENDPOINT from '../../hooks/constants';
+import { PatientContext } from '../../../Contexts/MedicalRecordContext'
+import Loading from '../../../Components/Loading/Loading'
+import API_ENDPOINT from '../../../utils/constants';
 import axios from 'axios'
 
 function HistorySection() {

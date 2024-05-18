@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
-import API_ENDPOINT from "../../hooks/constants";
-import Header from "../../components/Header/Header";
-import Doctorsidebar from "../../components/doctorsidebar/Doctorsidebar";
-import AdminFooter from "../../components/adminfooter/AdminFooter";
+import API_ENDPOINT from "../../../utils/constants";
+import Header from "../../../Components/Header/header";
+import SideBar from "../../../Components/SideBar/SideBar";
+import Footer from "../../../Components/Footer/Footer";
 import Cards from "./Cards";
 import PatientInfo from "./PatientInfo";
-import { PatientContext } from "../../Contexts/MedicalRecordContext";
-import Loading from "../../components/Loading/Loading";
+import { PatientContext } from "../../../Contexts/MedicalRecordContext";
+import Loading from "../../../Components/Loading/Loading";
 
 
 function ApprovedReqs() {
@@ -21,8 +21,8 @@ function ApprovedReqs() {
       />
       <Cards />
       <PatientInfo />
-      <Doctorsidebar />
-      <AdminFooter />
+      <SideBar />
+      <Footer />
   
     </div>
   );

@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
-import Pending from "../../assets/imgs/wall-clock.png"
-import Approve from "../../assets/imgs/checkmark.png"
-import Hospital from "../../assets/imgs/hospital.png"
+import Pending from "../../../assets/imgs/wall-clock.png"
+import Approve from "../../../assets/imgs/checkmark.png"
+import Hospital from "../../../assets/imgs/hospital.png"
 import "./ApprovedReqs.css"
 import Calendar from 'react-calendar'
-import { PatientContext } from '../../Contexts/MedicalRecordContext'
-import {ClinicsContext} from "../../Contexts/ClinicsProvider"
+import { PatientContext } from '../../../Contexts/MedicalRecordContext'
+import {ClinicsContext} from "../../../Contexts/ClinicsProvider"
 function Cards() {
   const{clinicsCount}=useContext(ClinicsContext);
   const {recordCount,pendingRequestsCount}=useContext(PatientContext)
