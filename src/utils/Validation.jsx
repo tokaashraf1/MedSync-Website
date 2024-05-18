@@ -112,6 +112,37 @@ export const handleLoginForm = async (formData, setErrors) => {
     console.error("Registration failed:", error);
   }
 };
+export const handleAdminLoginForm = async (formData, setErrors) => {
+  try {
+    const validationErrors = {};
+    if (!formData.email.trim()) {
+      validationErrors.email = "Email is required";
+    } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+      validationErrors.email = "Invalid email format";
+    }
+    if (!formData.password.trim()) {
+      validationErrors.password = "Password is required";
+    }
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+    } else {
+      const { email, password } = formData;
+      const data1 = {
+        email,
+        password,
+      };
+
+      const response = await axios.post(`${API_ENDPOINT}/api/login`, data1, {
+        headers: { "Content-Type": "application/json" },
+      });
+
+      localStorage.setItem('loginEmail', email);
+      window.location.href='/adminhome'
+    }
+  } catch (error) {
+    console.error("Registration failed:", error);
+  }
+};
 
 export const handleForgotPasswordForm = async (formData, setErrors) => {
   try {

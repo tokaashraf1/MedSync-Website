@@ -1,7 +1,7 @@
 import React from 'react'
 import  { useState } from 'react';
 import BackgroundImg from "../../../assets/imgs/Doctorlandingpage.jpg";
-import { handleLoginForm } from '../../../utils/Validation';
+import { handleAdminLoginForm } from '../../../utils/Validation';
 import Loading from '../../../Components/Loading/Loading';
 function AdminLogin() {
   document.body.classList.add("no-scroll");
@@ -24,7 +24,7 @@ function AdminLogin() {
     e.preventDefault();
     setLoading(true); 
     try {
-      await handleLoginForm(formData,setErrors);
+      await handleAdminLoginForm(formData,setErrors);
     } catch (error) {
       console.error('Error submitting form:', error);
     } finally {
