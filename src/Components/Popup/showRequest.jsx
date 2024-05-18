@@ -51,9 +51,9 @@ function ShowRequest({isshowpopup, setisshowpopup, tableInfo,showRow, setshowRow
         {fetchedData && fetchedData.user &&  fetchedData.doctor &&(
 <div>
 <div className='fs-4'>
-    <p> Name: {fetchedData.user.name}</p>
-    <p >Email: {fetchedData.user.email}</p>
-    <p >years of experience: {fetchedData.doctor.years_of_experience}</p>
+    <p className='text-black'> Name: {fetchedData.user.name}</p>
+    <p className='text-black' >Email: {fetchedData.user.email}</p>
+    <p className='text-black' >years of experience: {fetchedData.doctor.years_of_experience}</p>
 </div>
 
   <div className='popup-img'>
