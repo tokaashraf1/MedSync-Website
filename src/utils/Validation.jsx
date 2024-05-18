@@ -132,7 +132,7 @@ export const handleAdminLoginForm = async (formData, setErrors) => {
         password,
       };
 
-      const response = await axios.post(`${API_ENDPOINT}/api/login`, data1, {
+      const response = await axios.post(`${API_ENDPOINT}/api/admin/login`, data1, {
         headers: { "Content-Type": "application/json" },
       });
 
