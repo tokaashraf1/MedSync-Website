@@ -1,0 +1,53 @@
+ .admin-cards{
+  margin-top: 6%;
+ }
+ .admin-card-cont{
+  border-radius: 20px;
+  width: 23%;
+  margin-left: 19%;
+  position: relative;
+  box-shadow: rgba(82, 164, 222, 0.321) 0px 2px 8px 0px;
+  transition: transform .5s,
+}
+.admin-card-cont2{
+  border-radius: 20px;
+  width: 23%;
+  margin-left: 2%;
+  position: relative;
+  box-shadow: rgba(82, 164, 222, 0.321) 0px 2px 8px 0px;
+  transition: transform .5s;
+
+}
+.admin-card-cont3{
+  border-radius: 20px;
+  width: 23%;
+  margin-left: 2%;
+  position: relative;
+  box-shadow: rgba(82, 164, 222, 0.321) 0px 2px 8px 0px;
+  transition: transform .5s,
+}
+.admin-card-cont:hover,.admin-card-cont2:hover,.admin-card-cont3:hover{
+  transform: scale(1.05);
+}
+.patientsvg{
+  height: 85px;
+  width: 85px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.admin-card-title{
+color: gray;
+}
+.total-number{
+font-size: 22px;
+font-weight: 700;
+}
+.percentage{
+  color: rgba(5, 226, 5, 0.86);
+  text-decoration: none;
+}
+.percentage:hover{
+
+  color: rgba(91, 217, 91, 0.86);
+}
