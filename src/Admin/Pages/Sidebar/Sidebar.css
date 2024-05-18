@@ -13,46 +13,33 @@
   box-shadow: -10px 0 25px rgba(0, 0, 0, 0.3);
 
 }
-
-
-#doc-dashboard{
+.sidebar #dashboard{
   color: gray;
 text-decoration: none;
 display: block;
 margin-top: 80px;
+
 }
-.sidebar-link{
+#sidebar-a{
   margin-top: 15px;
   color: gray;
   display: block;
   text-decoration: none;
 }
- .sidebar-link:hover ,.sidebar #doc-dashboard:hover{
-  color: rgb(86, 86, 86);
+ .sidebar-a:hover ,.sidebar #dashboard:hover{
+  color: var(--blue);
  }
  
- .sidebar-link.active,
-#doc-dashboard.active,
-.sidebar-link.active:focus,
-#doc-dashboard.active:focus {
+ #sidebar-a.active,
+#dashboard.active,
+#sidebar-a.active:focus,
+#dashboard.active:focus {
   color: var(--blue);
 }
+/* responsive --------------------------------------------------------------------------------------------------------------------*/
 @media (max-width:992px) {
   .sidebar{
     display: none;
   }
   
-}
-@media (max-width:1250px){
-  #doc-dashboard{
-font-size: 12px;
-
-  }
-  .sidebar-link{
-    font-size: 12px;
-
-  }
-  .sidebar {
-    width: 13%; 
-  }
 }
