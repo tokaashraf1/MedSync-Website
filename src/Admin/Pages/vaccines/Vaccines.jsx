@@ -1,7 +1,7 @@
 import React from 'react'
 import  { useState, useEffect } from 'react';
 import Table from "../../../Components/Table/Table"
-import Sidebar from '../Sidebar';
+import Sidebar from '../Sidebar/Sidebar';
 import Footer from "../../../Components/Footer/Footer";
 import API_ENDPOINT from '../../../utils/constants';
 import Header from '../../../Components/Header/header';
