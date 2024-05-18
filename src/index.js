@@ -15,6 +15,8 @@ import VerifyCode from "./Doctor/Pages/Auth/VerifyCode";
 import ResetPassword from "./Doctor/Pages/Auth/ResetPassword";
 import EmailVerfication from "./Doctor/Pages/Auth/EmailVerfication";
 import ApprovedReqs from "./Doctor/Pages/ApprovedReqs/ApprovedReqs";
+import Home from "./Doctor/Pages/homepage/Home"
+import PendingRequests from "./Doctor/Pages/Requests/PendingRequests";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -72,6 +74,16 @@ const router = createBrowserRouter([
   {
     path: "/approvedreqs",
     element: <ApprovedReqs />,
+    errorElement: <h1 style={{ color: "red" }}>Error...............</h1>,
+  },
+  {
+    path: "/home",
+    element: <Home />,
+    errorElement: <h1 style={{ color: "red" }}>Error...............</h1>,
+  },
+  {
+    path: "/pendingreq",
+    element: <PendingRequests />,
     errorElement: <h1 style={{ color: "red" }}>Error...............</h1>,
   },
 ]);

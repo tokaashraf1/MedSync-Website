@@ -1,0 +1,451 @@
+.home-body{
+  background-color: var(--gray);
+  /* background-color: rgb(235, 234, 234); */
+  /* background: linear-gradient(66.15deg, #4880FF -5.25%, #CEDBF8 35.43%, #0561FC 98.77%); */
+}
+.sec1-con{
+  /* Adjust it in responsive make it less */
+  /* margin-top: 130px; */
+  margin-top: 100px;
+  margin-left: 14%;
+
+}
+.welcome-section{
+  background: linear-gradient(66.15deg, #4880FF -5.25%, #CEDBF8 35.43%, #0561FC 98.77%);
+
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  height: 260px;
+  border-radius: 30px;
+  position: relative;
+  transition: transform .5s,
+}
+.welcome-section:hover,.complete-profile:hover{
+  transform: scale(1.01);
+}
+
+
+.clinic-section{
+background-color: white;
+
+border-radius: 30px;
+height: auto;
+/* remove it in responsive */
+transform: translateY(-35px);
+padding-bottom: 100px;
+}
+.welcome-section-txt{
+
+position: absolute;
+left: 10%;
+top: 18%;
+}
+.welcome-section-txt p{
+
+color: white;
+margin-top: 0px;
+font-size: 25px;
+}
+.with-line{
+font-size: 45px;
+
+}
+.with-line::after {
+  content: "";
+  display: block;
+  width: 55px; /* Adjust as needed */
+  border-bottom: 3px solid white; /* Adjust line color and thickness as needed */
+  margin-top: 5px; /* Adjust spacing */
+}
+.complete-profile{
+  width: 350px;
+  height: 200px;
+  /* background: linear-gradient(66.15deg, #4880FF -5.25%, #CEDBF8 35.43%, #0561FC 98.77%); */
+background-color: white;
+margin-left: 25px;
+margin-top: 25px;
+border-radius: 15px;
+box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+}
+.add-clinc-sec{
+  border-radius: 15px;
+  
+  transform: translate(-15px,0);
+}
+.patient-list-sec{
+overflow: auto;
+}
+.patient-list-sec h1,.add-clinc-sec h1{
+ color: black;
+ font-size: 25px;
+}
+.patient-list-sec img,.add-clinc-sec-content img{
+ border-radius: 50%;
+ width: 80px;
+ 
+}
+.patient-list-sec p,.add-clinc-sec-content p{
+margin-top: 20px;
+color: black;
+ 
+}
+.add-clinc-sec-content{
+  border: 4px solid var(--gray);
+  border-radius: 30px;
+  height: auto;
+  padding-bottom: 100px;
+
+}
+.add-clinc-sec h1::after{
+  content: "";
+  display: block;
+  width: 55px; /* Adjust as needed */
+  border-bottom: 3px solid black; /* Adjust line color and thickness as needed */
+  margin-top: 5px; /* Adjust spacing */
+}
+.cons-info{
+  width: 87%;
+  margin: auto;
+  background:linear-gradient(66.15deg, #4880FF -5.25%, #CEDBF8 35.43%, #0561FC 98.77%);
+  border-radius: 15px;
+  height: 4px;
+}
+.cons-info-p{
+  width: 87%;
+  margin: auto;
+  padding-bottom: 20px;
+}
+.cons-info-p p{
+color: gray;
+}
+
+.complete-profile-circle{
+  background:linear-gradient(66.15deg, #4880FF -5.25%, #CEDBF8 35.43%, #0561FC 98.77%);
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  /* animation: rotatecircle 2s linear infinite; */
+  border: 6px solid var(--gray);
+}
+ 
+@keyframes rotatecircle {
+  from {
+    transform: rotate(-10deg); /* Starting rotation */
+  }
+  to {
+    transform: rotate(10deg); /* Ending rotation */
+  }
+}
+
+.complete-profile-circle h1{
+margin-top: 25px;
+font-weight: 700;
+color: white;
+font-size: 25px;
+}
+.complete-profile p{
+/* margin-top: 25px; */
+color: black;
+font-size: 18px;
+}
+.complete-profile button{
+  border: none;
+  margin: auto;
+background-color: white;
+  color: var(--orange);
+  border-radius: 4px;
+  margin-left: 105px;
+transform: translate(0,-20px);
+}
+  
+
+.add-clinc-button button{
+  border: none;
+  border-radius: 5px;
+  height: 35px;
+  color: var(--blue);
+  background-color:#0560fc2e;
+
+}
+.add-clinic-popup{
+  
+}
+.add-clinic-popup h1{
+color: black;
+font-size: 25px;
+
+}
+.clincs-name{
+  margin-bottom: 10px;
+  overflow: auto;
+}
+.clincs-name div{
+background-color: white;
+margin: 5px;
+height: 40px;
+border-radius: 10px;
+width: 150px;
+display: flex;
+    justify-content: center;
+    align-items: center; 
+
+
+}
+.add-clinc-popup-content select,.add-clinc-popup-content input{
+margin-left: 30px;
+border: 1px solid var(--blue);
+width: 85%;
+border-radius: 5px;
+height: 30px;
+color: gray;
+}
+.add-clinc-popup-content label{
+color: black;
+}
+.home-add-clinc-popup-btn{
+  background-color: #0560fc46;
+  /* border: 1px solid var(--blue); */
+  border: none;
+  color: var(--blue);
+}
+/* calendar styles--------------------------------------------------------------------------------- */
+.react-calendar {
+  width: 350px;
+  max-width: 100%;
+  background: white;
+/* remove it in responsive */
+transform: translateX(10px);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.125em;
+  padding-bottom: 10px;
+  padding-bottom: 40px;
+  border-radius: 15px;
+  transition: transform .5s;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+
+.react-calendar:hover{
+  transform: scale(1.01);
+}
+
+.react-calendar--doubleView {
+  width: 700px;
+}
+
+.react-calendar--doubleView .react-calendar__viewContainer {
+  display: flex;
+  margin: -0.5em;
+}
+
+.react-calendar--doubleView .react-calendar__viewContainer > * {
+  width: 50%;
+  margin: 0.5em;
+}
+
+.react-calendar,
+.react-calendar *,
+.react-calendar *:before,
+.react-calendar *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.react-calendar button {
+  margin: 0;
+  border: 0;
+  outline: none;
+}
+
+.react-calendar button:enabled:hover {
+  cursor: pointer;
+}
+
+.react-calendar__navigation {
+  display: flex;
+  height: 44px;
+  margin-bottom: 1em;
+}
+
+.react-calendar__navigation button {
+  min-width: 44px;
+  background: none;
+}
+
+.react-calendar__navigation button:disabled {
+  background-color: #f0f0f0;
+}
+
+.react-calendar__navigation button:enabled:hover,
+.react-calendar__navigation button:enabled:focus {
+  background-color: #e6e6e6;
+}
+
+.react-calendar__month-view__weekdays {
+  text-align: center;
+  text-transform: uppercase;
+  font: inherit;
+  font-size: 0.75em;
+  font-weight: bold;
+}
+
+.react-calendar__month-view__weekdays__weekday {
+  padding: 0.5em;
+}
+
+.react-calendar__month-view__weekNumbers .react-calendar__tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: inherit;
+  font-size: 0.75em;
+  font-weight: bold;
+}
+
+.react-calendar__month-view__days__day--weekend {
+  color: #d10000;
+}
+
+.react-calendar__month-view__days__day--neighboringMonth,
+.react-calendar__decade-view__years__year--neighboringDecade,
+.react-calendar__century-view__decades__decade--neighboringCentury {
+  color: #757575;
+}
+
+.react-calendar__year-view .react-calendar__tile,
+.react-calendar__decade-view .react-calendar__tile,
+.react-calendar__century-view .react-calendar__tile {
+  padding: 2em 0.5em;
+}
+
+.react-calendar__tile {
+  max-width: 100%;
+  padding: 10px 6.6667px;
+  background: none;
+  text-align: center;
+  line-height: 16px;
+  font: inherit;
+  font-size: 0.833em;
+}
+
+.react-calendar__tile:disabled {
+  background-color: #f0f0f0;
+  color: #ababab;
+}
+
+.react-calendar__month-view__days__day--neighboringMonth:disabled,
+.react-calendar__decade-view__years__year--neighboringDecade:disabled,
+.react-calendar__century-view__decades__decade--neighboringCentury:disabled {
+  color: #cdcdcd;
+}
+
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+  background-color: #e6e6e6;
+}
+
+.react-calendar__tile--now {
+  background:  #0560fc46;
+}
+
+.react-calendar__tile--now:enabled:hover,
+.react-calendar__tile--now:enabled:focus {
+  background: #ffffa9;
+}
+
+.react-calendar__tile--hasActive {
+  background: #76baff;
+}
+
+.react-calendar__tile--hasActive:enabled:hover,
+.react-calendar__tile--hasActive:enabled:focus {
+  background: #a9d4ff;
+}
+
+.react-calendar__tile--active {
+  background: #006edc;
+  color: white;
+}
+
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+  background: #1087ff;
+}
+
+.react-calendar--selectRange .react-calendar__tile--hover {
+  background-color: #e6e6e6;
+}
+@media (max-width:1300px) {
+  .home-body{
+    padding-bottom: 350px;
+  }
+  
+  .react-calendar {
+    width: 300px;
+  }
+.complete-profile{
+  width: 300px;
+}
+} 
+@media (max-width:1200px) {
+
+  .react-calendar {
+    width: 250px;
+  }
+.complete-profile{
+  width: 250px;
+}
+
+} 
+@media (max-width:992px) {
+  .home-body{
+    padding-bottom: 300px;
+  }
+  .sec1-con{
+    margin-left: 1%;
+  
+  }
+  .react-calendar {
+    width: 230px;
+  }
+  .complete-profile{
+    width: 230px;
+  }
+  .complete-profile p,.complete-profile button{
+    font-size: 12px;
+  }
+  .welcome-section h1{
+    font-size: 40px;
+  }
+  .add-clinc-sec h1{
+    margin-top: 50px;
+  }
+}
+@media (max-width:768px) {
+  .complete-profile{
+    width: 95%;
+    margin-left: 0px;
+    transform: translate(0,-10px);
+  
+  }
+  .complete-profile p{
+    font-size: 20px;
+  }
+  .complete-profile button{
+    font-size: 16px;
+  }
+  .welcome-section{
+width:95%;
+  }
+.clinic-section{
+margin-top: 50px;
+width:95%;
+  }
+  .welcome-section h1{
+    font-size: 30px;
+  }
+  .home-body{
+    padding-bottom: 600px;
+  }
+}
