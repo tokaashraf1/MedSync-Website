@@ -8,7 +8,6 @@ import {ClinicsContext} from "../../../Contexts/ClinicsProvider"
 function ManageClincs() {
   const{clinics}=useContext(ClinicsContext);
   const { token } = useContext(SettingsContext);
-  // const [clinics, setClinics] = useState([]);
   const [street, setStreet] = useState("");
   const [description, setDescription] = useState("");
   const [workDays, setWorkDays] = useState("");
@@ -88,6 +87,7 @@ function ManageClincs() {
                       placeholder={region.country.english_name}
                       value={governorate}
                       onChange={(e) => setGovernorate(e.target.value)}
+                      className="form-control mt-1"
                     />
                   </div>
 
@@ -98,6 +98,7 @@ function ManageClincs() {
                       placeholder={region.region.english_name}
                       value={regions}
                       onChange={(e) => setRegions(e.target.value)}
+                      className="form-control mt-1"
                     />
                   </div>
                   <label className="d-block fs-6">Street</label>
@@ -106,6 +107,8 @@ function ManageClincs() {
                     placeholder={region.street}
                     value={street}
                     onChange={(e) => setStreet(e.target.value)}
+                    className="form-control mt-1"
+                  
                   />
                   <label className="d-block fs-6">description</label>
                   <input
@@ -113,6 +116,7 @@ function ManageClincs() {
                     placeholder={region.description}
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
+                    className="form-control mt-1"
                   />
                   <label className="d-block fs-6">Work Days:</label>
                   <input
@@ -120,6 +124,7 @@ function ManageClincs() {
                     placeholder={region.work_days}
                     value={workDays}
                     onChange={(e) => setWorkDays(e.target.value)}
+                    className="form-control mt-1"
                   />
                 </div>
                 <div className="popup-btns me-5 mt-4 d-flex justify-content-end">
