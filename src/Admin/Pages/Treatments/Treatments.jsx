@@ -1,14 +1,11 @@
 import React from 'react'
 import  { useState, useEffect } from 'react';
-import axios from 'axios';
-import Table from "../../components/Table/Table"
-import Search from "../../components/Search/Search"
-import Sidebar from '../../components/Sidebar/Sidebar';
+import Table from "../../../Components/Table/Table"
+import Sidebar from '../Sidebar/Sidebar';
 import Footer from "../../../Components/Footer/Footer";
-import API_ENDPOINT from '../../hooks/constants';
-import Header from '../../components/Header/Header';
+import API_ENDPOINT from '../../../utils/constants';
+import Header from '../../../Components/Header/header';
 function Treatments() {
-
   document.body.classList.add("patient-body");
   const [tableInfo, setTableInfo] = useState({
     columns: [],
@@ -21,9 +18,6 @@ function Treatments() {
     Adminrequest:false,
     location: "/treatments",
   });
-
-
-
   useEffect(() => {
     fetch(`${API_ENDPOINT}/api/admin/get/all/treatments`)
       .then((res) => res.json())
@@ -55,13 +49,9 @@ function Treatments() {
         filteredData: filteredData,
       });
   };
-
-
-
   return (
     <div>
       <Header initialScrolled ={true} initialEnableScroll ={false} page="admin" />
-  
       <Sidebar/>
       <Table tableInfo={tableInfo} handleSearch={handleSearch} />
     <Footer/>
