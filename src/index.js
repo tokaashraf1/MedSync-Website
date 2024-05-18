@@ -14,6 +14,7 @@ import QuestionsForm from "./Doctor/Pages/QuestionsForm/QuestionsForm";
 import VerifyCode from "./Doctor/Pages/Auth/VerifyCode";
 import ResetPassword from "./Doctor/Pages/Auth/ResetPassword";
 import EmailVerfication from "./Doctor/Pages/Auth/EmailVerfication";
+import ApprovedReqs from "./Doctor/Pages/ApprovedReqs/ApprovedReqs";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -66,6 +67,11 @@ const router = createBrowserRouter([
   {
     path: "/emailver",
     element: <EmailVerfication />,
+    errorElement: <h1 style={{ color: "red" }}>Error...............</h1>,
+  },
+  {
+    path: "/approvedreqs",
+    element: <ApprovedReqs />,
     errorElement: <h1 style={{ color: "red" }}>Error...............</h1>,
   },
 ]);
