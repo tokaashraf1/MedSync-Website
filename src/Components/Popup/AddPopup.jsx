@@ -46,7 +46,7 @@ function AddPopup({isAddPopup,tableInfo,setIsAddPopup}) {
 
 {isAddPopup && (
         <div className="popup-container " >    
-        <p className="position-absolute  fs-4 text-black "> <i className="fa fa-plus-circle me-2 fs-5" aria-hidden="true"></i>Add</p>
+        <p className="position-absolute  fs-4"> <i className="fa fa-plus-circle me-2 fs-5" aria-hidden="true"></i>Add</p>
         <br />
           {tableInfo.columns.map((column, i) => (
             column !== 'id' && (
