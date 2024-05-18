@@ -21,6 +21,7 @@ import Settings from "./Doctor/Pages/Settings/Settings";
 import Profile from "./Doctor/Pages/profile/Profile";
 import WaitingPage from "./Doctor/Pages/WaitingPage/WaitingPage";
 import AdminHome from "./Admin/Pages/AdminHome/AdminHome";
+import Diagnoses from "./Admin/Pages/diagnoses/Diagnoses";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
