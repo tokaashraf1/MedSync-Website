@@ -111,6 +111,11 @@ const router = createBrowserRouter([
     element: <AdminHome />,
     errorElement: <h1 style={{ color: "red" }}>Error...............</h1>,
   },
+  {
+    path: "/diagnoses",
+    element: <Diagnoses />,
+    errorElement: <h1 style={{ color: "red" }}>Error...............</h1>,
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
