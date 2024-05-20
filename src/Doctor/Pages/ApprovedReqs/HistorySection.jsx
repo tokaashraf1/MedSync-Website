@@ -9,7 +9,7 @@ import axios from 'axios'
 function HistorySection() {
   const {Userhistory,patientId}=useContext(PatientContext)
   const [selectedFilter, setSelectedFilter] = useState("All");
-  const [medicalSpeciality, setmedicalSpeciality] = useState(null);
+  // const [medicalSpeciality, setmedicalSpeciality] = useState(null);
   const [Diagnosis, setDiagnosis] = useState(null);
   const [LabTests, setLabTests] = useState(null);
   const [MedicationName, setMedicationName] = useState(null);
@@ -33,7 +33,7 @@ function HistorySection() {
     try {
       setLoading(true);
       const postData = {
-        medical_speciality_english:medicalSpeciality,
+        medical_speciality_english:specialtiesOption,
         diagnosis_name:Diagnosis,
         lab_tests: LabTests,
         medication_name: MedicationName,
