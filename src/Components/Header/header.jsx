@@ -81,7 +81,7 @@ function Header({ initialScrolled = false, initialEnableScroll = true ,page="lan
                   scrolled ? "text-blue " : "text-white " 
                 }`} onClick={()=>window.location.href="/#sec3"}
               >
-                Learn More
+                Explore
               </button>
               {page === "landing" && (
                 <div>
