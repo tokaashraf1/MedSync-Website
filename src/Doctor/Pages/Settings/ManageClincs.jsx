@@ -5,6 +5,7 @@ import API_ENDPOINT from "../../../utils/constants";
 import { useContext } from "react";
 import { SettingsContext } from "../../../Contexts/SettingProvider";
 import {ClinicsContext} from "../../../Contexts/ClinicsProvider"
+import {cairoenglishRegions,gizaenglishRegions,governorate} from "../../../utils/Data"
 function ManageClincs() {
   const{clinics}=useContext(ClinicsContext);
   const { token } = useContext(SettingsContext);
@@ -12,7 +13,7 @@ function ManageClincs() {
   const [description, setDescription] = useState("");
   const [workDays, setWorkDays] = useState("");
   const [regions, setRegions] = useState("");
-  const [governorate, setGovernorate] = useState("");
+  const [selectedgovernorate, setSelectedgovernorate] = useState("");
   const handleUpdateClick = async (id) => {
     const updateUrl = `${API_ENDPOINT}/api/doctor/update/workplace/${id}`; 
     try {
@@ -21,7 +22,7 @@ function ManageClincs() {
         {
           street: street,
           region: regions,
-          country: governorate,
+          country: selectedgovernorate,
           work_days: workDays,
           description: description,
         },
@@ -82,24 +83,49 @@ function ManageClincs() {
                 <div className="ms-2 ">
                   <div>
                     <label className="d-block fs-6"> Governorate:</label>
-                    <input
+                    {/* <input
                       type="text"
                       placeholder={region.country.english_name}
                       value={governorate}
                       onChange={(e) => setGovernorate(e.target.value)}
                       className="form-control mt-1"
-                    />
+                    /> */}
+                    <select
+                      value={selectedgovernorate}
+                      onChange={(e) => setSelectedgovernorate(e.target.value)}
+                      class="form-control mt-1"
+                      placeholder={region.country.english_name}
+                    >
+                      <option value="">{region.country.english_name}</option>
+                      {governorate.map((e) => (
+                        <option key={e} value={e}>
+                          {e}
+                        </option>
+                      ))}
+                    </select>
                   </div>
 
                   <div>
                     <label className="d-block fs-6"> Region:</label>
-                    <input
+                    {/* <input
                       type="text"
                       placeholder={region.region.english_name}
                       value={regions}
                       onChange={(e) => setRegions(e.target.value)}
                       className="form-control mt-1"
-                    />
+                    /> */}
+                      <select value={regions} onChange={(e) => setRegions(e.target.value)} class="form-control mt-1">
+            <option value="">{region.region.english_name}</option>
+            {selectedgovernorate === 'Cairo' ? (
+              cairoenglishRegions.map((region) => (
+                <option key={region} value={region}>{region}</option>
+              ))
+            ) : selectedgovernorate === 'Giza' ? (
+              gizaenglishRegions.map((region) => (
+                <option key={region} value={region}>{region}</option>
+              ))
+            ) : null}
+          </select>
                   </div>
                   <label className="d-block fs-6">Street</label>
                   <input
@@ -108,7 +134,6 @@ function ManageClincs() {
                     value={street}
                     onChange={(e) => setStreet(e.target.value)}
                     className="form-control mt-1"
-                  
                   />
                   <label className="d-block fs-6">description</label>
                   <input
