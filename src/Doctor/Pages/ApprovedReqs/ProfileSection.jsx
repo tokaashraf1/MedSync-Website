@@ -101,9 +101,14 @@ function ProfileSection() {
           </div>
         </div>
       </div >
+      
 <div className='position-absolute end-0 me-5 mt-5'>
-  <button className='border-0 text-gray me-3 ' onClick={handlePreviousClick} ><i className="fa fa-chevron-left" aria-hidden="true"></i></button>
-  <button className='border-0 text-gray' onClick={handleClick}><i className="fa fa-chevron-right" aria-hidden="true"></i></button>
+{userInfo && (
+  <div>
+    <button className='border-0 text-gray me-3 ' onClick={handlePreviousClick} ><i className="fa fa-chevron-left" aria-hidden="true"></i></button>
+    <button className='border-0 text-gray' onClick={handleClick}><i className="fa fa-chevron-right" aria-hidden="true"></i></button>
+  </div>
+)}
 </div>
 
         {loading && (

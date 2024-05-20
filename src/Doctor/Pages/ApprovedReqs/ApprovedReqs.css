@@ -45,7 +45,7 @@
   object-fit: cover; /* Ensures the image covers the entire container */
   object-position: center center; /* Centers the image within the container */
 }
-.add-medical-history input {
+.add-medical-history input ,.add-medical-history select {
   width: 50%;
 
 }
@@ -83,7 +83,7 @@
   .patient-info {
     margin-left: 8%;
   }
-  .add-medical-history input{
+  .add-medical-history input ,.add-medical-history select{
     width: 80%;
 
   }
