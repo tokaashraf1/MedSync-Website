@@ -1,6 +1,5 @@
 import React from 'react'
 import Diabetes from "../../../assets/imgs/diabtes.svg"
-import BloodType from "../../../assets/imgs/bloodtype.svg"
 import Bb from "../../../assets/imgs/bp.svg"
 import { useContext } from 'react'
 import { PatientContext } from '../../../Contexts/MedicalRecordContext'
