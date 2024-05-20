@@ -19,7 +19,7 @@ function AdminFooter() {
     <ul className='landing-footer-list'>
         <li><a href="" style={{fontWeight:"700" ,fontSize:"18px"}}>Discover</a></li>
         <li><a href="/#sec2">About us</a></li>
-        <li><a href="/#sec3">Learn More</a></li>
+        <li><a href="/#sec3">Explore</a></li>
     </ul> </div>
   <div className='col-md-3 mt-4 footer-links-con'><ul className='landing-footer-list'>
         <li><a href="" style={{fontWeight:"700" ,fontSize:"18px"}}>Account</a></li>

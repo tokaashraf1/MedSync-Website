@@ -28,7 +28,7 @@ function Footer() {
                 <a href="/#sec2">About us</a>
               </li>
               <li>
-                <a href="/#sec3">Learn More</a>
+                <a href="/#sec3">Explore</a>
               </li>
             </ul>{" "}
           </div>

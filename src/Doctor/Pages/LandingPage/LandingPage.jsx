@@ -80,7 +80,7 @@ function LandingPage() {
                   </p>
                 </div>
                 <button className="learn-more-btn" onClick={learnmoredown}>
-                  Learn more
+                Explore
                 </button>
               </div>
             </div>
