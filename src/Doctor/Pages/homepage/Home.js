@@ -24,7 +24,7 @@ function Home() {
   const [shouldRenderRegions, setShouldRenderRegions] = useState(false);
   const [street, setStreet] = useState('');
   const [description, setDescription] = useState('');
-  const [workDays, setWorkDays] = useState('');
+  const [days, setdays] = useState('');
   const [startHour, setstartHour] = useState('');
   const [EndHour, setEndHour] = useState('');
   const [Duration, setDuration] = useState('');
@@ -86,7 +86,7 @@ function Home() {
 
 
   
-      const [data, setData] = useState(null);
+    
 
   useEffect(() => {
     const apiUrl = `${API_ENDPOINT}/api/doctor/get/workplaces`;
@@ -118,30 +118,38 @@ function Home() {
   }, [token]); 
   
   const handleAddClinic = async () => {
+
+
     try {
       setLoading(true);
-      const postData = {
-        region:selectedRegion,
-        country:selectedGovernorate,
-        street: street,
-        description: description,
-        work_days: workDays.map(workDay => ({
-          day: workDays,
-          start_hour: startHour,
-          end_hour: EndHour
-        })),// Example work days
-      };
+      const data = {
+        "street": street,
+        "region": selectedRegion,
+        "country": selectedGovernorate,
+        "description": description,
+        "appointment_duration": Duration,
+        "work_days": [
+            {
+                "day": days,
+                "start_hour": startHour,
+                "end_hour": EndHour
+            }
+        ]
+    };
+
+  
 
       // Make the POST request using Axios
-      const response = await axios.post(`${API_ENDPOINT}/api/doctor/add/workplace`,postData, {
+      const response = await axios.post(`${API_ENDPOINT}/api/doctor/add/workplace`,data, {
         headers: {
           Authorization: `Bearer ${token}`, // Include the token in the Authorization header
           'Content-Type': 'application/json',
           Accept: 'application/json',
         },
+
       });
       console.log('Response:', response.data);
-      window.location.href="/home"
+      // window.location.href="/home"
     } catch (error) {
       // Handle errors if the request fails
       console.error('Error adding clinic:', error);
@@ -302,7 +310,7 @@ function Home() {
   <label htmlFor="">Appointment Duration</label>
   <input type="text" value={Duration} onChange={(e) => setDuration(e.target.value)} class="form-control" />
   <label htmlFor="">Work Days</label>
-  <input type="text" placeholder='e.g., Tuesday, Wednesday, Thursday,' value={workDays} onChange={(e) => setWorkDays(e.target.value)} class="form-control" />
+  <input type="text" placeholder='e.g., Tuesday, Wednesday, Thursday,' value={days} onChange={(e) => setdays(e.target.value)} class="form-control" />
   <label htmlFor="">Start Hour</label>
   <input type="text" placeholder='e.g.,7:00 AM' value={startHour} onChange={(e) => setstartHour(e.target.value)} class="form-control" />
   <label htmlFor="">End Hour</label>
