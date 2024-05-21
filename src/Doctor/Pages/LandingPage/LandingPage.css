@@ -100,7 +100,7 @@
   position: relative;
   z-index: 2;
   transition: transform 0.5s;
-  animation: rotate 2s linear infinite;
+  /* animation: rotate 2s linear infinite; */
 }
 .landing-img-2 img:hover {
   transform: rotate(-1deg);
