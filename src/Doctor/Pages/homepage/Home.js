@@ -25,6 +25,9 @@ function Home() {
   const [street, setStreet] = useState('');
   const [description, setDescription] = useState('');
   const [workDays, setWorkDays] = useState('');
+  const [startHour, setstartHour] = useState('');
+  const [EndHour, setEndHour] = useState('');
+  const [Duration, setDuration] = useState('');
   const [loading, setLoading] = useState(false); 
 
   //this will prevent an athunticated users 
@@ -122,7 +125,11 @@ function Home() {
         country:selectedGovernorate,
         street: street,
         description: description,
-        work_days: workDays, // Example work days
+        work_days: workDays.map(workDay => ({
+          day: workDays,
+          start_hour: startHour,
+          end_hour: EndHour
+        })),// Example work days
       };
 
       // Make the POST request using Axios
@@ -292,8 +299,14 @@ function Home() {
   <input type="text"  value={street} onChange={(e) => setStreet(e.target.value)} class="form-control"/>
   <label htmlFor="">description</label>
   <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} class="form-control" />
+  <label htmlFor="">Appointment Duration</label>
+  <input type="text" value={Duration} onChange={(e) => setDuration(e.target.value)} class="form-control" />
   <label htmlFor="">Work Days</label>
   <input type="text" placeholder='e.g., Tuesday, Wednesday, Thursday,' value={workDays} onChange={(e) => setWorkDays(e.target.value)} class="form-control" />
+  <label htmlFor="">Start Hour</label>
+  <input type="text" placeholder='e.g.,7:00 AM' value={startHour} onChange={(e) => setstartHour(e.target.value)} class="form-control" />
+  <label htmlFor="">End Hour</label>
+  <input type="text" placeholder='e.g., 9:30 PM' value={EndHour} onChange={(e) => setEndHour(e.target.value)} class="form-control" />
 
 
 
