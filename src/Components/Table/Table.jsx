@@ -135,6 +135,9 @@ function Table({tableInfo,handleSearch}) {
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
+  const formatCellValue = (value) => {
+    return value === null || value === undefined ? '--' : value;
+  };
   return (
   
     <div className='table-body'>
@@ -187,9 +190,9 @@ function Table({tableInfo,handleSearch}) {
           <tr key={rowIndex}>
             {visibleColumns.map((column, colIndex) => (
               <td key={colIndex} onClick={() => handleShowpopup(row)}>
-                {typeof row[column] === 'object'
-                  ? JSON.stringify(row[column])
-                  : row[column]}
+                {row[column] !== null && typeof row[column] === 'object'
+            ? JSON.stringify(row[column])
+            : formatCellValue(row[column])}
               </td>
             ))}
           
