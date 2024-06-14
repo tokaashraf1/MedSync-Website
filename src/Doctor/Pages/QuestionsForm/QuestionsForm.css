@@ -41,6 +41,10 @@ width: 80%;
   background-color:  rgb(242, 240, 240);
   border-radius: 5px;
 }
+.choose-photo{
+  width: 100%;
+  border: none;
+}
 .q-form-submit-btn{
   margin: auto;
   margin-top: 80px;
@@ -48,11 +52,17 @@ width: 80%;
   height: 35px;
   border: none;
   color:white;
-  background-color: rgb(58, 105, 244)
+  background-color:rgb(30, 93, 241);
+
 }
 @media (max-width:992px) {
   .doctors-q-form-con{
     width: 100%;
+  }  
+}
+@media (max-width:768px) {
+  .doctors-q-form-con{
+    padding-bottom: 220px;
   }  
 }
 @media (max-width:450px) {

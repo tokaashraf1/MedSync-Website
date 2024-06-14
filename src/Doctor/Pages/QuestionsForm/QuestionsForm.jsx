@@ -205,7 +205,7 @@ function DoctorQuestionsForm() {
                     ref={fileInputRef}
                     id="myFile"
                     name="filename"
-                    className="mt-4 choose-photo"
+                    className="mt-4 choose-photo "
                     onChange={handleFileChange}
                   />
                   <button
