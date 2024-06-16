@@ -22,9 +22,7 @@ function EditPopup({selectedRow ,setSelectedRow , visibleColumns ,tableInfo}) {
       } else {
         console.error('Error updating row:', response.status);
       }
-      // window.location.href = tableInfo.location;
-      setLoading(false); 
-      setSelectedRow(null);
+      window.location.href = tableInfo.location;
     } catch (error) {
       console.error('Error updating row:', error.message);
       console.log('Edited Row ID:', editedRow.id);
