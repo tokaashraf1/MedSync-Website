@@ -68,6 +68,26 @@ export const handleSignupForm = async (
   }
 };
 
+const getDoctorStatus = async (authToken) => {
+  try {
+    const response = await axios.get(`${API_ENDPOINT}/api/doctor/get/status`, {
+      headers: { 
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${authToken}`
+      },
+    });
+
+    if (response.data.approval_request.request_status === "approved") {
+      window.location.href = "/home";
+      // console.log(response.data.approval_request.request_status)
+    } else {
+      window.location.href = "/";
+    }
+  } catch (error) {
+    console.error("Error checking user status:", error);
+  }
+};
+
 export const handleLoginForm = async (formData, setErrors) => {
   try {
     const validationErrors = {};
@@ -102,11 +122,7 @@ export const handleLoginForm = async (formData, setErrors) => {
       localStorage.setItem("profileimg", profileimg);
 
       console.log(authToken);
-      if (response.data.user.status === "active") {
-        window.location.href = "/home";
-      } else {
-        window.location.href = "/";
-      }
+      getDoctorStatus(authToken);
     }
   } catch (error) {
     console.error("Registration failed:", error);
