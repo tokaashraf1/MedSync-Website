@@ -62,7 +62,7 @@ function PendingRequests() {
         .catch((error) => {
           console.error('Error fetching data:', error);
         });
-    }, []); // Empty dependency array since this effect should run once on mount
+    }, [tableInfo.rows]); // Empty dependency array since this effect should run once on mount
     
 
   const handleSearch = (filteredData) => {

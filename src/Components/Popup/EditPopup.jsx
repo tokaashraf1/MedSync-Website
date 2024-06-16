@@ -24,6 +24,7 @@ function EditPopup({selectedRow ,setSelectedRow , visibleColumns ,tableInfo}) {
       }
       // window.location.href = tableInfo.location;
       setLoading(false); 
+      setSelectedRow(null);
     } catch (error) {
       console.error('Error updating row:', error.message);
       console.log('Edited Row ID:', editedRow.id);
