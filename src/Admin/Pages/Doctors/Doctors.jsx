@@ -51,7 +51,7 @@ function Doctors() {
       .catch((error) => {
         console.error('Error fetching data:', error);
       });
-  }, []);
+  }, [tableInfo.rows]);
 
   const handleSearch = (filteredData) => {
     setTableInfo({
