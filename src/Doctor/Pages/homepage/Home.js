@@ -33,7 +33,7 @@ function Home() {
   const [EndHour, setEndHour] = useState("");
   const [Duration, setDuration] = useState("");
   const [loading, setLoading] = useState(false);
-  const { percent } = useContext(ClinicsContext);
+  const { percent,ptients,addclinic,handlePatientsSectionClick,handlClinicsSectionClick } = useContext(ClinicsContext);
 
   //this will prevent an athunticated users
 
@@ -192,6 +192,10 @@ function Home() {
         </div>
 
         <div className="col-md-8 clinic-section order-md-3 order-4">
+        <div className="d-flex justify-content-center mt-5 approve-patient-btns">
+          <button className={`${ptients? 'active-button shadow ' : ''}`}  onClick={handlePatientsSectionClick}>Patients</button>
+          <button className={`ms-2 bg-gray ${addclinic ? 'active-button shadow ' : ''}`} onClick={handlClinicsSectionClick}>history</button>
+        </div>
           <div className="row mt-5 ms-1">
             <div className="col-lg-6 patient-list-sec">
               <h1>Patient list</h1>

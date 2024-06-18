@@ -8,6 +8,18 @@ function ClinicsProvider({ children }) {
   const [clinics, setClinics] = useState([]);
   const [clinicsCount, setClinicsCount] = useState(0);
   const [percent, setPercent] = useState(); 
+  const [ptients, setPatients] = useState(true);
+  const [addclinic, setAddclinics] = useState(false);
+
+  const handlePatientsSectionClick = () => {
+    setPatients(true)
+    setAddclinics(false)
+  };
+  const handlClinicsSectionClick = () => {
+    setPatients(false)
+    setAddclinics(true)
+  };
+
 
   useEffect(() => {
     const authToken = localStorage.getItem("authToken");
@@ -62,7 +74,7 @@ function ClinicsProvider({ children }) {
 
 
   return (
-<ClinicsContext.Provider value={{clinics,clinicsCount,percent}}>
+<ClinicsContext.Provider value={{clinics,clinicsCount,percent,ptients,addclinic,handlePatientsSectionClick,handlClinicsSectionClick}}>
         {children}
     </ClinicsContext.Provider>
   )
