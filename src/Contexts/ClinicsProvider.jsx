@@ -7,6 +7,7 @@ function ClinicsProvider({ children }) {
   const[token,settoken]=useState(null)
   const [clinics, setClinics] = useState([]);
   const [clinicsCount, setClinicsCount] = useState(0);
+  const [percent, setPercent] = useState(); 
 
   useEffect(() => {
     const authToken = localStorage.getItem("authToken");
@@ -38,8 +39,30 @@ function ClinicsProvider({ children }) {
 
     fetchData();
   }, [token]);
+
+  useEffect(()=>{
+    const getPercentage = async () => {
+      try {
+        const response = await axios.get(`${API_ENDPOINT}/api/doctor/get/profile-completion`, {
+          headers: { 
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+          },
+        });
+    
+        console.log("kjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj",response.data.completion_percentage)
+        setPercent(response.data.completion_percentage)
+      } catch (error) {
+        console.error("Error checking user status:", error);
+      }
+    
+    };
+    getPercentage();
+   },[token]);
+
+
   return (
-<ClinicsContext.Provider value={{clinics,clinicsCount}}>
+<ClinicsContext.Provider value={{clinics,clinicsCount,percent}}>
         {children}
     </ClinicsContext.Provider>
   )
