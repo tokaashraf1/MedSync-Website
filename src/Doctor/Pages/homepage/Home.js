@@ -82,8 +82,25 @@ function Home() {
   };
 
 
-  
 
+ useEffect(()=>{
+  const getPercentage = async () => {
+    try {
+      const response = await axios.get(`${API_ENDPOINT}/api/doctor/get/profile-completion`, {
+        headers: { 
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
+        },
+      });
+  
+      console.log("kjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj",response.data.completion_percentage)
+    } catch (error) {
+      console.error("Error checking user status:", error);
+    }
+  
+  };
+  getPercentage();
+ },[token]);
 
   
     
