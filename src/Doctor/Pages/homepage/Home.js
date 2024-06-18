@@ -29,6 +29,7 @@ function Home() {
   const [EndHour, setEndHour] = useState('');
   const [Duration, setDuration] = useState('');
   const [loading, setLoading] = useState(false); 
+  const [percent, setPercent] = useState(); 
 
   //this will prevent an athunticated users 
 
@@ -94,6 +95,7 @@ function Home() {
       });
   
       console.log("kjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj",response.data.completion_percentage)
+      setPercent(response.data.completion_percentage)
     } catch (error) {
       console.error("Error checking user status:", error);
     }
@@ -272,7 +274,7 @@ function Home() {
   <div className="row mt-5 ms-2">
     <div className='col-6 complete-profile-circle'>
     <div className='text-center '>
-        <h1>80%</h1>
+        <h1> {percent}</h1>
     </div>
     </div>
 
