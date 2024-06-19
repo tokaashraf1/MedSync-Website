@@ -5,6 +5,8 @@ import Loading from '../../../Components/Loading/Loading'
 import API_ENDPOINT from '../../../utils/constants';
 import {specialties} from "../../../utils/Data"
 import axios from 'axios'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function HistorySection() {
   const {Userhistory,patientId}=useContext(PatientContext)
@@ -38,7 +40,6 @@ function HistorySection() {
         lab_tests: LabTests,
         medication_name: MedicationName,
       };
-
       // Make the POST request using Axios
       const response = await axios.post(`${API_ENDPOINT}/api/doctor/add-record/${patientId}`,postData, {
         headers: {
@@ -48,10 +49,20 @@ function HistorySection() {
         },
       });
       console.log('Response:', response.data);
-      window.location.href="/approvedreqs"
+      toast.success(' Medical Record added successfully', {
+        position: "bottom-right",
+        autoClose: 2000,
+        });
+        setTimeout(() => {
+          window.location.href = "/approvedreqs";
+        }, 3000);
     } catch (error) {
       // Handle errors if the request fails
       console.error('Error adding clinic:', error);
+      toast.error(' Please Try Again', {
+        position: "bottom-right",
+        autoClose: 4000,
+        });
       setLoading(false); 
     }
   };  
