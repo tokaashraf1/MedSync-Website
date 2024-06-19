@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import API_ENDPOINT from "../../../utils/constants";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {
   cairoenglishRegions,
   gizaenglishRegions,
@@ -59,10 +61,18 @@ function AddClinicSection() {
       );
       console.log("Response:", response.data);
       setLoading(false);
+      toast.success(' Clinic added successfully', {
+        position: "bottom-right",
+        autoClose: 4000,
+        });
       // window.location.href="/home"
     } catch (error) {
       console.error("Error adding clinic:", error);
       setLoading(false);
+      toast.error(' Please fill in all fields!', {
+        position: "bottom-right",
+        autoClose: 4000,  
+        });
     }
   };
   const handleAddWorkDayFields = () => {

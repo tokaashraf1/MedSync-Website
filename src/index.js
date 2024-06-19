@@ -33,6 +33,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Requests from "./Admin/Pages/Requests/Requests";
 import Vaccines from "./Admin/Pages/vaccines/Vaccines";
 import AdminLogin from "./Admin/Pages/adminLogin/AdminLogin";
+import { ToastContainer, toast } from 'react-toastify';
 
 
 const router = createBrowserRouter([
@@ -192,5 +193,6 @@ root.render(
           </AuthProvider>
         </SettingsProvider>
       </MedicalRecordContext>
+      <ToastContainer />
   </React.StrictMode>
 );
