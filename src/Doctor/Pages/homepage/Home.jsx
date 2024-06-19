@@ -12,7 +12,6 @@ import Header from "../../../Components/Header/header";
 import { ClinicsContext } from "../../../Contexts/ClinicsProvider";
 import PatientsList from "./PatientsList";
 import AddClinicSection from "./AddClinicSection";
-
 function Home() {
   document.body.classList.add("home-body");
   document.body.classList.add("doctors-q-body");
@@ -21,10 +20,14 @@ function Home() {
   const [token, settoken] = useState();
   const [regions, setRegions] = useState([]);
   const [shouldRenderRegions, setShouldRenderRegions] = useState(false);
-  const { percent,ptients,addclinic,handlePatientsSectionClick,handlClinicsSectionClick } = useContext(ClinicsContext);
-
+  const {
+    percent,
+    ptients,
+    addclinic,
+    handlePatientsSectionClick,
+    handlClinicsSectionClick,
+  } = useContext(ClinicsContext);
   //this will prevent an athunticated users
-
   // useEffect(() => {
   //   var authToken = localStorage.getItem('authToken');
   //   if (authToken !== undefined || authToken !== null || authToken !== '') {
@@ -53,7 +56,7 @@ function Home() {
     const fetchData = async () => {
       if (!token) {
         console.error("API token is missing!");
-        return; 
+        return;
       }
       try {
         const response = await axios.get(apiUrl, {
@@ -63,7 +66,6 @@ function Home() {
             Accept: "application/json",
           },
         });
-
         setRegions(response.data.workplaces);
         console.log("kkkkkkkkkkkk");
         setShouldRenderRegions(true);
@@ -73,7 +75,7 @@ function Home() {
     };
 
     fetchData();
-  }, [token ,regions]);
+  }, [token, regions]);
 
   return (
     <div>
@@ -82,15 +84,8 @@ function Home() {
         initialEnableScroll={false}
         page="doctor"
       />
-    
       <div className="row sec1-con">
-        {/* <div className='clincs-name row'>
-  <div className='col-3'>nasr city clinic</div>
-  <div className='col-3'>b</div>
-</div> */}
-
         <div>
-          {/* Conditionally render regions based on shouldRenderRegions state */}
           {shouldRenderRegions && regions && regions.length > 0 && (
             <div className="clincs-name row">
               {regions.map((region, index) => (
@@ -101,35 +96,44 @@ function Home() {
             </div>
           )}
         </div>
-
         <div className="col-md-8 welcome-section order-md-1 order-1">
           <div className="welcome-section-txt">
             <div className="row">
               <h1 style={{ color: "white" }} className="with-line col-8 ">
                 Welcome Dr.{username}
               </h1>
-              <img className="col-3 d-none d-md-block" src={doctorhome} />
+              <img
+                className="col-3 d-none d-md-block"
+                src={doctorhome}
+                alt=""
+              />
             </div>
           </div>
         </div>
         <div className="col-md-4 d-none d-md-block order-md-2 ">
           <Calendar />
         </div>
-
         <div className="col-md-8 clinic-section order-md-3 order-4">
-        <div className="d-flex justify-content-center mt-5 approve-patient-btns">
-          <button className={`${ptients? 'homePageBtns shadow ' : ''}`}  onClick={handlePatientsSectionClick}>Patients</button>
-          <button className={`ms-2 bg-gray ${addclinic ? 'homePageBtns shadow ' : ''}`} onClick={handlClinicsSectionClick}> Clinics</button>
+          <div className="d-flex justify-content-center mt-5 approve-patient-btns">
+            <button
+              className={`${ptients ? "homePageBtns shadow " : ""}`}
+              onClick={handlePatientsSectionClick}
+            >
+              Patients
+            </button>
+            <button
+              className={`ms-2 bg-gray ${
+                addclinic ? "homePageBtns shadow " : ""
+              }`}
+              onClick={handlClinicsSectionClick}
+            >
+              {" "}
+              Clinics
+            </button>
+          </div>
+          {ptients && <PatientsList />}
+          {addclinic && <AddClinicSection />}
         </div>
-        {ptients&&(
-<PatientsList/>
-        )}
-        {addclinic&&(
-<AddClinicSection/>
-        )}
-
-        </div>
-
         <div className="col-md-4 complete-profile order-md-4 order-3">
           <div className="row mt-5 ms-2">
             <div className="col-6 complete-profile-circle">
@@ -137,7 +141,6 @@ function Home() {
                 <h1> {percent}</h1>
               </div>
             </div>
-
             <div className="col-6">
               <p>Profile Informations</p>
             </div>
@@ -151,7 +154,7 @@ function Home() {
               <i class="fa fa-arrow-right" aria-hidden="true"></i>
             </button>
           </div>
-        </div>      
+        </div>
       </div>
       <Sidebar />
       <Footer />
