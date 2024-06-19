@@ -16,7 +16,6 @@ import AddClinicSection from "./AddClinicSection";
 function Home() {
   document.body.classList.add("home-body");
   document.body.classList.add("doctors-q-body");
-  const [ispopup, setIspopup] = useState(false);
   const [username, setUsername] = useState(false);
   const [profileimg, setprofileimg] = useState();
   const [token, settoken] = useState();
@@ -33,11 +32,6 @@ function Home() {
   //   window.location.href="/"
   //   }
   // }, []);
-
-  const [selectedGovernorate, setSelectedGovernorate] = useState("");
-  const [selectedRegion, setSelectedRegion] = useState("");
-
-
   useEffect(() => {
     const authToken = localStorage.getItem("authToken");
     settoken(authToken);
