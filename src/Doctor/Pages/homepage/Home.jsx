@@ -9,11 +9,6 @@ import doctorhome from "../../../assets/imgs/doctorhome.svg";
 import axios from "axios";
 import API_ENDPOINT from "../../../utils/constants";
 import Header from "../../../Components/Header/header";
-import {
-  cairoenglishRegions,
-  gizaenglishRegions,
-  governorate,
-} from "../../../utils/Data";
 import { ClinicsContext } from "../../../Contexts/ClinicsProvider";
 import PatientsList from "./PatientsList";
 import AddClinicSection from "./AddClinicSection";
@@ -27,13 +22,6 @@ function Home() {
   const [token, settoken] = useState();
   const [regions, setRegions] = useState([]);
   const [shouldRenderRegions, setShouldRenderRegions] = useState(false);
-  const [street, setStreet] = useState("");
-  const [description, setDescription] = useState("");
-  const [days, setdays] = useState("");
-  const [startHour, setstartHour] = useState("");
-  const [EndHour, setEndHour] = useState("");
-  const [Duration, setDuration] = useState("");
-  const [loading, setLoading] = useState(false);
   const { percent,ptients,addclinic,handlePatientsSectionClick,handlClinicsSectionClick } = useContext(ClinicsContext);
 
   //this will prevent an athunticated users
@@ -48,21 +36,7 @@ function Home() {
 
   const [selectedGovernorate, setSelectedGovernorate] = useState("");
   const [selectedRegion, setSelectedRegion] = useState("");
-  const region =
-    selectedGovernorate === "Cairo"
-      ? cairoenglishRegions
-      : selectedGovernorate === "Giza"
-      ? gizaenglishRegions
-      : [];
 
-  const handleGovernorateChange = (e) => {
-    setSelectedGovernorate(e.target.value);
-    setSelectedRegion("");
-  };
-
-  const handleRegionChange = (e) => {
-    setSelectedRegion(e.target.value);
-  };
 
   useEffect(() => {
     const authToken = localStorage.getItem("authToken");
@@ -80,19 +54,13 @@ function Home() {
     setprofileimg(profileimg);
   }, []);
 
-  const addClinicButtonClick = () => {
-    setIspopup(true);
-  };
-
   useEffect(() => {
     const apiUrl = `${API_ENDPOINT}/api/doctor/get/workplaces`;
     const fetchData = async () => {
-      // Check if API_TOKEN exists before making the API request
       if (!token) {
         console.error("API token is missing!");
-        return; // Exit early if token is missing
+        return; 
       }
-
       try {
         const response = await axios.get(apiUrl, {
           headers: {
@@ -112,45 +80,6 @@ function Home() {
 
     fetchData();
   }, [token ,regions]);
-
-  const handleAddClinic = async () => {
-    try {
-      setLoading(true);
-      const data = {
-        street: street,
-        region: selectedRegion,
-        country: selectedGovernorate,
-        description: description,
-        appointment_duration: Duration,
-        work_days: [
-          {
-            day: days,
-            start_hour: startHour,
-            end_hour: EndHour,
-          },
-        ],
-      };
-
-      // Make the POST request using Axios
-      const response = await axios.post(
-        `${API_ENDPOINT}/api/doctor/add/workplace`,
-        data,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`, // Include the token in the Authorization header
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-        }
-      );
-      console.log("Response:", response.data);
-      // window.location.href="/home"
-    } catch (error) {
-      // Handle errors if the request fails
-      console.error("Error adding clinic:", error);
-      setLoading(false);
-    }
-  };
 
   return (
     <div>
@@ -228,125 +157,8 @@ function Home() {
               <i class="fa fa-arrow-right" aria-hidden="true"></i>
             </button>
           </div>
-        </div>
-
-        {ispopup && (
-          <div className="popup-container">
-            <div className="text-center add-clinic-popup">
-              <h1 className="mt-3">
-                <i class="fa fa-hospital-o" aria-hidden="true"></i> Add Clinck
-              </h1>
-              <div className="mt-3 cons-info "></div>
-            </div>
-            <div className="mt-3 add-clinc-popup-content">
-              <label> Governorate:</label>
-              <select
-                value={selectedGovernorate}
-                onChange={handleGovernorateChange}
-                class="form-control"
-              >
-                <option value="">select Governorate</option>
-                {governorate.map((g) => (
-                  <option key={g} value={g}>
-                    {g}
-                  </option>
-                ))}
-              </select>
-
-              <div>
-                <label> Region:</label>
-                <select
-                  value={selectedRegion}
-                  onChange={(e) => setSelectedRegion(e.target.value)}
-                  class="form-control"
-                >
-                  <option value="">select Region</option>
-                  {selectedGovernorate === "Cairo"
-                    ? cairoenglishRegions.map((region) => (
-                        <option key={region} value={region}>
-                          {region}
-                        </option>
-                      ))
-                    : selectedGovernorate === "Giza"
-                    ? gizaenglishRegions.map((region) => (
-                        <option key={region} value={region}>
-                          {region}
-                        </option>
-                      ))
-                    : null}
-                </select>
-              </div>
-              <label htmlFor="">Street</label>
-              <input
-                type="text"
-                value={street}
-                onChange={(e) => setStreet(e.target.value)}
-                class="form-control"
-              />
-              <label htmlFor="">description</label>
-              <input
-                type="text"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-                class="form-control"
-              />
-              <label htmlFor="">Appointment Duration</label>
-              <input
-                type="text"
-                value={Duration}
-                onChange={(e) => setDuration(e.target.value)}
-                class="form-control"
-              />
-              <label htmlFor="">Work Days</label>
-              <input
-                type="text"
-                placeholder="e.g., Tuesday, Wednesday, Thursday,"
-                value={days}
-                onChange={(e) => setdays(e.target.value)}
-                class="form-control"
-              />
-              <label htmlFor="">Start Hour</label>
-              <input
-                type="text"
-                placeholder="e.g.,7:00 AM"
-                value={startHour}
-                onChange={(e) => setstartHour(e.target.value)}
-                class="form-control"
-              />
-              <label htmlFor="">End Hour</label>
-              <input
-                type="text"
-                placeholder="e.g., 9:30 PM"
-                value={EndHour}
-                onChange={(e) => setEndHour(e.target.value)}
-                class="form-control"
-              />
-            </div>
-            <div className="popup-btns me-5 mt-4 d-flex justify-content-end">
-              <button
-                onClick={handleAddClinic}
-                className="home-add-clinc-popup-btn me-3"
-              >
-                Add+
-              </button>
-              <button
-                onClick={() => setIspopup(false)}
-                className="delete-cancel"
-              >
-                Cancel
-              </button>
-            </div>
-          </div>
-        )}
-      
+        </div>      
       </div>
-
-      {loading && (
-        <div className="loading-popup">
-          <div class="load"></div>
-        </div>
-      )}
-
       <Sidebar />
       <Footer />
     </div>
