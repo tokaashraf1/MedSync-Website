@@ -207,7 +207,7 @@ function AddClinicSection() {
           </button>
         </div>
         <div className="popup-btns me-5 mt-4 d-flex justify-content-end">
-          <button onClick={handleAddClinic} className="active-button px-3">
+          <button onClick={handleAddClinic} className="active-button px-3 py-1 rounded-4">
             Send
           </button>
         </div>
