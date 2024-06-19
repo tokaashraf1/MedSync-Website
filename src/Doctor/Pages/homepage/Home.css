@@ -1,53 +1,54 @@
-.home-body{
+.home-body {
   background-color: var(--gray);
   /* background-color: rgb(235, 234, 234); */
   /* background: linear-gradient(66.15deg, #4880FF -5.25%, #CEDBF8 35.43%, #0561FC 98.77%); */
 }
-.sec1-con{
+.sec1-con {
   /* Adjust it in responsive make it less */
   /* margin-top: 130px; */
   margin-top: 100px;
   margin-left: 14%;
-
 }
-.welcome-section{
-  background: linear-gradient(66.15deg, #4880FF -5.25%, #CEDBF8 35.43%, #0561FC 98.77%);
+.welcome-section {
+  background: linear-gradient(
+    66.15deg,
+    #4880ff -5.25%,
+    #cedbf8 35.43%,
+    #0561fc 98.77%
+  );
 
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   height: 260px;
   border-radius: 30px;
   position: relative;
-  transition: transform .5s,
+  transition: transform 0.5s;
 }
-.welcome-section:hover,.complete-profile:hover{
+.welcome-section:hover,
+.complete-profile:hover {
   transform: scale(1.01);
 }
 
+.clinic-section {
+  background-color: white;
 
-.clinic-section{
-background-color: white;
-
-border-radius: 30px;
-height: auto;
-/* remove it in responsive */
-transform: translateY(-35px);
-padding-bottom: 100px;
+  border-radius: 30px;
+  height: auto;
+  /* remove it in responsive */
+  transform: translateY(-35px);
+  padding-bottom: 100px;
 }
-.welcome-section-txt{
-
-position: absolute;
-left: 10%;
-top: 18%;
+.welcome-section-txt {
+  position: absolute;
+  left: 10%;
+  top: 18%;
 }
-.welcome-section-txt p{
-
-color: white;
-margin-top: 0px;
-font-size: 25px;
+.welcome-section-txt p {
+  color: white;
+  margin-top: 0px;
+  font-size: 25px;
 }
-.with-line{
-font-size: 45px;
-
+.with-line {
+  font-size: 45px;
 }
 .with-line::after {
   content: "";
@@ -56,78 +57,88 @@ font-size: 45px;
   border-bottom: 3px solid white; /* Adjust line color and thickness as needed */
   margin-top: 5px; /* Adjust spacing */
 }
-.complete-profile{
+.complete-profile {
   width: 350px;
   height: 200px;
   /* background: linear-gradient(66.15deg, #4880FF -5.25%, #CEDBF8 35.43%, #0561FC 98.77%); */
-background-color: white;
-margin-left: 25px;
-margin-top: 25px;
-border-radius: 15px;
-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-
-}
-.add-clinc-sec{
+  background-color: white;
+  margin-left: 25px;
+  margin-top: 25px;
   border-radius: 15px;
-  
-  transform: translate(-15px,0);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
-.patient-list-sec{
-overflow: auto;
+.add-clinc-sec {
+  border-radius: 15px;
+
+  transform: translate(-15px, 0);
 }
-.patient-list-sec h1,.add-clinc-sec h1{
- color: black;
- font-size: 25px;
+.patient-list-sec {
+  overflow: auto;
 }
-.patient-list-sec img,.add-clinc-sec-content img{
- border-radius: 50%;
- width: 80px;
- 
+.patient-list-sec h1,
+.add-clinc-sec h1 {
+  color: black;
+  font-size: 25px;
 }
-.patient-list-sec p,.add-clinc-sec-content p{
-margin-top: 20px;
-color: black;
- 
+.patient-list-sec img,
+.add-clinc-sec-content img {
+  border-radius: 50%;
+  width: 80px;
 }
-.add-clinc-sec-content{
+.patient-list-sec p,
+.add-clinc-sec-content p {
+  margin-top: 20px;
+  color: black;
+}
+.add-clinc-sec-content {
   border: 4px solid var(--gray);
   border-radius: 30px;
   height: auto;
   padding-bottom: 100px;
-
 }
-.add-clinc-sec h1::after , .new-clinic:after{
+.add-clinc-sec h1::after,
+.new-clinic:after {
   content: "";
   display: block;
   width: 55px; /* Adjust as needed */
   border-bottom: 3px solid black; /* Adjust line color and thickness as needed */
   margin-top: 5px; /* Adjust spacing */
 }
-.cons-info{
+.cons-info {
   width: 87%;
   margin: auto;
-  background:linear-gradient(66.15deg, #4880FF -5.25%, #CEDBF8 35.43%, #0561FC 98.77%);
+  background: linear-gradient(
+    66.15deg,
+    #4880ff -5.25%,
+    #cedbf8 35.43%,
+    #0561fc 98.77%
+  );
   border-radius: 15px;
   height: 4px;
 }
-.cons-info-p{
+.cons-info-p {
   width: 87%;
   margin: auto;
   padding-bottom: 20px;
 }
-.cons-info-p p{
-color: gray;
+.cons-info-p p {
+  color: gray;
 }
 
-.complete-profile-circle{
-  background:linear-gradient(66.15deg, #4880FF -5.25%, #CEDBF8 35.43%, #0561FC 98.77%);
+.complete-profile-circle {
+  background: linear-gradient(
+    66.15deg,
+    #4880ff -5.25%,
+    #cedbf8 35.43%,
+    #0561fc 98.77%
+  );
   width: 90px;
   height: 90px;
   border-radius: 50%;
   /* animation: rotatecircle 2s linear infinite; */
   border: 6px solid var(--gray);
 }
- 
+
 @keyframes rotatecircle {
   from {
     transform: rotate(-10deg); /* Starting rotation */
@@ -137,71 +148,63 @@ color: gray;
   }
 }
 
-.complete-profile-circle h1{
-margin-top: 25px;
-font-weight: 700;
-color: white;
-font-size: 25px;
+.complete-profile-circle h1 {
+  margin-top: 25px;
+  font-weight: 700;
+  color: white;
+  font-size: 25px;
 }
-.complete-profile p{
-/* margin-top: 25px; */
-color: black;
-font-size: 18px;
+.complete-profile p {
+  /* margin-top: 25px; */
+  color: black;
+  font-size: 18px;
 }
-.complete-profile button{
+.complete-profile button {
   border: none;
   margin: auto;
-background-color: white;
+  background-color: white;
   color: var(--orange);
   border-radius: 4px;
   margin-left: 105px;
-transform: translate(0,-20px);
+  transform: translate(0, -20px);
 }
-  
 
-.add-clinc-button button{
+.add-clinc-button button {
   border: none;
   border-radius: 5px;
   height: 35px;
   color: var(--blue);
-  background-color:#0560fc2e;
-
+  background-color: #0560fc2e;
 }
-.add-clinic-popup{
-  
+.add-clinic-popup h1 {
+  color: black;
+  font-size: 25px;
 }
-.add-clinic-popup h1{
-color: black;
-font-size: 25px;
-
-}
-.clincs-name{
+.clincs-name {
   margin-bottom: 10px;
   overflow: auto;
 }
-.clincs-name div{
-background-color: white;
-margin: 5px;
-height: 40px;
-border-radius: 10px;
-width: auto;
-display: flex;
-    justify-content: center;
-    align-items: center; 
-
-
+.clincs-name div {
+  background-color: white;
+  margin: 5px;
+  height: 40px;
+  border-radius: 10px;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.add-clinc-popup-content select,.add-clinc-popup-content input{
-margin-left: 30px;
+.add-clinc-popup-content select,
+.add-clinc-popup-content input {
+  margin-left: 30px;
 
-width: 85%;
-border: 1px solid #ced4da;
-
+  width: 85%;
+  border: 1px solid #ced4da;
 }
-.add-clinc-popup-content label{
-color: black;
+.add-clinc-popup-content label {
+  color: black;
 }
-.home-add-clinc-popup-btn{
+.home-add-clinc-popup-btn {
   background-color: #0560fc46;
   /* border: 1px solid var(--blue); */
   border: none;
@@ -212,19 +215,18 @@ color: black;
   width: 350px;
   max-width: 100%;
   background: white;
-/* remove it in responsive */
-transform: translateX(10px);
+  /* remove it in responsive */
+  transform: translateX(10px);
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.125em;
   padding-bottom: 10px;
   padding-bottom: 40px;
   border-radius: 15px;
-  transition: transform .5s;
+  transition: transform 0.5s;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-
-.react-calendar:hover{
+.react-calendar:hover {
   transform: scale(1.01);
 }
 
@@ -345,7 +347,7 @@ transform: translateX(10px);
 }
 
 .react-calendar__tile--now {
-  background:  #0560fc46;
+  background: #0560fc46;
 }
 
 .react-calendar__tile--now:enabled:hover,
@@ -375,94 +377,100 @@ transform: translateX(10px);
 .react-calendar--selectRange .react-calendar__tile--hover {
   background-color: #e6e6e6;
 }
-.homePageBtns{
-  background: linear-gradient(66.15deg, #4880FF -5.25%, #CEDBF8 35.43%, #0561FC 98.77%);
+.homePageBtns {
+  background: linear-gradient(
+    66.15deg,
+    #4880ff -5.25%,
+    #cedbf8 35.43%,
+    #0561fc 98.77%
+  );
   color: white;
   font-weight: 500;
 }
-@media (max-width:1300px) {
-  .home-body{
+@media (max-width: 1300px) {
+  .home-body {
     padding-bottom: 350px;
   }
-  
+
   .react-calendar {
     width: 300px;
   }
-.complete-profile{
-  width: 300px;
+  .complete-profile {
+    width: 300px;
+  }
 }
-} 
-@media (max-width:1200px) {
-
+@media (max-width: 1200px) {
   .react-calendar {
     width: 250px;
   }
-.complete-profile{
-  width: 250px;
+  .complete-profile {
+    width: 250px;
+  }
 }
-
-} 
-.add-clinic-section input ,.add-clinic-section select ,.add-clinic-section hr{
-width: 70%;
+.add-clinic-section input,
+.add-clinic-section select,
+.add-clinic-section hr {
+  width: 70%;
 }
-.days-check input{
+.days-check input {
   width: 1em;
 }
-@media (max-width:992px) {
-  .home-body{
+@media (max-width: 992px) {
+  .home-body {
     padding-bottom: 300px;
   }
-  .sec1-con{
+  .sec1-con {
     margin-left: 1%;
-  
   }
   .react-calendar {
     width: 230px;
   }
-  .complete-profile{
+  .complete-profile {
     width: 230px;
   }
-  .complete-profile p,.complete-profile button{
+  .complete-profile p,
+  .complete-profile button {
     font-size: 12px;
   }
-  .welcome-section h1{
+  .welcome-section h1 {
     font-size: 40px;
   }
-  .add-clinc-sec h1{
+  .add-clinc-sec h1 {
     margin-top: 50px;
   }
 }
-@media (max-width:768px) {
-  .complete-profile{
+@media (max-width: 768px) {
+  .complete-profile {
     width: 95%;
     margin-left: 0px;
-    transform: translate(0,-10px);
-  
+    transform: translate(0, -10px);
   }
-  .complete-profile p{
+  .complete-profile p {
     font-size: 20px;
   }
-  .complete-profile button{
+  .complete-profile button {
     font-size: 16px;
   }
-  .welcome-section{
-width:95%;
+  .welcome-section {
+    width: 95%;
   }
-.clinic-section{
-margin-top: 50px;
-width:95%;
+  .clinic-section {
+    margin-top: 50px;
+    width: 95%;
   }
-  .welcome-section h1{
+  .welcome-section h1 {
     font-size: 30px;
   }
-  .home-body{
+  .home-body {
     padding-bottom: 600px;
   }
-  
-  .add-clinic-section input ,.add-clinic-section select,.add-clinic-section hr{
+
+  .add-clinic-section input,
+  .add-clinic-section select,
+  .add-clinic-section hr {
     width: 90%;
-    }
-    .days-check input{
-      width: 1em;
-    }
+  }
+  .days-check input {
+    width: 1em;
+  }
 }
