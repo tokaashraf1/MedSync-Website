@@ -96,7 +96,7 @@ color: black;
   padding-bottom: 100px;
 
 }
-.add-clinc-sec h1::after{
+.add-clinc-sec h1::after , .new-clinic:after{
   content: "";
   display: block;
   width: 55px; /* Adjust as needed */
@@ -375,6 +375,11 @@ transform: translateX(10px);
 .react-calendar--selectRange .react-calendar__tile--hover {
   background-color: #e6e6e6;
 }
+.homePageBtns{
+  background: linear-gradient(66.15deg, #4880FF -5.25%, #CEDBF8 35.43%, #0561FC 98.77%);
+  color: white;
+  font-weight: 500;
+}
 @media (max-width:1300px) {
   .home-body{
     padding-bottom: 350px;
@@ -397,6 +402,12 @@ transform: translateX(10px);
 }
 
 } 
+.add-clinic-section input ,.add-clinic-section select ,.add-clinic-section hr{
+width: 70%;
+}
+.days-check input{
+  width: 1em;
+}
 @media (max-width:992px) {
   .home-body{
     padding-bottom: 300px;
@@ -447,4 +458,11 @@ width:95%;
   .home-body{
     padding-bottom: 600px;
   }
+  
+  .add-clinic-section input ,.add-clinic-section select,.add-clinic-section hr{
+    width: 90%;
+    }
+    .days-check input{
+      width: 1em;
+    }
 }

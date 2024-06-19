@@ -15,10 +15,11 @@ import {
   governorate,
 } from "../../../utils/Data";
 import { ClinicsContext } from "../../../Contexts/ClinicsProvider";
+import PatientsList from "./PatientsList";
+import AddClinicSection from "./AddClinicSection";
 
 function Home() {
   document.body.classList.add("home-body");
-  const [userName, setUserName] = useState("");
   document.body.classList.add("doctors-q-body");
   const [ispopup, setIspopup] = useState(false);
   const [username, setUsername] = useState(false);
@@ -110,7 +111,7 @@ function Home() {
     };
 
     fetchData();
-  }, [token]);
+  }, [token ,regions]);
 
   const handleAddClinic = async () => {
     try {
@@ -158,6 +159,7 @@ function Home() {
         initialEnableScroll={false}
         page="doctor"
       />
+    
       <div className="row sec1-con">
         {/* <div className='clincs-name row'>
   <div className='col-3'>nasr city clinic</div>
@@ -193,74 +195,16 @@ function Home() {
 
         <div className="col-md-8 clinic-section order-md-3 order-4">
         <div className="d-flex justify-content-center mt-5 approve-patient-btns">
-          <button className={`${ptients? 'active-button shadow ' : ''}`}  onClick={handlePatientsSectionClick}>Patients</button>
-          <button className={`ms-2 bg-gray ${addclinic ? 'active-button shadow ' : ''}`} onClick={handlClinicsSectionClick}>history</button>
+          <button className={`${ptients? 'homePageBtns shadow ' : ''}`}  onClick={handlePatientsSectionClick}>Patients</button>
+          <button className={`ms-2 bg-gray ${addclinic ? 'homePageBtns shadow ' : ''}`} onClick={handlClinicsSectionClick}> Clinics</button>
         </div>
-          <div className="row mt-5 ms-1">
-            <div className="col-lg-6 patient-list-sec">
-              <h1>Patient list</h1>
+        {ptients&&(
+<PatientsList/>
+        )}
+        {addclinic&&(
+<AddClinicSection/>
+        )}
 
-              <div className="mt-4">
-                {/* but here over flow hidden */}
-                <div className="row ">
-                  <img
-                    src="https://ui-avatars.com/api/?name=T+A&color=7F9CF5&background=EBF4FF"
-                    alt=""
-                    className="col-6"
-                  />
-                  <p className="col-6">No patients to display </p>
-                </div>
-              </div>
-              <div className="row mt-1">
-                <img
-                  src="https://ui-avatars.com/api/?name=T+A&color=7F9CF5&background=EBF4FF"
-                  alt=""
-                  className="col-6"
-                />
-                <p className="col-6">No patients to display</p>
-              </div>
-              <div className="row mt-1">
-                <img
-                  src="https://ui-avatars.com/api/?name=T+A&color=7F9CF5&background=EBF4FF"
-                  alt=""
-                  className="col-6"
-                />
-                <p className="col-6">No patients to display </p>
-              </div>
-              <div className="row mt-1">
-                <img
-                  src="https://ui-avatars.com/api/?name=T+A&color=7F9CF5&background=EBF4FF"
-                  alt=""
-                  className="col-6"
-                />
-                <p className="col-6">No patients to display </p>
-              </div>
-              <div className=" mt-5 add-clinc-button">
-                <button onClick={addClinicButtonClick}>Add Clinc +</button>
-              </div>
-            </div>
-            <div className="col-lg-6 add-clinc-sec ">
-              <h1>consultation</h1>
-              <div className="mt-4 add-clinc-sec-content">
-                <div className="row mt-4 ms-1 ">
-                  <img
-                    src="https://ui-avatars.com/api/?name=T+A&color=7F9CF5&background=EBF4FF"
-                    alt=""
-                    className="col-6"
-                  />
-                  <p className="col-6">No patients to display</p>
-
-                  {/* <hr style={{color:"var(--blue)"}} /> */}
-                </div>
-                <div className="cons-info mt-3"></div>
-                <div className="mt-3 cons-info-p">
-                  <p>Last Checked:No patients to display </p>
-                  <p>observation:No patients to display</p>
-                  <p>Prescription:No patients to display</p>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
 
         <div className="col-md-4 complete-profile order-md-4 order-3">
@@ -394,6 +338,7 @@ function Home() {
             </div>
           </div>
         )}
+      
       </div>
 
       {loading && (
