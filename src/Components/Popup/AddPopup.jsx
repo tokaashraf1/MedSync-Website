@@ -1,12 +1,15 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import "./Popup.css"
 import {capitalizeAndSpace} from "../../utils/capitalizeAndSpace"
 import Loading from '../Loading/Loading';
+import { AdminContext } from "../../Contexts/AdminProvider";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function AddPopup({isAddPopup,tableInfo,setIsAddPopup}) {
   const[loading,setLoading]= useState(false);
   const [newRecord, setNewRecord] = useState({});
+  const {updateFlag, setUpdateFlag } = useContext(AdminContext);
   const handleAddSave = async () => {
-  
     try {
       setLoading(true); 
       // Assuming you have an API endpoint for adding a new record
@@ -26,8 +29,14 @@ function AddPopup({isAddPopup,tableInfo,setIsAddPopup}) {
         console.log('New Record added successfully:', newRecord);
   
         // Update the local state with the new record
-    
-        window.location.href = tableInfo.location;
+        setUpdateFlag(updateFlag+1);
+        setLoading(false); 
+        setIsAddPopup(false)
+        toast.success(' Data added successfully', {
+          position: "bottom-right",
+          autoClose: 4000,
+          });
+        // window.location.href = tableInfo.location;
       } else {
         // Handle error if the add fails
         console.error('Error adding new record:', response.status);
@@ -38,6 +47,10 @@ function AddPopup({isAddPopup,tableInfo,setIsAddPopup}) {
       console.error('Error adding new record:', error.message);
       // Optionally, display an error message to the user
           setLoading(false);
+          toast.error(' Please Try Again!', {
+            position: "bottom-right",
+            autoClose: 4000,  
+            });
     }
   };
 
