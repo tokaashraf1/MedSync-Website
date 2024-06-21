@@ -34,6 +34,7 @@ function RejectPopup({isreject,tableInfo,setisreject,rejectedRow,setrejectedRow}
       }
   
       const response = await fetch(tableInfo.rejectapi + rejectedRow.id, requestOptions);
+      
       if (response.ok) {
         setrejectedRow(null);
         setisreject(false)
@@ -55,6 +56,7 @@ function RejectPopup({isreject,tableInfo,setisreject,rejectedRow,setrejectedRow}
         });
     } finally {
       setLoading(false);
+      
     }
   };
   

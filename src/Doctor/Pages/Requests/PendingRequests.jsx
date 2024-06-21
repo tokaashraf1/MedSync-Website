@@ -2,7 +2,6 @@ import React, { useContext } from 'react'
 import  { useState, useEffect } from 'react';
 import axios from 'axios';
 import Table from "../../../Components/Table/Table"
-import Search from "../../../Components/Search/Search"
 import Sidebar from '../../../Components/SideBar/SideBar';
 import Footer from '../../../Components/Footer/Footer';
 import API_ENDPOINT from '../../../utils/constants';
