@@ -1,14 +1,15 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Table from "../../../Components/Table/Table"
 import Sidebar from '../Sidebar/Sidebar';
 import Footer from "../../../Components/Footer/Footer";
 import  "./Patients.css"
 import API_ENDPOINT from '../../../utils/constants';
 import Header from '../../../Components/Header/header';
-
+import { AdminContext } from "../../../Contexts/AdminProvider";
 const UsersLookup = () => {
   document.body.classList.add("patient-body");
+  const { updateFlag } = useContext(AdminContext);
   const [tableInfo, setTableInfo] = useState({
     columns: [],
     rows: [],
@@ -56,7 +57,7 @@ const UsersLookup = () => {
       .catch((error) => {
         console.error('Error fetching data:', error);
       });
-  }, []);
+  }, [updateFlag]);
 
   const handleSearch = (filteredData) => {
     setTableInfo({
