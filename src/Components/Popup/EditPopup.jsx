@@ -3,7 +3,8 @@ import "./Popup.css"
 import Loading from '../Loading/Loading';
 import {capitalizeAndSpace} from "../../utils/capitalizeAndSpace"
 import { AdminContext } from "../../Contexts/AdminProvider";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function EditPopup({selectedRow ,setSelectedRow , visibleColumns ,tableInfo}) {
   const {count, setCount } = useContext(AdminContext);
   const[loading,setLoading]=useState(false);
@@ -28,12 +29,19 @@ function EditPopup({selectedRow ,setSelectedRow , visibleColumns ,tableInfo}) {
       setCount(count+1);
       setSelectedRow(null);
       setLoading(false); 
-
+      toast.success(' Data updated successfully', {
+        position: "bottom-right",
+        autoClose: 4000,
+        });
       // window.location.href = tableInfo.location;
     } catch (error) {
       console.error('Error updating row:', error.message);
       console.log('Edited Row ID:', editedRow.id);
       setLoading(false); 
+      toast.error(' Please Try Again!', {
+        position: "bottom-right",
+        autoClose: 4000,  
+        });
     }
   };
   
