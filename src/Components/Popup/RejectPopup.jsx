@@ -1,7 +1,11 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import "./Popup.css"
 import Loading from '../Loading/Loading';
+import { AdminContext } from "../../Contexts/AdminProvider";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function RejectPopup({isreject,tableInfo,setisreject,rejectedRow,setrejectedRow}) {
+  const {updateFlag, setUpdateFlag } = useContext(AdminContext);
   const[loading,setLoading]=useState(false);
   const [selectedReason, setSelectedReason] = useState(""); 
   function getSelectedReason(event) {
@@ -32,12 +36,23 @@ function RejectPopup({isreject,tableInfo,setisreject,rejectedRow,setrejectedRow}
       const response = await fetch(tableInfo.rejectapi + rejectedRow.id, requestOptions);
       if (response.ok) {
         setrejectedRow(null);
-        window.location.href = tableInfo.location;
+        setisreject(false)
+        setUpdateFlag(updateFlag+1);
+        setLoading(false); 
+        toast.success(' Row rejected successfully', {
+          position: "bottom-right",
+          autoClose: 4000,
+          });
+        // window.location.href = tableInfo.location;
       } else {
         console.error('Error deleting row:', response.status);
       }
     } catch (error) {
       console.error('Error deleting row:', error.message);
+      toast.error(' Please Try Again!', {
+        position: "bottom-right",
+        autoClose: 4000,  
+        });
     } finally {
       setLoading(false);
     }
