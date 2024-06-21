@@ -39,7 +39,7 @@ function RejectPopup({isreject,tableInfo,setisreject,rejectedRow,setrejectedRow}
         setisreject(false)
         setUpdateFlag(updateFlag+1);
         setLoading(false); 
-        toast.success(' Row rejected successfully', {
+        toast.success(' Request rejected successfully', {
           position: "bottom-right",
           autoClose: 4000,
           });
