@@ -117,7 +117,7 @@ function Table({tableInfo,handleSearch}) {
         setSelectedRow(null);
         setUpdateFlag(updateFlag+1);
         setLoading(false); 
-        toast.success(' Row approved successfully', {
+        toast.success(' Request approved successfully', {
           position: "bottom-right",
           autoClose: 4000,
           });
