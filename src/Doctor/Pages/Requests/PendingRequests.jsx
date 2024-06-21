@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import  { useState, useEffect } from 'react';
 import axios from 'axios';
 import Table from "../../../Components/Table/Table"
@@ -7,10 +7,11 @@ import Sidebar from '../../../Components/SideBar/SideBar';
 import Footer from '../../../Components/Footer/Footer';
 import API_ENDPOINT from '../../../utils/constants';
 import Header from '../../../Components/Header/header';
+import { AdminContext } from "../../../Contexts/AdminProvider";
 
 
 function PendingRequests() {
-
+  const { updateFlag } = useContext(AdminContext);
   document.body.classList.add("profile-body");
   const [tableInfo, setTableInfo] = useState({
     columns: [],rows: [],filteredData: [],
@@ -62,7 +63,7 @@ function PendingRequests() {
         .catch((error) => {
           console.error('Error fetching data:', error);
         });
-    }, []); // Empty dependency array since this effect should run once on mount
+    }, [updateFlag]); // Empty dependency array since this effect should run once on mount
     
 
   const handleSearch = (filteredData) => {
