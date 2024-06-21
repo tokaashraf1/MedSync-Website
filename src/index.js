@@ -34,6 +34,7 @@ import Requests from "./Admin/Pages/Requests/Requests";
 import Vaccines from "./Admin/Pages/vaccines/Vaccines";
 import AdminLogin from "./Admin/Pages/adminLogin/AdminLogin";
 import { ToastContainer, toast } from 'react-toastify';
+import AdminProvider from "./Contexts/AdminProvider"
 
 
 const router = createBrowserRouter([
@@ -186,9 +187,11 @@ root.render(
         <SettingsProvider>
           <AuthProvider>
             <ClinicsProvider>
+              <AdminProvider>
             <RouterProvider router={router}>
               <App />
             </RouterProvider>
+            </AdminProvider>
             </ClinicsProvider>
           </AuthProvider>
         </SettingsProvider>

@@ -1,8 +1,11 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import "./Popup.css"
 import Loading from '../Loading/Loading';
 import {capitalizeAndSpace} from "../../utils/capitalizeAndSpace"
+import { AdminContext } from "../../Contexts/AdminProvider";
+
 function EditPopup({selectedRow ,setSelectedRow , visibleColumns ,tableInfo}) {
+  const {count, setCount } = useContext(AdminContext);
   const[loading,setLoading]=useState(false);
   const handleEditSave = async (editedRow) => {
     try {
@@ -22,7 +25,11 @@ function EditPopup({selectedRow ,setSelectedRow , visibleColumns ,tableInfo}) {
       } else {
         console.error('Error updating row:', response.status);
       }
-      window.location.href = tableInfo.location;
+      setCount(count+1);
+      setSelectedRow(null);
+      setLoading(false); 
+
+      // window.location.href = tableInfo.location;
     } catch (error) {
       console.error('Error updating row:', error.message);
       console.log('Edited Row ID:', editedRow.id);
