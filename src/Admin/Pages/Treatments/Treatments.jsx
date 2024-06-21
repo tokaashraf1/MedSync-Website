@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import  { useState, useEffect } from 'react';
 import Table from "../../../Components/Table/Table"
 import Sidebar from '../Sidebar/Sidebar';
 import Footer from "../../../Components/Footer/Footer";
 import API_ENDPOINT from '../../../utils/constants';
 import Header from '../../../Components/Header/header';
+import { AdminContext } from "../../../Contexts/AdminProvider";
 function Treatments() {
   document.body.classList.add("admin-pages");
+  const { updateFlag } = useContext(AdminContext);
   const [tableInfo, setTableInfo] = useState({
     columns: [],
     rows: [],
@@ -40,7 +42,7 @@ function Treatments() {
       .catch((error) => {
         console.error('Error fetching data:', error);
       });
-  }, []);
+  }, [updateFlag]);
 
   
     const handleSearch = (filteredData) => {
