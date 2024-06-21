@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import  { useState, useEffect } from 'react';
 import Table from "../../../Components/Table/Table"
 import Sidebar from '../Sidebar/Sidebar';
 import Footer from "../../../Components/Footer/Footer";
 import API_ENDPOINT from '../../../utils/constants';
 import Header from '../../../Components/Header/header';
+import { AdminContext } from "../../../Contexts/AdminProvider";
 function Requests() {
+  const {updateFlag, setUpdateFlag } = useContext(AdminContext);
   document.body.classList.add("patient-body");
   const [tableInfo, setTableInfo] = useState({
     columns: [],rows: [],filteredData: [],
@@ -40,7 +42,7 @@ function Requests() {
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
-  }, []);
+  }, [updateFlag]);
 
   const handleSearch = (filteredData) => {
     setTableInfo({
