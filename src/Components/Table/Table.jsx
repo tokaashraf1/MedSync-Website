@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import {renderSortSymbol,sortedRows} from "../../utils/handleSorting"
 import {capitalizeAndSpace} from "../../utils/capitalizeAndSpace"
 import DeletePopup from '../Popup/DeletePopup'
@@ -9,7 +9,11 @@ import Loading from '../Loading/Loading'
 import RejectPopup from '../Popup/RejectPopup'
 import ShowRequest from "../Popup/showRequest"
 import Search from '../Search/Search'
+import { AdminContext } from "../../Contexts/AdminProvider";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function Table({tableInfo,handleSearch}) {
+  const {updateFlag, setUpdateFlag } = useContext(AdminContext);
   const [visibleColumns, setVisibleColumns] = useState([]);
   const [sortConfig, setSortConfig] = useState({ column: null, direction: 'asc' });
   const rowsPerPage = 5;
@@ -111,12 +115,23 @@ function Table({tableInfo,handleSearch}) {
         const updatedRows = tableInfo.filteredData.map((r) => (r.id === editedRow.id ? editedRow : r));
         setTotalRows(updatedRows.length);
         setSelectedRow(null);
-        window.location.href = tableInfo.location;
+        setUpdateFlag(updateFlag+1);
+        setLoading(false); 
+        toast.success(' Row approved successfully', {
+          position: "bottom-right",
+          autoClose: 4000,
+          });
+        // window.location.href = tableInfo.location;
       } else {
         console.error('Error updating row:', response.status);
       }
     } catch (error) {
       console.error('Error updating row:', error.message);
+      console.error('Error deleting row:', error.message);
+      toast.error(' Please Try Again!', {
+        position: "bottom-right",
+        autoClose: 4000,  
+        });
     } finally {
       setLoading(false); 
     }
