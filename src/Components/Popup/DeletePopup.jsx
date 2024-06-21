@@ -1,7 +1,11 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import "./Popup.css"
 import Loading from '../Loading/Loading';
+import { AdminContext } from "../../Contexts/AdminProvider";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function DeletePopup({isDeletePopup,tableInfo,setIsDeletePopup,deleteRow}) {
+  const {updateFlag, setUpdateFlag } = useContext(AdminContext);
   const[loading,setLoading]=useState(false);
   const handleDeleteConfirm = async () => {
     try {
@@ -16,13 +20,24 @@ function DeletePopup({isDeletePopup,tableInfo,setIsDeletePopup,deleteRow}) {
       });
   
       if (response.ok) {
-        window.location.href=tableInfo.location
+        setLoading(false); 
+        setUpdateFlag(updateFlag+1);
+        setIsDeletePopup(false)
+        toast.success(' Data deleted successfully', {
+          position: "bottom-right",
+          autoClose: 4000,
+          });
+        // window.location.href=tableInfo.location
       } else {
         console.error('Error deleting row:', response.status);
       }
     } catch (error) {
       console.error('Error deleting row:', error.message);
-      setLoading(false); 
+      toast.error(' Please Try Again!', {
+        position: "bottom-right",
+        autoClose: 4000,  
+        });
+      
     }
   };
   return (
