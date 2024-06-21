@@ -6,7 +6,7 @@ import { AdminContext } from "../../Contexts/AdminProvider";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 function EditPopup({selectedRow ,setSelectedRow , visibleColumns ,tableInfo}) {
-  const {count, setCount } = useContext(AdminContext);
+  const {updateFlag, setUpdateFlag } = useContext(AdminContext);
   const[loading,setLoading]=useState(false);
   const handleEditSave = async (editedRow) => {
     try {
@@ -26,7 +26,7 @@ function EditPopup({selectedRow ,setSelectedRow , visibleColumns ,tableInfo}) {
       } else {
         console.error('Error updating row:', response.status);
       }
-      setCount(count+1);
+      setUpdateFlag(updateFlag+1);
       setSelectedRow(null);
       setLoading(false); 
       toast.success(' Data updated successfully', {

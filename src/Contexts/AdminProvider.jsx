@@ -2,9 +2,9 @@ import React, { createContext, useState } from 'react'
 
 export const AdminContext =createContext()
 function AdminProvider({ children }) {
-  const [count, setCount] = useState(1);
+  const [updateFlag, setUpdateFlag] = useState(1);
   return (
-    <AdminContext.Provider value={{count,setCount}}>
+    <AdminContext.Provider value={{updateFlag,setUpdateFlag}}>
     {children}
 </AdminContext.Provider>
   )

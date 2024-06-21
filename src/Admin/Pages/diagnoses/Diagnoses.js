@@ -8,7 +8,7 @@ import API_ENDPOINT from '../../../utils/constants';
 import Header from '../../../Components/Header/header';
 import { AdminContext } from "../../../Contexts/AdminProvider";
 function Diagnoses() {
-  const { count } = useContext(AdminContext);
+  const { updateFlag } = useContext(AdminContext);
 
   document.body.classList.add("admin-pages");
   const [tableInfo, setTableInfo] = useState({
@@ -46,7 +46,7 @@ function Diagnoses() {
       .catch((error) => {
         console.error('Error fetching data:', error);
       });
-  }, [count]);
+  }, [updateFlag]);
 
   const handleSearch = (filteredData) => {
     setTableInfo({
