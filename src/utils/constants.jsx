@@ -1,2 +1,2 @@
-const API_ENDPOINT = 'http://medsyncbackend.smartwaveeg.com:8080';
+const API_ENDPOINT = 'https://medsyncbackend.smartwaveeg.com';
 export default API_ENDPOINT;
