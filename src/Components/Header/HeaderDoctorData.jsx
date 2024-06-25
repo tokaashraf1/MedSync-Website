@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import logo from "../../assets/imgs/logo.png";
 import { useNavigate } from "react-router-dom";
 import "./header.css"
 import API_ENDPOINT from "../../utils/constants";
 import axios from "axios";
+import { AuthContext } from '../../Contexts/AuthProvider';
 function HeaderDoctorData() {
   const [profileimg, setprofileimg] = useState();
   const [updatedProfileImg, setUpdatedProfileImg] = useState("");
   const [token, settoken] = useState();
+  const { handleLogoutClick } = useContext(AuthContext);
 
   useEffect(() => {
     var profileimg = localStorage.getItem("profileimg");
@@ -46,9 +48,13 @@ function HeaderDoctorData() {
 
     fetchData();
   }, [token]);
+
   return (
     <div>
-      <button className="profile-img-btn d-none d-lg-block " onClick={()=>window.location.href="/profile"}>
+      <button
+        className="profile-img-btn d-none d-lg-block "
+        onClick={() => (window.location.href = "/profile")}
+      >
         {" "}
         {updatedProfileImg ? (
           <img src={updatedProfileImg} alt="" className="" />
@@ -59,6 +65,40 @@ function HeaderDoctorData() {
       {/* <button className="d-sm-block d-lg-none header-links border-0 me-lg-3 navbar-collapse-button text-blue">
         Home
       </button> */}
+      <button
+        className=" d-lg-none navbar-collapse-button text-blue border-blue "
+        onClick={() => (window.location.href = "/profile")}>
+        Profile
+      </button>
+
+      <button
+        className=" d-lg-none navbar-collapse-button text-blue border-blue "
+        onClick={() => (window.location.href = "/home")}
+      >
+        Dashboard
+      </button>
+      <button
+        className=" d-lg-none navbar-collapse-button text-blue border-blue "
+        onClick={() => (window.location.href = "/pendingreq")}
+      >
+        Requests
+      </button>
+      <button
+        className=" d-lg-none navbar-collapse-button text-blue border-blue "
+        onClick={() => (window.location.href = "/approvedreqs")}>
+        Patients
+      </button>
+      <button
+        className=" d-lg-none navbar-collapse-button text-blue border-blue "
+        onClick={() => (window.location.href = "/settings")}>
+        Settings
+      </button>
+      <button
+        className=" d-lg-none navbar-collapse-button text-blue border-blue "
+        onClick={handleLogoutClick}>
+        <i className="fa fa-sign-out me-2" aria-hidden="true"></i> log out
+      </button>
+      
     </div>
   );
 }

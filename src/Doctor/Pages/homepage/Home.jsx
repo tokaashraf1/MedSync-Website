@@ -99,7 +99,7 @@ function Home() {
         <div className="col-md-8 welcome-section order-md-1 order-1">
           <div className="welcome-section-txt">
             <div className="row">
-              <h1 style={{ color: "white" }} className="with-line col-8 ">
+              <h1 style={{ color: "white" }} className="with-line col-12 col-md-8">
                 Welcome Dr.{username}
               </h1>
               <img
