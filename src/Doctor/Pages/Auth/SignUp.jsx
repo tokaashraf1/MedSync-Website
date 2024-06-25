@@ -63,7 +63,7 @@ function SignUp() {
                 <input
                   type="email"
                   name="email"
-                  onBlur={handleBlurEmail}
+                  onInput={handleBlurEmail}
                   value={formData.email}
                   onChange={handleInputChange}
                   className={`form-control mt-1 ${errors.email && 'input-error'}`}
