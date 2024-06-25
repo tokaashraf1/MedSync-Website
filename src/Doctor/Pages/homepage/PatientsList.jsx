@@ -5,7 +5,7 @@ function PatientsList() {
     <div>
           <div className="row mt-5 ms-1">
             <div className="col-lg-6 patient-list-sec">
-              <h1>Patient list</h1>
+              <h1>Appointments</h1>
 
               <div className="mt-4">
                 {/* but here over flow hidden */}
