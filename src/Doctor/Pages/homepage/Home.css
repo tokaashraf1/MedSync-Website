@@ -96,12 +96,12 @@
   height: auto;
   padding-bottom: 100px;
 }
-.add-clinc-sec h1::after,
+.patient-list-sec h1::after,
 .new-clinic:after {
   content: "";
   display: block;
   width: 55px; /* Adjust as needed */
-  border-bottom: 3px solid black; /* Adjust line color and thickness as needed */
+  border-bottom: 2px solid black; /* Adjust line color and thickness as needed */
   margin-top: 5px; /* Adjust spacing */
 }
 .cons-info {
@@ -478,4 +478,17 @@
     left: 6%;
 
   }
+}
+.status-tabs button{
+  border-radius: 15px;
+  height: 30px;
+font-size: 14px;
+
+border: none;
+
+}
+.active-status-btn{
+  background-color: #487fff52;
+font-weight: 500;
+
 }

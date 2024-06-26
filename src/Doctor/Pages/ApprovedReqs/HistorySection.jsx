@@ -39,9 +39,10 @@ function HistorySection() {
         diagnosis_name:Diagnosis,
         lab_tests: LabTests,
         medication_name: MedicationName,
+        patient_id:patientId,
       };
       // Make the POST request using Axios
-      const response = await axios.post(`${API_ENDPOINT}/api/doctor/add-record/${patientId}`,postData, {
+      const response = await axios.post(`${API_ENDPOINT}/api/doctor/add-record`,postData, {
         headers: {
           Authorization: `Bearer ${token}`, // Include the token in the Authorization header
           'Content-Type': 'application/json',
