@@ -14,6 +14,12 @@ function ClinicsProvider({ children }) {
   const [completedStatus, setcompletedStatus] = useState(false);
   const [pendingStatus, setPendingStatus] = useState(false);
   const [cancelledStatus, setcancelledStatus] = useState(false);
+  const [upcomingResponse, setUpcomingResponse] = useState(null);
+  const [completedResponse, setCompletedResponse] = useState(null);
+  const [pendingResponse, setPendingResponse] = useState(null);
+  const [cancelledResponse, setCancelledResponse] = useState(null);
+  const [ClinicsIds, setClinicsIds] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePatientsSectionClick = () => {
     setPatients(true)
@@ -72,7 +78,9 @@ function ClinicsProvider({ children }) {
             Accept: "application/json",
           },
         });
-
+        const ids = response.data.workplaces.map((request) => request.id);
+        console.log("Clincs ids",ids);
+        setClinicsIds(ids);
         setClinics(response.data.workplaces);
         setClinicsCount(response.data.workplaces.length)
 
@@ -104,7 +112,76 @@ function ClinicsProvider({ children }) {
     getPercentage();
    },[token]);
 
+   const sendStatusUpdate = async (status, setResponse,id) => {
+    try {
+      const postData = {
+        status: status, // Set the status parameter
+        clinic_id:id,
+      };
 
+      // Make the POST request using Axios
+      const response = await axios.post(`${API_ENDPOINT}/api/doctor/get/appointments`, postData, {
+        headers: {
+          Authorization: `Bearer ${token}`, // Include the token in the Authorization header
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+      });
+
+      // Store the response if there is one
+      if (response.data) {
+        console.log('Response:', response.data);
+        setResponse(response.data); // Set the response to the corresponding state
+      }
+
+    } catch (error) {
+      // Handle errors if the request fails
+      console.error('Error updating status:', error);
+      console.log("llllllllllllllllllllllllllllllllllllllll")
+    }
+  };
+  // useEffect(() => {
+  //   const updateStatuses = async () => {
+  //     await sendStatusUpdate('upcoming', setUpcomingResponse);
+  //     await sendStatusUpdate('completed', setCompletedResponse);
+  //     await sendStatusUpdate('pending', setPendingResponse);
+  //     await sendStatusUpdate('cancelled', setCancelledResponse);
+  //   };
+
+  //   updateStatuses();
+  // }, []);
+  const handleClick = async () =>{
+    const nextIndex = (currentIndex + 1) % ClinicsIds.length;
+    setCurrentIndex(nextIndex);
+    const currentIndexForFetch = nextIndex;
+    await sendStatusUpdate('upcoming', setUpcomingResponse ,ClinicsIds[currentIndexForFetch]);
+    await sendStatusUpdate('completed', setCompletedResponse ,ClinicsIds[currentIndexForFetch]);
+    await sendStatusUpdate('pending', setPendingResponse ,ClinicsIds[currentIndexForFetch]);
+    await sendStatusUpdate('cancelled', setCancelledResponse ,ClinicsIds[currentIndexForFetch]);
+  };
+  const handlePreviousClick = async () =>{
+    const prevIndex = (currentIndex - 1 + ClinicsIds.length) % ClinicsIds.length;
+    setCurrentIndex(prevIndex); // Update currentIndex immediately
+    const currentIndexForFetch = prevIndex;
+    await sendStatusUpdate('upcoming', setUpcomingResponse ,ClinicsIds[currentIndexForFetch]);
+    await sendStatusUpdate('completed', setCompletedResponse ,ClinicsIds[currentIndexForFetch]);
+    await sendStatusUpdate('pending', setPendingResponse ,ClinicsIds[currentIndexForFetch]);
+    await sendStatusUpdate('cancelled', setCancelledResponse ,ClinicsIds[currentIndexForFetch]);
+  };
+  useEffect(() => {
+    if (ClinicsIds.length > 0) {
+    
+      const updateStatuses = async () => {
+        await sendStatusUpdate('upcoming', setUpcomingResponse);
+        await sendStatusUpdate('completed', setCompletedResponse);
+        await sendStatusUpdate('pending', setPendingResponse);
+        await sendStatusUpdate('cancelled', setCancelledResponse);
+      };
+  
+      updateStatuses();    
+    }
+    
+  }, [currentIndex, ClinicsIds]);
   return (
     <ClinicsContext.Provider
       value={{
@@ -122,7 +199,7 @@ function ClinicsProvider({ children }) {
         pendingStatus,
         handlpendingStatus,
         cancelledStatus,
-        handlcancelledStatus
+        handlcancelledStatus,upcomingResponse,completedResponse,pendingResponse,cancelledResponse
       }}>
       {children}
     </ClinicsContext.Provider>

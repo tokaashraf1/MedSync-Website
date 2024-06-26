@@ -75,7 +75,7 @@ function Home() {
     };
 
     fetchData();
-  }, [token, regions]);
+  }, [token]);
 
   return (
     <div>
