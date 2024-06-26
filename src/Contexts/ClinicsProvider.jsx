@@ -10,6 +10,10 @@ function ClinicsProvider({ children }) {
   const [percent, setPercent] = useState(); 
   const [ptients, setPatients] = useState(true);
   const [addclinic, setAddclinics] = useState(false);
+  const [upcomingStatus, setUpcomingStatus] = useState(true);
+  const [completedStatus, setcompletedStatus] = useState(false);
+  const [pendingStatus, setPendingStatus] = useState(false);
+  const [cancelledStatus, setcancelledStatus] = useState(false);
 
   const handlePatientsSectionClick = () => {
     setPatients(true)
@@ -18,6 +22,34 @@ function ClinicsProvider({ children }) {
   const handlClinicsSectionClick = () => {
     setPatients(false)
     setAddclinics(true)
+  };
+  const handlupcomingStatus = () => {
+    setUpcomingStatus(true)
+    setcompletedStatus(false)
+    setPendingStatus(false)
+    setcancelledStatus(false)
+
+  };
+  const handlpendingStatus = () => {
+    setUpcomingStatus(false)
+    setcompletedStatus(false)
+    setPendingStatus(true)
+    setcancelledStatus(false)
+
+  };
+  const handlcancelledStatus = () => {
+    setUpcomingStatus(false)
+    setcompletedStatus(false)
+    setPendingStatus(false)
+    setcancelledStatus(true)
+
+  };
+  const handlcompletedStatus = () => {
+    setUpcomingStatus(false)
+    setcompletedStatus(true)
+    setPendingStatus(false)
+    setcancelledStatus(false)
+
   };
 
 
@@ -74,10 +106,27 @@ function ClinicsProvider({ children }) {
 
 
   return (
-<ClinicsContext.Provider value={{clinics,clinicsCount,percent,ptients,addclinic,handlePatientsSectionClick,handlClinicsSectionClick}}>
-        {children}
+    <ClinicsContext.Provider
+      value={{
+        clinics,
+        clinicsCount,
+        percent,
+        ptients,
+        addclinic,
+        handlePatientsSectionClick,
+        handlClinicsSectionClick,
+        upcomingStatus,
+        handlupcomingStatus,
+        completedStatus,
+        handlcompletedStatus,
+        pendingStatus,
+        handlpendingStatus,
+        cancelledStatus,
+        handlcancelledStatus
+      }}>
+      {children}
     </ClinicsContext.Provider>
-  )
+  );
 }
 
 export default ClinicsProvider

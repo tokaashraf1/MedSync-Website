@@ -1,16 +1,26 @@
-import React from 'react'
-
+import React, { useContext } from 'react'
+import { ClinicsContext } from "../../../Contexts/ClinicsProvider";
 function PatientsList() {
+  const {
+    upcomingStatus,
+    handlupcomingStatus,
+    completedStatus,
+    handlcompletedStatus,
+    pendingStatus,
+    handlpendingStatus,
+    cancelledStatus,
+    handlcancelledStatus
+  } = useContext(ClinicsContext);
   return (
     <div>
       <div className="row mt-5 ms-1">
         <div className="col-lg-6 patient-list-sec">
           <h1>Appointments</h1>
           <div className="mt-3 status-tabs">
-            <button className=' me-1  px-2 active-status-btn shadow '> Completed</button>
-            <button className=' me-1  px-2 '>Upcoming</button>
-            <button className=' me-1 px-2 '> Pending</button>
-            <button className='  px-2 mt-2 mt-md-none '>Cancelled</button>
+            <button className= {`me-1 px-2  ${upcomingStatus ? "active-status-btn shadow " : ""}`} onClick={handlupcomingStatus}>  Upcoming</button>
+            <button className={`me-1  px-2  ${completedStatus ? "active-status-btn shadow " : ""}`} onClick={handlcompletedStatus}>Completed</button>
+            <button className={`me-1  px-2  ${pendingStatus ? "active-status-btn shadow " : ""}`} onClick={handlpendingStatus}> Pending</button>
+            <button className= {`px-2 mt-2 mt-md-none  ${cancelledStatus ? "active-status-btn shadow " : ""}`} onClick={handlcancelledStatus}>Cancelled</button>
 
           </div>
         
