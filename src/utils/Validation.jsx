@@ -99,7 +99,11 @@ const getDoctorStatus = async (authToken) => {
       window.location.href = "/home";
       // console.log(response.data.approval_request.request_status)
     } else {
-      window.location.href = "/";
+      // window.location.href = "/";
+      toast.error(' Please wait for administrator approval', {
+        position: "bottom-right",
+        autoClose: 6000,  
+        });
     }
   } catch (error) {
     console.error("Error checking user status:", error);
