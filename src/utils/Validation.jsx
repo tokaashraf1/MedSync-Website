@@ -96,6 +96,7 @@ const getDoctorStatus = async (authToken) => {
     });
 
     if (response.data.approval_request.request_status === "approved") {
+    
       window.location.href = "/home";
       // console.log(response.data.approval_request.request_status)
     } else {
@@ -144,7 +145,9 @@ export const handleLoginForm = async (formData, setErrors) => {
       localStorage.setItem("profileimg", profileimg);
 
       console.log(authToken);
+    
       getDoctorStatus(authToken);
+      
     }
   } catch (error) {
     console.error("Registration failed:", error);
