@@ -146,7 +146,8 @@ export const handleLoginForm = async (formData, setErrors) => {
 
       console.log(authToken);
     
-      getDoctorStatus(authToken);
+      // getDoctorStatus(authToken);
+      await getDoctorStatus(authToken);
       
     }
   } catch (error) {
