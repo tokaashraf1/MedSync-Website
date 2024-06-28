@@ -148,6 +148,10 @@ export const handleLoginForm = async (formData, setErrors) => {
     }
   } catch (error) {
     console.error("Registration failed:", error);
+    toast.error('Please enter the correct email and password', {
+      position: "bottom-right",
+      autoClose: 6000,  
+      });
   }
 };
 export const handleAdminLoginForm = async (formData, setErrors) => {
