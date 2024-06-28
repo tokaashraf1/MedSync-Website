@@ -6,6 +6,8 @@ import { useRef } from "react";
 import axios from "axios";
 import Header from "../../../Components/Header/header";
 import Footer from "../Footer/Footer";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function DoctorQuestionsForm() {
   const [userName, setUserName] = useState("");
   document.body.classList.add("doctors-q-body");
@@ -79,7 +81,14 @@ function DoctorQuestionsForm() {
       })
       .then((response) => {
         console.log("Response:", response);
-        window.location.href = "/Waiting";
+        toast.success('Form submitted successfully', {
+          position: "bottom-right",
+          autoClose: 4000,
+          });
+        setTimeout(() => {
+          window.location.href = "/Waiting";
+        }, 3000);
+      
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -100,7 +109,6 @@ function DoctorQuestionsForm() {
               <p className="few-steps-paragh">
                 just a few steps to enjoy your services{" "}
               </p>
-
               <div className="q-form-inputs">
                 <h1 className="med-dg-heading">
                   Medical Degree and Specialization
