@@ -80,10 +80,15 @@
   color: black;
   font-size: 25px;
 }
+
 .patient-list-sec img,
-.add-clinc-sec-content img {
+.add-clinc-sec-content img ,.patient-detaiels-img {
   border-radius: 50%;
   width: 80px;
+
+  
+  
+  
 }
 .patient-list-sec p,
 .add-clinc-sec-content p {
@@ -387,6 +392,29 @@
   color: white;
   font-weight: 500;
 }
+.status-tabs button{
+  border-radius: 15px;
+  height: 30px;
+font-size: 14px;
+
+border: none;
+
+}
+.active-status-btn{
+  background-color: #487fff52;
+font-weight: 500;
+
+}
+
+.l{
+  height: 50px;
+  width: 85%;
+  background: linear-gradient(66.15deg,#4880ff -5.25%,#cedbf8 35.43%,#0561fc 98.77%);
+  border-radius: 12px;
+}
+.cursor{
+  cursor: pointer;
+}
 @media (max-width: 1300px) {
   .home-body {
     padding-bottom: 350px;
@@ -415,6 +443,7 @@
 .days-check input {
   width: 1em;
 }
+
 @media (max-width: 992px) {
   .home-body {
     padding-bottom: 300px;
@@ -478,17 +507,10 @@
     left: 6%;
 
   }
-}
-.status-tabs button{
-  border-radius: 15px;
-  height: 30px;
-font-size: 14px;
+  .l{
+    background-color: black;
+    width: 95%;
 
-border: none;
-
+  }
 }
-.active-status-btn{
-  background-color: #487fff52;
-font-weight: 500;
 
-}

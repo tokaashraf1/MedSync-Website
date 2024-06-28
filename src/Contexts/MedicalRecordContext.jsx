@@ -25,7 +25,6 @@ function MedicalRecordContext({ children }) {
         "Content-Type": "application/json",
       },
     };
-
     fetch(`${API_ENDPOINT}/api/doctor/approved-requests`, requestOptions)
       .then((res) => {
         if (!res.ok) {
@@ -36,7 +35,7 @@ function MedicalRecordContext({ children }) {
       .then((data) => {
         const ids = data.approved_sharing_requests.map((request) => request.id);
         console.log(ids);
-        setUserIds(ids); // Assuming setUserIds is defined somewhere
+        setUserIds(ids); 
         setRecordCount(ids.length);
       })
       .catch((error) => {
@@ -62,7 +61,6 @@ function MedicalRecordContext({ children }) {
     } catch (error) {
       console.error("Error fetching user info:", error);
     }
-
     setLoading(false);
   };
 
@@ -79,8 +77,6 @@ function MedicalRecordContext({ children }) {
       );
       const data = await response.json();
       setUserhistory(data);
-
-      // Move the logic that depends on Userhistory here, after the state update
       console.log(data["Speciality Filters"]);
     } catch (error) {
       console.error("Error fetching user info:", error);
@@ -91,7 +87,6 @@ function MedicalRecordContext({ children }) {
     const nextIndex = (currentIndex + 1) % userIds.length;
     setCurrentIndex(nextIndex);
     const currentIndexForFetch = nextIndex;
-
     fetchUserInfo(userIds[currentIndexForFetch]);
     fetchHistory(userIds[currentIndexForFetch]);
   };
@@ -103,10 +98,10 @@ function MedicalRecordContext({ children }) {
       );
 
       Userhistory.data.forEach((record) => {
-        const englishName = record["Medical Speciality"][0]?.english_name; // Assuming it's an array with one item
+        const englishName = record["Medical Speciality"][0]?.english_name; 
         const medications = record.medications
           .map((med) => med.name)
-          .join(", "); // Join medication names
+          .join(", "); 
         const diagnoses = record.diagnoses
           .map((diagnosis) => diagnosis.name)
           .join(", ");
@@ -118,15 +113,11 @@ function MedicalRecordContext({ children }) {
       console.error("Userhistory or Speciality Filters not available.");
     }
   }, [Userhistory]);
-
   const handlePreviousClick = () => {
     const prevIndex = (currentIndex - 1 + userIds.length) % userIds.length;
-    setCurrentIndex(prevIndex); // Update currentIndex immediately
-
-    // Use the updated index for fetching user info
+    setCurrentIndex(prevIndex); 
     const currentIndexForFetch = prevIndex;
-
-    fetchUserInfo(userIds[currentIndexForFetch]); // Assuming fetchUserInfo is defined
+    fetchUserInfo(userIds[currentIndexForFetch]); 
     fetchHistory(userIds[currentIndexForFetch]);
   };
   useEffect(() => {
@@ -182,7 +173,6 @@ function MedicalRecordContext({ children }) {
       }}
     >
       {" "}
-      {/* Assuming you want to provide token */}
       {children}
     </PatientContext.Provider>
   );
