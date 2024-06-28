@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import "./Forms.css";
 import BackgroundImg from "../../../assets/imgs/Doctorlandingpage.jpg";
-import { handleCheckEmail, handleSignupForm } from '../../../utils/Validation';
+import { handleSignupForm } from '../../../utils/Validation';
 import Loading from '../../../Components/Loading/Loading';
 function SignUp() {
-  
   document.body.classList.add("no-scroll");
   const [formData, setFormData] = useState({
     name: '',
@@ -15,16 +14,12 @@ function SignUp() {
   const [errors, setErrors] = useState({});
   const [emailExists, setEmailExists] = useState(false);
   const [loading, setLoading] = useState(false);
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
       [name]: value
     });
-  };
-  const handleBlurEmail = async () => {
-    await handleCheckEmail(formData, setEmailExists);
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -63,7 +58,6 @@ function SignUp() {
                 <input
                   type="email"
                   name="email"
-                  onInput={handleBlurEmail}
                   value={formData.email}
                   onChange={handleInputChange}
                   className={`form-control mt-1 ${errors.email && 'input-error'}`}

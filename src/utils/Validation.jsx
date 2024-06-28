@@ -1,13 +1,23 @@
 import axios from "axios";
 import API_ENDPOINT from "./constants";
-export const handleCheckEmail = async (formData, setEmailExists) => {
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+const handleCheckEmail = async (email, setEmailExists) => {
   const apiUrl = `${API_ENDPOINT}/api/check-email`;
-  const { email } = formData;
   try {
     const response = await axios.post(apiUrl, { email });
-    setEmailExists(response.data.exists);
+    const emailExists = response.data.exists;
+    setEmailExists(emailExists);
+    if (emailExists) {
+      toast.error('Email already exists!', {
+        position: "bottom-right",
+        autoClose: 4000,
+      });
+    }
+    return emailExists;
   } catch (error) {
     console.error("Email check failed:", error);
+    return false;
   }
 };
 
@@ -19,6 +29,8 @@ export const handleSignupForm = async (
 ) => {
   try {
     const validationErrors = {};
+
+    // Validation checks
     if (!formData.name.trim()) {
       validationErrors.name = "Name is required";
     }
@@ -35,10 +47,16 @@ export const handleSignupForm = async (
     if (formData.password !== formData.confirmPassword) {
       validationErrors.confirmPassword = "Passwords do not match";
     }
-    if (emailExists) {
-      validationErrors.email = "Email already exists";
+
+    // Check email existence only if it's not already flagged as existing
+    if (!emailExists) {
+      const emailCheck = await handleCheckEmail(formData.email, setEmailExists);
+      if (emailCheck) {
+        validationErrors.email = "Email already exists";
+      }
     }
 
+    // Set errors if any validation errors exist
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
     } else {
