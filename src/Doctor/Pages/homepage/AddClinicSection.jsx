@@ -16,9 +16,12 @@ function AddClinicSection() {
   const [description, setDescription] = useState("");
   const [workDays, setWorkDays] = useState([]);
   const [Duration, setDuration] = useState("");
+  const [CheckupPrice, setCheckupPrice] = useState("");
+  const [FollowupPrice, setFollowupPrice] = useState("");
   const [loading, setLoading] = useState(false);
   const [selectedGovernorate, setSelectedGovernorate] = useState("");
   const [selectedRegion, setSelectedRegion] = useState("");
+  
   // const region =
   //   selectedGovernorate === "Cairo"
   //     ? cairoenglishRegions
@@ -46,6 +49,8 @@ function AddClinicSection() {
         country: selectedGovernorate,
         description: description,
         appointment_duration: Duration,
+        check_up_price:CheckupPrice,
+        follow_up_price:FollowupPrice,
         work_days: workDays,
       };
       const response = await axios.post(
@@ -88,7 +93,7 @@ function AddClinicSection() {
       <h4 className="ms-5 mt-5 new-clinic ">Add New Clinic Here</h4>
       <div className="ms-5 add-clinic-section">
         <div className="mt-4 ">
-          <label> Governorate</label>
+          <label> Governorate <span className="red-asterisk">*</span></label>
           <select
             value={selectedGovernorate}
             onChange={handleGovernorateChange}
@@ -102,7 +107,7 @@ function AddClinicSection() {
             ))}
           </select>
           <div>
-            <label className="mt-2"> Region</label>
+            <label className="mt-2"> Region<span className="red-asterisk">*</span></label>
             <select
               value={selectedRegion}
               onChange={(e) => setSelectedRegion(e.target.value)}
@@ -125,7 +130,7 @@ function AddClinicSection() {
             </select>
           </div>
           <label className="mt-2" htmlFor="">
-            Street
+            Street<span className="red-asterisk">*</span>
           </label>
           <input
             type="text"
@@ -151,12 +156,30 @@ function AddClinicSection() {
             onChange={(e) => setDuration(e.target.value)}
             className="form-control"
           />
+          <label htmlFor="" className="mt-2">
+          Checkup Price
+          </label>
+          <input
+            type="text"
+            value={CheckupPrice}
+            onChange={(e) => setCheckupPrice(e.target.value)}
+            className="form-control"
+          />
+          <label htmlFor="" className="mt-2">
+          Followup Price
+          </label>
+          <input
+            type="text"
+            value={FollowupPrice}
+            onChange={(e) => setFollowupPrice(e.target.value)}
+            className="form-control"
+          />
 
-          <label className="mt-2 d-block ">choose Work Days </label>
+          <label className="mt-2 d-block ">choose Work Days <span className="red-asterisk">*</span></label>
           {workDays.map((workDay, index) => (
             <div key={index}>
               <hr />
-              <label className="mt-2">Day</label>
+              <label className="mt-2">Day<span className="red-asterisk">*</span></label>
               <select
                 className="form-control"
                 id={`day-${index}`}
@@ -178,7 +201,7 @@ function AddClinicSection() {
                 <option value="Saturday">Saturday</option>
                 <option value="Sunday">Sunday</option>
               </select>
-              <label className="mt-2">Start Hour</label>
+              <label className="mt-2">Start Hour<span className="red-asterisk">*</span></label>
               <input
                 type="text"
                 value={workDay.start_hour}
@@ -186,8 +209,9 @@ function AddClinicSection() {
                   handleWorkDayChange(index, "start_hour", e.target.value)
                 }
                 className="form-control"
+                placeholder="Available hours: 7:00 AM - 10:00 PM"
               />
-              <label>End Hour</label>
+              <label>End Hour<span className="red-asterisk">*</span></label>
               <input
                 type="text"
                 value={workDay.end_hour}
@@ -195,6 +219,7 @@ function AddClinicSection() {
                   handleWorkDayChange(index, "end_hour", e.target.value)
                 }
                 className="form-control"
+                  placeholder="Available hours: 7:00 AM - 10:00 PM"
               />
             </div>
           ))}

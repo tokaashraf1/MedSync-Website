@@ -73,3 +73,6 @@ overflow: hidden;
   overflow-y: scroll;
   background-color: var(--gray);
 }
+.red-asterisk{
+color: red;
+}
