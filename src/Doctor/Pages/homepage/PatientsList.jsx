@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { ClinicsContext } from "../../../Contexts/ClinicsProvider";
+import Patientsvg from "../../../assets/imgs/DoctorPatient.svg";
 function PatientsList() {
   const [appointmentDetaiels, setAppointmentDetaiels] = useState(
     "No patients to display"
@@ -296,7 +297,7 @@ function PatientsList() {
           <div className="mt-4 add-clinc-sec-content">
             <div className="row mt-4 ms-1 ">          
               <img
-                src={appointmentDetaiels.profile_photo}
+                src={appointmentDetaiels.profile_photo?appointmentDetaiels.profile_photo:Patientsvg}
                 alt="patient"
                 className="col-6"
               />
