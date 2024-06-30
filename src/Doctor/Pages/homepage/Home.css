@@ -74,6 +74,9 @@
 }
 .patient-list-sec {
   overflow: auto;
+  /* scrollbar-color:  #0560fc46 transparent ;
+  scrollbar-width:thin;
+  max-height: 800px; */
 }
 .patient-list-sec h1,
 .add-clinc-sec h1 {

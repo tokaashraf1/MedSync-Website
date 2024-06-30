@@ -299,7 +299,7 @@ function PatientsList() {
               <img
                 src={appointmentDetaiels.profile_photo?appointmentDetaiels.profile_photo:Patientsvg}
                 alt="patient"
-                className="col-6"
+                className="col-6 "
               />
               <p className="col-6">  {appointmentDetaiels.user_name ? appointmentDetaiels.user_name : "No patients to display"} </p>
             </div>
