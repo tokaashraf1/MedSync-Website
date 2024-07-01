@@ -405,7 +405,7 @@ font-weight: 500;
 
 }
 
-.l{
+.clinic-swich{
   height: 50px;
   width: 85%;
   background: linear-gradient(66.15deg,#4880ff -5.25%,#cedbf8 35.43%,#0561fc 98.77%);
@@ -414,6 +414,7 @@ font-weight: 500;
 .cursor{
   cursor: pointer;
 }
+
 @media (max-width: 1300px) {
   .home-body {
     padding-bottom: 350px;
@@ -506,8 +507,7 @@ font-weight: 500;
     left: 6%;
 
   }
-  .l{
-    background-color: black;
+  .clinic-swich{
     width: 95%;
 
   }

@@ -30,7 +30,7 @@ function PatientsList() {
       <div className="row mt-5 ms-1">
         <div className="col-lg-6 patient-list-sec">
           <h1>Appointments</h1>
-          <div className="mt-4 l d-flex align-items-center shadow justify-content-center">
+          <div className="mt-4 clinic-swich d-flex align-items-center shadow justify-content-center">
             {clinics && clinics.length > 0 ? (
               <div>
                 {clinics.map((clinic, index) =>
