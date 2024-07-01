@@ -40,6 +40,7 @@ function HistorySection() {
         lab_tests: LabTests,
         medication_name: MedicationName,
         patient_id:patientId,
+        current:1,
       };
       // Make the POST request using Axios
       const response = await axios.post(`${API_ENDPOINT}/api/doctor/add-record`,postData, {
@@ -134,7 +135,9 @@ function HistorySection() {
                 filterMatch && (
                   <div key={record.id} className="">
                     <div className="col-12">
-                      <p className="fs-4 text-black">{englishName}</p>
+                      <p className="fs-4 text-black">{englishName}
+                      {record.current === 1 ? <p className='text-blue fs-6 '>current</p> : ""}
+                      </p>
                       <p className="fs-6 text-gray">
                         Medications: {medications}
                       </p>
