@@ -20,22 +20,23 @@ function SettingsProvider({ children }) {
   const [loading, setLoading] = useState(false);
   const [token, settoken] = useState();
   const [profile, setProfile] = useState(true);
-  const [Password, setPassword] = useState(false);
+  const [wallet, setwallet] = useState(false);
   const [clinics, setclincs] = useState(false);
+
 
   const handleProfileClick=()=>{
 setProfile(true)
-setPassword(false)
+setwallet(false)
 setclincs(false)
   }
-const handlePasswordClick=()=>{
+const handlewalletClick=()=>{
 setProfile(false)
-setPassword(true)
+setwallet(true)
 setclincs(false)
   }
 const handleClincsClick=()=>{
 setProfile(false)
-setPassword(false)
+setwallet(false)
 setclincs(true)
   }
   useEffect(() => {
@@ -83,7 +84,7 @@ setclincs(true)
 
 
   return (
-    <SettingsContext.Provider value={{profileInfo,token,loading,handleProfileClick,handlePasswordClick,handleClincsClick,profile,Password,clinics}}>
+    <SettingsContext.Provider value={{profileInfo,token,loading,handleProfileClick,handlewalletClick,handleClincsClick,profile,wallet,clinics}}>
         {children}
     </SettingsContext.Provider>
   )
