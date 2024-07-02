@@ -287,7 +287,6 @@ function PatientsList() {
           {/* <div className="row  r ">
             <p className="col-7 small"> Salma Mohamed Yasser </p>
             <p className="col-5 small">
-              <i className="fa fa-clock-o me-1" aria-hidden="true"></i> 6:00 Am
             </p>
           </div> */}
           <div className="mt-3"></div>

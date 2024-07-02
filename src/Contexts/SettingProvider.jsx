@@ -22,6 +22,9 @@ function SettingsProvider({ children }) {
   const [profile, setProfile] = useState(true);
   const [wallet, setwallet] = useState(false);
   const [clinics, setclincs] = useState(false);
+  const [balanceResponse, setbalanceResponse] = useState();
+  const [pendingResponse, setPendingResponse] = useState();
+  const [transferedResponse, settransferedResponse] = useState();
 
 
   const handleProfileClick=()=>{
@@ -82,9 +85,32 @@ setclincs(true)
     setLoading(false)
   }, [token]);
 
-
+  useEffect(() => {
+    const apiUrl = `${API_ENDPOINT}/api/doctor/wallet/show-wallet`;
+    const fetchData = async () => {
+      if (!token) {
+        console.error("API token is missing!");
+        return; 
+      }
+      try {
+        const response = await axios.get(apiUrl, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+        });
+        setbalanceResponse(response.data.wallet.balance);
+        setPendingResponse(response.data.wallet.pending_balance);
+        settransferedResponse(response.data.wallet.transferred_balance);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  }, [token]);
   return (
-    <SettingsContext.Provider value={{profileInfo,token,loading,handleProfileClick,handlewalletClick,handleClincsClick,profile,wallet,clinics}}>
+    <SettingsContext.Provider value={{profileInfo,token,loading,handleProfileClick,handlewalletClick,handleClincsClick,profile,wallet,clinics,balanceResponse,pendingResponse,transferedResponse}}>
         {children}
     </SettingsContext.Provider>
   )

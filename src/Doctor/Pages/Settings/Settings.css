@@ -16,7 +16,7 @@
 .profile-detailes hr{
   width: 95%;
 }
-.manage-clincs-title::after{
+.manage-clincs-title::after,.credit-info-p::after{
   content: "";
   display: block;
   width: 65px;
@@ -26,8 +26,13 @@
 .manage-clinics-con{
   width: 80%;
 }
-.update-clincs-con input,.update-clincs-con  select{
+.update-clincs-con input,.update-clincs-con  select,.credit-info input{
 width: 50%;
+}
+.credit-info{
+  width: 73%;
+  border: 1px solid white;
+  padding-bottom: 70px;
 
 }
 @media (max-width:992px){
@@ -51,7 +56,10 @@ margin: 5px;
     width: 99%;
 
   }
-  .update-clincs-con input, .update-clincs-con  select{
+  .update-clincs-con input, .update-clincs-con  select,.credit-info input{
     width: 98%;
+    }
+    .credit-info{
+      width: 99%;    
     }
 }
