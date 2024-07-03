@@ -14,6 +14,9 @@ function ManageClincs() {
   const [workDays, setWorkDays] = useState("");
   const [regions, setRegions] = useState("");
   const [selectedgovernorate, setSelectedgovernorate] = useState("");
+  const [Duration, setDuration] = useState("");
+  const [CheckupPrice, setCheckupPrice] = useState("");
+  const [FollowupPrice, setFollowupPrice] = useState("");
   const handleUpdateClick = async (id) => {
     const updateUrl = `${API_ENDPOINT}/api/doctor/update/workplace/${id}`; 
     try {
@@ -23,8 +26,11 @@ function ManageClincs() {
           street: street,
           region: regions,
           country: selectedgovernorate,
-          work_days: workDays,
           description: description,
+          follow_up_price:FollowupPrice,
+          appointment_duration:Duration,
+
+
         },
         {
           headers: {
@@ -143,14 +149,31 @@ function ManageClincs() {
                     onChange={(e) => setDescription(e.target.value)}
                     className="form-control mt-1"
                   />
-                  <label className="d-block fs-6">Work Days:</label>
+                  <label className="d-block fs-6">Checkup Price</label>
                   <input
                     type="text"
-                    placeholder={region.work_days}
-                    value={workDays}
-                    onChange={(e) => setWorkDays(e.target.value)}
+                    placeholder={region.check_up_price}
+                    value={CheckupPrice}
+                    onChange={(e) => setCheckupPrice(e.target.value)}
                     className="form-control mt-1"
                   />
+                  <label className="d-block fs-6">Followup Price</label>
+                  <input
+                    type="text"
+                    placeholder={region.follow_up_price}
+                    value={FollowupPrice}
+                    onChange={(e) => setFollowupPrice(e.target.value)}
+                    className="form-control mt-1"
+                  />
+                  <label className="d-block fs-6">Appointment Duration</label>
+                  <input
+                    type="text"
+                    placeholder={region.appointment_duration}
+                    value={Duration}
+                    onChange={(e) => setDuration(e.target.value)}
+                    className="form-control mt-1"
+                  />
+                
                 </div>
                 <div className="popup-btns me-5 mt-4 d-flex justify-content-end">
                   <button
