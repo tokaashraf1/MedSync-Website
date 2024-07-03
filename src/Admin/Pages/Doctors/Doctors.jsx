@@ -20,6 +20,8 @@ function Doctors() {
     request:false,
     Adminrequest:false,
     location: "/doctors",
+    ban:false,
+    ban:false,
   });
 
 

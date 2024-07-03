@@ -21,6 +21,7 @@ function Diagnoses() {
     request:false,
     Adminrequest:false,
     location: "/diagnoses",
+    ban:false,
   });
 
   useEffect(() => {
