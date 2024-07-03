@@ -15,7 +15,9 @@ function Requests() {
     rejectapi: `${API_ENDPOINT}/api/admin/reject/request/`,
     request: true,Adminrequest: true,
     showapi: `${API_ENDPOINT}/api/admin/show/approval/request/`,
-    location: "/requests",});
+    location: "/requests",
+    ban:false,
+  });
     
   useEffect(() => {
     fetch(`${API_ENDPOINT}/api/admin/get/all/approval/requests`)

@@ -20,6 +20,7 @@ function Specialties() {
     request:false,
     Adminrequest:false,
     location: "/spec",
+    ban:false,
   });
 
 

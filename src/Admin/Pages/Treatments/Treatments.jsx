@@ -19,6 +19,7 @@ function Treatments() {
     request:false,
     Adminrequest:false,
     location: "/treatments",
+    ban:false,
   });
   useEffect(() => {
     fetch(`${API_ENDPOINT}/api/admin/get/all/treatments`)

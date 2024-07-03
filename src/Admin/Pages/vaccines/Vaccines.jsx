@@ -19,6 +19,7 @@ function Vaccines() {
     request:false,
     Adminrequest:false,
     location: "/vaccines",
+    ban:false,
   });
 
   useEffect(() => {

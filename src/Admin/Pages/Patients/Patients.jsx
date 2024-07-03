@@ -20,6 +20,7 @@ const UsersLookup = () => {
     request:false,
     Adminrequest:false,
     location: "/patients",
+    ban:false,
   });
 
 

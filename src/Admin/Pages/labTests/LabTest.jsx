@@ -19,6 +19,7 @@ function LabTest() {
     request:false,
     Adminrequest:false,
     location: "/lab",
+    ban:false,
   });
   useEffect(() => {
     fetch(`${API_ENDPOINT}/api/admin/get/all/lab-tests`)

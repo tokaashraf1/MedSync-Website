@@ -19,6 +19,7 @@ function Symptoms() {
     request:false,
     Adminrequest:false,
     location: "/symptoms",
+    ban:false,
   });
 
   useEffect(() => {
