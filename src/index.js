@@ -35,6 +35,7 @@ import Vaccines from "./Admin/Pages/vaccines/Vaccines";
 import AdminLogin from "./Admin/Pages/adminLogin/AdminLogin";
 import { ToastContainer, toast } from 'react-toastify';
 import AdminProvider from "./Contexts/AdminProvider"
+import Violations from "./Admin/Pages/Violations/Violations"
 
 
 const router = createBrowserRouter([
@@ -176,6 +177,11 @@ const router = createBrowserRouter([
   {
     path: "/adminlogin",
     element: <AdminLogin />,
+    errorElement: <h1 style={{ color: "red" }}>Error...............</h1>,
+  },
+  {
+    path: "/violations",
+    element: <Violations/>,
     errorElement: <h1 style={{ color: "red" }}>Error...............</h1>,
   },
 ]);

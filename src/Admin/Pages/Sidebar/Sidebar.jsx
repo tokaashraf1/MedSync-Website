@@ -53,6 +53,9 @@ const Sidebar = () => {
       <Link id="sidebar-a"  to="/requests" className={currentPath === '/requests' ? 'active' : ''}>
       <i class="fa fa-folder-open-o me-2" aria-hidden="true"></i> Requests
       </Link>
+      <Link id="sidebar-a"  to="/violations" className={currentPath === '/violations' ? 'active' : ''}>
+      <i class="fa fa-ban me-2" aria-hidden="true"></i> Violations
+      </Link>
     </div>
   );
 };
