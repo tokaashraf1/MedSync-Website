@@ -328,9 +328,14 @@ function PatientsList() {
             <div className="row mt-4 ms-1 ">
               <img
                 src={
-                  appointmentDetaiels.profile_photo
-                    ? appointmentDetaiels.profile_photo
-                    : Patientsvg
+                  // appointmentDetaiels.profile_photo_path
+                  //   ? appointmentDetaiels.profile_photo_path
+                  //   : Patientsvg
+                  appointmentDetaiels.profile_photo_path 
+                  ? appointmentDetaiels.profile_photo_path 
+                  : (appointmentDetaiels.profile_photo_url 
+                      ? appointmentDetaiels.profile_photo_url 
+                      : Patientsvg)
                 }
                 alt="patient"
                 className="col-6 "
