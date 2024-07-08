@@ -12,7 +12,7 @@ import Header from "../../../Components/Header/header";
 import { ClinicsContext } from "../../../Contexts/ClinicsProvider";
 import PatientsList from "./PatientsList";
 import AddClinicSection from "./AddClinicSection";
-import Credit from "../../../assets/imgs/credit-cards (1).png"
+import Credit from "../../../assets/imgs/credit-cards (1).png";
 import { SettingsContext } from "../../../Contexts/SettingProvider";
 function Home() {
   document.body.classList.add("home-body");
@@ -30,21 +30,13 @@ function Home() {
     handlePatientsSectionClick,
     handlClinicsSectionClick,
   } = useContext(ClinicsContext);
-  //this will prevent an athunticated users
-  // useEffect(() => {
-  //   var authToken = localStorage.getItem('authToken');
-  //   if (authToken !== undefined || authToken !== null || authToken !== '') {
-  //     // If authToken exists, do something with it
-  //   window.location.href="/"
-  //   }
-  // }, []);
   useEffect(() => {
     const authToken = localStorage.getItem("authToken");
     settoken(authToken);
-  }, []); // This useEffect runs only once on component mount
+  }, []);
 
   useEffect(() => {
-    console.log(token); // Log the updated value of token
+    console.log(token);
   }, [token]);
 
   useEffect(() => {
@@ -70,7 +62,6 @@ function Home() {
           },
         });
         setRegions(response.data.workplaces);
-        console.log("kkkkkkkkkkkk");
         setShouldRenderRegions(true);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -102,7 +93,10 @@ function Home() {
         <div className="col-md-8 welcome-section order-md-1 order-1">
           <div className="welcome-section-txt">
             <div className="row">
-              <h1 style={{ color: "white" }} className="with-line col-12 col-md-8">
+              <h1
+                style={{ color: "white" }}
+                className="with-line col-12 col-md-8"
+              >
                 Welcome Dr.{username}
               </h1>
               {/* <img
@@ -112,10 +106,11 @@ function Home() {
               /> */}
               <div className="col-3 d-none d-md-block bg-white rounded-5  shadow py-3">
                 <p className="mt-4 d-flex justify-content-center text-black">
-                  <img src={Credit} alt="" className="me-2" /> {balanceResponse ? balanceResponse : "0:00"}
+                  <img src={Credit} alt="" className="me-2" />{" "}
+                  {balanceResponse ? balanceResponse : "0:00"}
                 </p>
                 <p className="fs-6 text-black d-flex justify-content-center ms-1 ">
-                Current Balance
+                  Current Balance
                 </p>
               </div>
             </div>

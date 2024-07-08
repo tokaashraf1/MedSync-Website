@@ -11,13 +11,17 @@ function ProfileEditaSection() {
   const [phone, setPhone] = useState(profileInfo.phone);
   const { loading, error, data, postRequest } = UseApi();
   const handleEditdata = async () => {
-    const postData = {
-      phone: phone,
-      gender: gender,
-    };
-    await postRequest("/api/edit/profile", postData, token);
+    const file = localStorage.getItem("DoctorProfileImage");
+    console.log(file)
+    const formData = new FormData();
+    formData.append("phone", phone);
+    formData.append("gender", gender);
+    formData.append("image", file);
+    await postRequest("/api/edit/profile", formData, token);
     // Log the data returned from the API
     if (!error) {
+      localStorage.setItem("profilePhone", phone);
+      localStorage.setItem("profileGender", gender);
       window.location.href = "/profile";
     } else {
       console.log("error:", error); // Log the data returned from the API

@@ -20,7 +20,7 @@ function Drugs() {
     request: false,
     Adminrequest: false,
     location: "/drugs",
-    ban:false,
+    ban: false,
   });
 
   useEffect(() => {

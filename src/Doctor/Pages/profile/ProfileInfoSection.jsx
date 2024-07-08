@@ -36,8 +36,12 @@ function ProfileInfoSection() {
     document.getElementById("myFile").value = null;
   };
   const handleChangeImage = () => {
+  const phone=  localStorage.getItem("profilePhone");
+  const  gender = localStorage.getItem("profileGender");
     const formData = new FormData();
-    formData.append("image", file); // Assuming your API expects 'file' as the key for the image
+    formData.append("phone", phone);
+    formData.append("gender", gender);
+    formData.append("image", file);// Assuming your API expects 'file' as the key for the image
 
     axios
       .post(`${API_ENDPOINT}/api/edit/profile`, formData, {
@@ -51,6 +55,7 @@ function ProfileInfoSection() {
         const userData = response.data.user;
         console.log(userData.profile_photo_path);
         setprofileimg(previewUrl);
+        localStorage.setItem("DoctorProfileImage", file);
         window.location.href = "/profile";
       })
       .catch((error) => {

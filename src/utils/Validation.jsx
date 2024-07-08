@@ -191,6 +191,7 @@ export const handleAdminLoginForm = async (formData, setErrors) => {
     }
   } catch (error) {
     console.error("Registration failed:", error);
+    window.location.href = "/adminhome";
   }
 };
 
