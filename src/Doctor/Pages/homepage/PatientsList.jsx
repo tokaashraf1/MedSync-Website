@@ -41,10 +41,9 @@ function PatientsList() {
         doctor_id: appointmentDetaiels.doctor_id,
         appointment_id: appointmentDetaiels.id,
       };
-      // Make the GET request using Axios with query parameters
       const response = await axios.get(`${API_ENDPOINT}/api/doctor/patient-recommended-Profile/mobile`, {
         headers: {
-          Authorization: `Bearer ${authToken}`, // Include the token in the Authorization header
+          Authorization: `Bearer ${authToken}`, 
           'Content-Type': 'application/json',
           Accept: 'application/json',
         },
@@ -314,16 +313,9 @@ function PatientsList() {
               )}
             </div>
           )}
-
-          {/* <div className="row  r ">
-            <p className="col-7 small"> Salma Mohamed Yasser </p>
-            <p className="col-5 small">
-            </p>
-          </div> */}
           <div className="mt-3"></div>
         </div>
         <div className="col-lg-6 add-clinc-sec ">
-          {/* <h1>consultation</h1> */}
           <div className="mt-4 add-clinc-sec-content">
             <div className="row mt-4 ms-1 ">
               <img

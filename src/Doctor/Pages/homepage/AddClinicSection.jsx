@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import API_ENDPOINT from "../../../utils/constants";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   cairoenglishRegions,
   gizaenglishRegions,
@@ -21,13 +21,6 @@ function AddClinicSection() {
   const [loading, setLoading] = useState(false);
   const [selectedGovernorate, setSelectedGovernorate] = useState("");
   const [selectedRegion, setSelectedRegion] = useState("");
-  
-  // const region =
-  //   selectedGovernorate === "Cairo"
-  //     ? cairoenglishRegions
-  //     : selectedGovernorate === "Giza"
-  //     ? gizaenglishRegions
-  //     : [];
 
   const handleGovernorateChange = (e) => {
     setSelectedGovernorate(e.target.value);
@@ -49,8 +42,8 @@ function AddClinicSection() {
         country: selectedGovernorate,
         description: description,
         appointment_duration: Duration,
-        check_up_price:CheckupPrice,
-        follow_up_price:FollowupPrice,
+        check_up_price: CheckupPrice,
+        follow_up_price: FollowupPrice,
         work_days: workDays,
       };
       const response = await axios.post(
@@ -66,18 +59,17 @@ function AddClinicSection() {
       );
       console.log("Response:", response.data);
       setLoading(false);
-      toast.success(' Clinic added successfully', {
+      toast.success(" Clinic added successfully", {
         position: "bottom-right",
         autoClose: 4000,
-        });
-      // window.location.href="/home"
+      });
     } catch (error) {
       console.error("Error adding clinic:", error);
       setLoading(false);
-      toast.error(' Please fill in all fields!', {
+      toast.error(" Please fill in all fields!", {
         position: "bottom-right",
-        autoClose: 4000,  
-        });
+        autoClose: 4000,
+      });
     }
   };
   const handleAddWorkDayFields = () => {
@@ -93,7 +85,10 @@ function AddClinicSection() {
       <h4 className="ms-5 mt-5 new-clinic ">Add New Clinic Here</h4>
       <div className="ms-5 add-clinic-section">
         <div className="mt-4 ">
-          <label> Governorate <span className="red-asterisk">*</span></label>
+          <label>
+            {" "}
+            Governorate <span className="red-asterisk">*</span>
+          </label>
           <select
             value={selectedGovernorate}
             onChange={handleGovernorateChange}
@@ -107,7 +102,10 @@ function AddClinicSection() {
             ))}
           </select>
           <div>
-            <label className="mt-2"> Region<span className="red-asterisk">*</span></label>
+            <label className="mt-2">
+              {" "}
+              Region<span className="red-asterisk">*</span>
+            </label>
             <select
               value={selectedRegion}
               onChange={(e) => setSelectedRegion(e.target.value)}
@@ -157,7 +155,7 @@ function AddClinicSection() {
             className="form-control"
           />
           <label htmlFor="" className="mt-2">
-          Checkup Price
+            Checkup Price
           </label>
           <input
             type="text"
@@ -166,7 +164,7 @@ function AddClinicSection() {
             className="form-control"
           />
           <label htmlFor="" className="mt-2">
-          Followup Price
+            Followup Price
           </label>
           <input
             type="text"
@@ -175,11 +173,15 @@ function AddClinicSection() {
             className="form-control"
           />
 
-          <label className="mt-2 d-block ">choose Work Days <span className="red-asterisk">*</span></label>
+          <label className="mt-2 d-block ">
+            choose Work Days <span className="red-asterisk">*</span>
+          </label>
           {workDays.map((workDay, index) => (
             <div key={index}>
               <hr />
-              <label className="mt-2">Day<span className="red-asterisk">*</span></label>
+              <label className="mt-2">
+                Day<span className="red-asterisk">*</span>
+              </label>
               <select
                 className="form-control"
                 id={`day-${index}`}
@@ -201,7 +203,9 @@ function AddClinicSection() {
                 <option value="Saturday">Saturday</option>
                 <option value="Sunday">Sunday</option>
               </select>
-              <label className="mt-2">Start Hour<span className="red-asterisk">*</span></label>
+              <label className="mt-2">
+                Start Hour<span className="red-asterisk">*</span>
+              </label>
               <input
                 type="text"
                 value={workDay.start_hour}
@@ -211,7 +215,9 @@ function AddClinicSection() {
                 className="form-control"
                 placeholder="Available hours: 7:00 AM - 10:00 PM"
               />
-              <label>End Hour<span className="red-asterisk">*</span></label>
+              <label>
+                End Hour<span className="red-asterisk">*</span>
+              </label>
               <input
                 type="text"
                 value={workDay.end_hour}
@@ -219,7 +225,7 @@ function AddClinicSection() {
                   handleWorkDayChange(index, "end_hour", e.target.value)
                 }
                 className="form-control"
-                  placeholder="Available hours: 7:00 AM - 10:00 PM"
+                placeholder="Available hours: 7:00 AM - 10:00 PM"
               />
             </div>
           ))}
@@ -232,7 +238,10 @@ function AddClinicSection() {
           </button>
         </div>
         <div className="popup-btns me-5 mt-4 d-flex justify-content-end">
-          <button onClick={handleAddClinic} className="active-button px-3 py-1 rounded-4">
+          <button
+            onClick={handleAddClinic}
+            className="active-button px-3 py-1 rounded-4"
+          >
             Send
           </button>
         </div>

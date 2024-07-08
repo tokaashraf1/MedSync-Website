@@ -21,7 +21,7 @@ function Doctors() {
     Adminrequest:false,
     location: "/doctors",
     ban:false,
-    ban:false,
+  
   });
 
 
