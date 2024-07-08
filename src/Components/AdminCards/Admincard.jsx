@@ -17,7 +17,6 @@ function Admincard({ patient, doctor, medications }) {
           <img src={Patientsvg} alt="" className="patientsvg" />
         </div>
       </div>
-
       <div class="card admin-card-cont2 mt-4">
         <div class="card-body">
           <p class="card-title  admin-card-title">Total Doctors</p>

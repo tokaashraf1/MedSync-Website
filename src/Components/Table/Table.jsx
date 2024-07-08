@@ -66,32 +66,6 @@ function Table({tableInfo,handleSearch}) {
     setDeleteRow(row);
     setIsDeletePopup(true);
   };
-  // const handleApprove = async (editedRow) => {
-  //   try {
-  //     setLoading(true); 
-  //     const response = await fetch(tableInfo.approveapi + editedRow.id, {
-  //       method: 'PUT',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //         Accept: 'application/json',
-  //       },
-  //       body: JSON.stringify(editedRow),
-  //     });
-  //     if (response.ok) {
-  //       console.log('Row updated successfully:', editedRow);
-  //       const updatedRows = tableInfo.filteredData.map((r) => (r.id === editedRow.id ? editedRow : r));
-  //       setTotalRows(updatedRows.length);
-  //       setSelectedRow(null);
-  //     } else {
-  //       console.error('Error updating row:', response.status);
-  //     }
-  //     window.location.href = tableInfo.location;
-  //   } catch (error) {
-  //     console.error('Error updating row:', error.message);
-  //     console.log('Edited Row ID:', editedRow.id);
-  //     setLoading(false); 
-  //   }
-  // };
   const handleApprove = async (editedRow) => {
     try {
       setLoading(true); 
@@ -108,7 +82,6 @@ function Table({tableInfo,handleSearch}) {
         const authToken = localStorage.getItem('authToken');
         requestOptions.headers.Authorization = `Bearer ${authToken}`;
       }
-  
       const response = await fetch(tableInfo.approveapi + editedRow.id, requestOptions);
       if (response.ok) {
         console.log('Row updated successfully:', editedRow);
@@ -121,7 +94,6 @@ function Table({tableInfo,handleSearch}) {
           position: "bottom-right",
           autoClose: 4000,
           });
-        // window.location.href = tableInfo.location;
       } else {
         console.error('Error updating row:', response.status);
       }
@@ -136,7 +108,6 @@ function Table({tableInfo,handleSearch}) {
       setLoading(false); 
     }
   };
-  
   
   const handleRejectClick = (row) => {
     setrejectedRow(row);

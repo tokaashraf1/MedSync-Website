@@ -95,10 +95,6 @@ function ClinicsProvider({ children }) {
             },
           }
         );
-        console.log(
-          "kjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj",
-          response.data.completion_percentage
-        );
         setPercent(response.data.completion_percentage);
       } catch (error) {
         console.error("Error checking user status:", error);
