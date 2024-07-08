@@ -28,7 +28,7 @@ function Home() {
     ptients,
     addclinic,
     handlePatientsSectionClick,
-    handlClinicsSectionClick,
+    handlClinicsSectionClick,updateFlag
   } = useContext(ClinicsContext);
   useEffect(() => {
     const authToken = localStorage.getItem("authToken");
@@ -69,7 +69,7 @@ function Home() {
     };
 
     fetchData();
-  }, [token]);
+  }, [token,updateFlag]);
 
   return (
     <div>

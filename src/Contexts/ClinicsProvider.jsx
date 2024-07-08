@@ -19,6 +19,7 @@ function ClinicsProvider({ children }) {
   const [cancelledResponse, setCancelledResponse] = useState(null);
   const [ClinicsIds, setClinicsIds] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [updateFlag, setUpdateFlag] = useState(1);
 
 
   const handlePatientsSectionClick = () => {
@@ -213,7 +214,7 @@ function ClinicsProvider({ children }) {
         completedResponse,
         pendingResponse,
         cancelledResponse,
-        handleClick,handlePreviousClick,ClinicsIds,currentIndex
+        handleClick,handlePreviousClick,ClinicsIds,currentIndex,updateFlag,setUpdateFlag
       }}>
       {children}
     </ClinicsContext.Provider>

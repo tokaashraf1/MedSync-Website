@@ -26,11 +26,11 @@ function Requests() {
         if (data.length > 0) {
           // Extracting specific properties from the user object
           const modifiedData = data.map(
-            ({ id, request_status, doctor_id, created_at }) => ({
+            ({ id, request_status, doctor_id }) => ({
               id,
               request_status,
               doctor_id,
-              created_at,
+          
             })
           );
           setTableInfo({

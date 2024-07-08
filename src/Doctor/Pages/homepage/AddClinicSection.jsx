@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import API_ENDPOINT from "../../../utils/constants";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -8,6 +8,7 @@ import {
   governorate,
 } from "../../../utils/Data";
 import axios from "axios";
+import { ClinicsContext } from "../../../Contexts/ClinicsProvider";
 function AddClinicSection() {
   document.body.classList.add("home-body");
   document.body.classList.add("doctors-q-body");
@@ -21,6 +22,7 @@ function AddClinicSection() {
   const [loading, setLoading] = useState(false);
   const [selectedGovernorate, setSelectedGovernorate] = useState("");
   const [selectedRegion, setSelectedRegion] = useState("");
+  const {updateFlag ,setUpdateFlag} = useContext(ClinicsContext);
 
   const handleGovernorateChange = (e) => {
     setSelectedGovernorate(e.target.value);
@@ -59,6 +61,7 @@ function AddClinicSection() {
       );
       console.log("Response:", response.data);
       setLoading(false);
+      setUpdateFlag(updateFlag+1);
       toast.success(" Clinic added successfully", {
         position: "bottom-right",
         autoClose: 4000,

@@ -1,7 +1,7 @@
 import axios from "axios";
 import API_ENDPOINT from "./constants";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const handleCheckEmail = async (email, setEmailExists) => {
   const apiUrl = `${API_ENDPOINT}/api/check-email`;
   try {
@@ -9,7 +9,7 @@ const handleCheckEmail = async (email, setEmailExists) => {
     const emailExists = response.data.exists;
     setEmailExists(emailExists);
     if (emailExists) {
-      toast.error('Email already exists!', {
+      toast.error("Email already exists!", {
         position: "bottom-right",
         autoClose: 4000,
       });
@@ -86,25 +86,33 @@ export const handleSignupForm = async (
   }
 };
 
-const getDoctorStatus = async (authToken) => {
+const getDoctorStatus = async (authToken, banned) => {
   try {
     const response = await axios.get(`${API_ENDPOINT}/api/doctor/get/status`, {
-      headers: { 
+      headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${authToken}`
+        Authorization: `Bearer ${authToken}`,
       },
     });
 
     if (response.data.approval_request.request_status === "approved") {
-    
-      window.location.href = "/home";
+      if (banned === 1) {
+        toast.error("Your account has been deactivated", {
+          position: "bottom-right",
+          autoClose: 6000,
+        });
+      } else {
+        window.location.href = "/home";
+      }
+
+      // window.location.href = "/home";
       // console.log(response.data.approval_request.request_status)
     } else {
       // window.location.href = "/";
-      toast.error(' Please wait for administrator approval', {
+      toast.error(" Please wait for administrator approval", {
         position: "bottom-right",
-        autoClose: 6000,  
-        });
+        autoClose: 6000,
+      });
     }
   } catch (error) {
     console.error("Error checking user status:", error);
@@ -145,17 +153,16 @@ export const handleLoginForm = async (formData, setErrors) => {
       localStorage.setItem("profileimg", profileimg);
 
       console.log(authToken);
-    
+      const banned = response.data.user.banned;
       // getDoctorStatus(authToken);
-      await getDoctorStatus(authToken);
-      
+      await getDoctorStatus(authToken, banned);
     }
   } catch (error) {
     console.error("Registration failed:", error);
-    toast.error('Please enter the correct email and password', {
+    toast.error("Please enter the correct email and password", {
       position: "bottom-right",
-      autoClose: 6000,  
-      });
+      autoClose: 6000,
+    });
   }
 };
 export const handleAdminLoginForm = async (formData, setErrors) => {

@@ -107,7 +107,7 @@ function Header({ initialScrolled = false, initialEnableScroll = true ,page="lan
                   </button>
                 </div>
               )}
-              {page === "admin" && (
+              {/* {page === "admin" && (
                 <button
                   className={` navbar-collapse-button ${
                     scrolled
@@ -117,7 +117,7 @@ function Header({ initialScrolled = false, initialEnableScroll = true ,page="lan
                 >
                   Log out
                 </button>
-              )}
+              )} */}
               {page === "doctor" && (
               <HeaderDoctorData/>
               )}
