@@ -52,7 +52,7 @@ setclincs(true)
     const apiUrl = `${API_ENDPOINT}/api/get/profile`;
     const fetchData = async () => {
       if (!token) {
-        console.error("API token is missing!");
+        // console.error("API token is missing!");
         return; 
       }
       try {
@@ -78,7 +78,7 @@ setclincs(true)
           spciality: response.data.doctor.Medical_Speciality.english_name,
         });
       } catch (error) {
-        console.error("Error fetching data:", error);
+        // console.error("Error fetching data:", error);
       }
     };
     fetchData();
@@ -89,7 +89,7 @@ setclincs(true)
     const apiUrl = `${API_ENDPOINT}/api/doctor/wallet/show-wallet`;
     const fetchData = async () => {
       if (!token) {
-        console.error("API token is missing!");
+        // console.error("API token is missing!");
         return; 
       }
       try {
@@ -104,7 +104,7 @@ setclincs(true)
         setPendingResponse(response.data.wallet.pending_balance);
         settransferedResponse(response.data.wallet.transferred_balance);
       } catch (error) {
-        console.error("Error fetching data:", error);
+        // console.error("Error fetching data:", error);
       }
     };
     fetchData();
