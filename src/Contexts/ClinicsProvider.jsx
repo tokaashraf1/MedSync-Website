@@ -61,7 +61,7 @@ function ClinicsProvider({ children }) {
     const apiUrl = `${API_ENDPOINT}/api/doctor/get/workplaces`;
     const fetchData = async () => {
       if (!token) {
-        console.error("API token is missing!");
+        // console.error("API token is missing!");
         return; 
       }
       try {
@@ -73,12 +73,12 @@ function ClinicsProvider({ children }) {
           },
         });
         const ids = response.data.workplaces.map((request) => request.id);
-        console.log("Clincs ids", ids);
+        // console.log("Clincs ids", ids);
         setClinicsIds(ids);
         setClinics(response.data.workplaces);
         setClinicsCount(response.data.workplaces.length);
       } catch (error) {
-        console.error("Error fetching data:", error);
+        // console.error("Error fetching data:", error);
       }
     };
     fetchData();
@@ -98,7 +98,7 @@ function ClinicsProvider({ children }) {
         );
         setPercent(response.data.completion_percentage);
       } catch (error) {
-        console.error("Error checking user status:", error);
+        // console.error("Error checking user status:", error);
       }
     };
     getPercentage();
@@ -122,12 +122,12 @@ function ClinicsProvider({ children }) {
         }
       );
       if (response.data) {
-        console.log("Response:", response.data);
+        // console.log("Response:", response.data);
         setResponse(response.data); 
       }
     } catch (error) {
-      console.error("Error updating status:", error);
-      console.log("llllllllllllllllllllllllllllllllllllllll");
+      // console.error("Error updating status:", error);
+    
     }
   };
   const handleClick = async () => {
