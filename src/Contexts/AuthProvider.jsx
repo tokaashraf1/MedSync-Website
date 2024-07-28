@@ -17,10 +17,10 @@ function AuthProvider( {children}) {
       if (response.ok) {
 
         localStorage.removeItem('authToken'); 
-        console.log('Logout successful');
+        // console.log('Logout successful');
         window.location.href=location
       } else {
-        console.error('Logout failed:', response.statusText);
+        // console.error('Logout failed:', response.statusText);
       }
     
     } catch (error) {
@@ -31,7 +31,7 @@ function AuthProvider( {children}) {
     try {
       await handleLogout('/'); // Redirect to '/' after logout
     } catch (error) {
-      console.error('Error during logout:', error);
+      // console.error('Error during logout:', error);
     }
   };
 
