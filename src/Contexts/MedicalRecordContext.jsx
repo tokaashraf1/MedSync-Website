@@ -34,12 +34,12 @@ function MedicalRecordContext({ children }) {
       })
       .then((data) => {
         const ids = data.approved_sharing_requests.map((request) => request.id);
-        console.log(ids);
+        // console.log(ids);
         setUserIds(ids); 
         setRecordCount(ids.length);
       })
       .catch((error) => {
-        console.error("Error fetching data:", error);
+        // console.error("Error fetching data:", error);
       });
   }, []);
 
@@ -59,7 +59,7 @@ function MedicalRecordContext({ children }) {
       setUserInfo(data);
       setPatientId(data.patient.id);
     } catch (error) {
-      console.error("Error fetching user info:", error);
+      // console.error("Error fetching user info:", error);
     }
     setLoading(false);
   };
@@ -77,9 +77,9 @@ function MedicalRecordContext({ children }) {
       );
       const data = await response.json();
       setUserhistory(data);
-      console.log(data["Speciality Filters"]);
+      // console.log(data["Speciality Filters"]);
     } catch (error) {
-      console.error("Error fetching user info:", error);
+      // console.error("Error fetching user info:", error);
     }
   };
 
@@ -105,12 +105,12 @@ function MedicalRecordContext({ children }) {
         const diagnoses = record.diagnoses
           .map((diagnosis) => diagnosis.name)
           .join(", ");
-        console.log(`Medical Speciality: ${englishName}`);
-        console.log(`Medications: ${medications}`);
-        console.log(`Diagnoses: ${diagnoses}`);
+        // console.log(`Medical Speciality: ${englishName}`);
+        // console.log(`Medications: ${medications}`);
+        // console.log(`Diagnoses: ${diagnoses}`);
       });
     } else {
-      console.error("Userhistory or Speciality Filters not available.");
+      // console.error("Userhistory or Speciality Filters not available.");
     }
   }, [Userhistory]);
   const handlePreviousClick = () => {
@@ -151,11 +151,11 @@ function MedicalRecordContext({ children }) {
         ) {
           setPendingRequestsCount(data.pending_sharing_requests.length);
         } else {
-          console.log("No pending sharing requests found.");
+          // console.log("No pending sharing requests found.");
         }
       })
       .catch((error) => {
-        console.error("Error fetching data:", error);
+        // console.error("Error fetching data:", error);
       });
   }, []);
 
