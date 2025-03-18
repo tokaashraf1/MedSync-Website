@@ -2,17 +2,12 @@
   overflow-y: scroll;
 background-color: var(--gray);
 }
-
-
 .adminhome-body::-webkit-scrollbar{
 width: 10px;
-
-
 }
 .adminhome-body::-webkit-scrollbar-thumb {
   background-color: rgba(54, 98, 231, 0.334); /* color of the thumb */
   border-radius: 60px; /* roundness of the thumb */
-
 }
 
 .adminhome-body::-webkit-scrollbar-track  {
@@ -31,12 +26,9 @@ width: 10px;
 @keyframes revealLetter {
   0% {
     opacity: 1;
-  
-  
   }
   100% {
     opacity: 0;
-  
   }
 }
 
